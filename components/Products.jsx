@@ -61,7 +61,7 @@ function ProductCard({ product }) {
   );
 
   const classes =
-    'block rounded-2xl border border-zinc-200 bg-white p-8 transition-colors hover:border-emerald-400 dark:border-zinc-800 dark:bg-zinc-900 dark:hover:border-emerald-700';
+    'block rounded-2xl border border-zinc-200 bg-white p-8 transition-all duration-300 hover:-translate-y-1 hover:border-emerald-400 hover:shadow-xl hover:shadow-emerald-600/10 dark:border-zinc-800 dark:bg-zinc-900 dark:hover:border-emerald-700 dark:hover:shadow-emerald-400/10';
 
   return product.link ? (
     <a href={product.link} target="_blank" rel="noopener noreferrer" className={classes}>

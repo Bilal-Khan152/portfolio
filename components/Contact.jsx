@@ -77,7 +77,7 @@ export default function Contact() {
 
         <div className="mt-12 flex flex-col gap-2 border-t border-zinc-200 pt-6 text-sm text-zinc-500 sm:flex-row sm:items-center sm:justify-between dark:border-zinc-800 dark:text-zinc-500">
           <p>© {new Date().getFullYear()} Muhammad Bilal. All rights reserved.</p>
-          <p>Frontend Engineer · Product Thinker</p>
+          <p>Frontend Engineer · Product Engineering</p>
         </div>
       </div>
     </footer>

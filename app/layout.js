@@ -7,9 +7,9 @@ const inter = Inter({ subsets: ['latin'], variable: '--font-sans' });
 const fraunces = Fraunces({ subsets: ['latin'], variable: '--font-display' });
 
 export const metadata = {
-  title: 'Muhammad Bilal — Frontend Engineer & Product Thinker',
+  title: 'Muhammad Bilal — Frontend Engineer',
   description:
-    'Muhammad Bilal is a frontend engineer and product thinker from Lahore, Pakistan, building products end-to-end — from R&D and user flows to business requirements and production.',
+    'Muhammad Bilal is a frontend engineer from Lahore, Pakistan, with a product-engineering mindset — building products end-to-end, from R&D and user flows to business requirements and production.',
 };
 
 export default function RootLayout({ children }) {
