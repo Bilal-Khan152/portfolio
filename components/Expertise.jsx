@@ -1,4 +1,4 @@
-import { Globe2, Layers, Code2 } from 'lucide-react';
+import { Globe2, Layers, Code2, Bot } from 'lucide-react';
 
 const items = [
   {
@@ -16,6 +16,11 @@ const items = [
     title: 'Frontend Development',
     copy: 'Pixel-careful, performance-minded UI engineering with React, Next.js, and modern tooling — shipped with ownership.',
   },
+  {
+    icon: Bot,
+    title: 'AI Assistant Development',
+    copy: 'Conversational AI woven into real products — chat interfaces, streaming responses, and context-aware experiences users rely on.',
+  },
 ];
 
 export default function Expertise() {
@@ -28,7 +33,7 @@ export default function Expertise() {
         <h2 className="mt-2 text-3xl font-bold tracking-tight text-zinc-900 sm:text-4xl dark:text-white">
           Where I do my best work
         </h2>
-        <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {items.map((item) => (
             <div
               key={item.title}
