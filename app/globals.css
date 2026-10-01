@@ -4,7 +4,8 @@
 
 @theme inline {
   --font-sans: var(--font-sans);
-  --font-display: var(--font-display);
+  --font-mono: var(--font-mono);
+  --font-serif: var(--font-serif);
 }
 
 html {
@@ -13,14 +14,51 @@ html {
 
 body {
   font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
-  @apply bg-white text-zinc-900 dark:bg-zinc-950 dark:text-zinc-100;
+  @apply bg-[#F4F4F6] text-zinc-950 antialiased dark:bg-[#09090B] dark:text-zinc-50;
 }
 
-.font-display {
-  font-family: var(--font-display), Georgia, serif;
+/* Hollow / outlined display text (hero keywords) */
+.text-outline {
+  color: transparent;
+  -webkit-text-stroke: 2px #09090b;
+}
+.dark .text-outline {
+  -webkit-text-stroke-color: #fafafa;
+}
+@media (max-width: 768px) {
+  .text-outline {
+    -webkit-text-stroke-width: 1.4px;
+  }
 }
 
-/* Entrance + ambient motion (understated, respects reduced motion) */
+/* Marquee ticker */
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+.animate-marquee {
+  animation: marquee 32s linear infinite;
+}
+
+/* Soft floating decoration */
+@keyframes float-soft {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-18px);
+  }
+}
+.animate-float {
+  animation: float-soft 9s ease-in-out infinite;
+}
+
+/* Entrance motion */
 @keyframes fade-up {
   from {
     opacity: 0;
@@ -31,32 +69,35 @@ body {
     transform: translateY(0);
   }
 }
-
-@keyframes float-soft {
-  0%,
-  100% {
-    transform: translate(-50%, 0);
-  }
-  50% {
-    transform: translate(-50%, -18px);
-  }
-}
-
 .animate-fade-up {
   opacity: 0;
   animation: fade-up 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 
-.animate-float {
-  animation: float-soft 9s ease-in-out infinite;
+/* Pulsing availability dot */
+@keyframes pulse-dot {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.45;
+    transform: scale(0.8);
+  }
+}
+.animate-pulse-dot {
+  animation: pulse-dot 1.8s ease-in-out infinite;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .animate-fade-up {
-    opacity: 1;
+  .animate-marquee,
+  .animate-float,
+  .animate-pulse-dot {
     animation: none;
   }
-  .animate-float {
+  .animate-fade-up {
+    opacity: 1;
     animation: none;
   }
 }

@@ -1,63 +1,103 @@
-import { ArrowDown, Mail } from 'lucide-react';
-import LinkedInIcon from './LinkedInIcon';
+import { ArrowDown, ArrowDownRight, ArrowUpRight } from 'lucide-react';
+
+const tickerItems = Array.from({ length: 6 }, () => 'I turn ideas into clear, fast web products, end to end.');
+
+const facts = [
+  { label: 'Experience', value: '2 years' },
+  { label: 'Focus', value: 'Product engineering' },
+  { label: 'Core stack', value: 'React · Next.js' },
+];
 
 export default function Hero() {
   return (
-    <section id="top" className="relative overflow-hidden pt-32 pb-16 sm:pt-40 sm:pb-20">
-      <div
-        aria-hidden
-        className="animate-float pointer-events-none absolute -top-32 left-1/2 h-96 w-[42rem] -translate-x-1/2 rounded-full bg-emerald-500/10 blur-3xl dark:bg-emerald-400/10"
-      />
-      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-        <div className="max-w-3xl">
-          <p
-            className="animate-fade-up mb-4 inline-flex items-center gap-2 rounded-full border border-emerald-200 bg-emerald-50 px-4 py-1.5 text-sm font-medium text-emerald-700 dark:border-emerald-900 dark:bg-emerald-950/60 dark:text-emerald-300"
-            style={{ animationDelay: '0ms' }}
-          >
-            <span className="h-2 w-2 rounded-full bg-emerald-500" />
+    <section id="top" className="relative overflow-hidden">
+      {/* Decorative concentric arcs, right side */}
+      <div aria-hidden className="pointer-events-none absolute inset-0">
+        <div className="animate-float absolute -top-40 right-[-12rem] h-[42rem] w-[42rem] rounded-full border-[3rem] border-zinc-300/40 dark:border-white/5" />
+        <div className="animate-float absolute top-24 right-[-7rem] h-[26rem] w-[26rem] rounded-full border-2 border-zinc-300/50 dark:border-white/10" style={{ animationDelay: '-3s' }} />
+        <div className="animate-float absolute top-48 right-[-2rem] h-[14rem] w-[14rem] rounded-full border border-zinc-300/60 dark:border-white/10" style={{ animationDelay: '-6s' }} />
+      </div>
+
+      <div className="relative mx-auto max-w-6xl px-6 pt-16 md:pt-24">
+        <div className="animate-fade-up inline-flex items-center gap-2 rounded-full border border-zinc-300 bg-white/70 px-4 py-1.5 dark:border-white/15 dark:bg-white/5">
+          <span className="animate-pulse-dot h-2 w-2 rounded-full bg-lime-400" />
+          <span className="font-mono text-xs text-zinc-600 dark:text-zinc-300">
             Frontend Engineer · Product Engineering
-          </p>
-          <h1
-            className="animate-fade-up font-display text-5xl font-semibold tracking-tight text-zinc-900 sm:text-6xl lg:text-7xl dark:text-white"
-            style={{ animationDelay: '120ms' }}
+          </span>
+        </div>
+
+        <h1
+          className="animate-fade-up mt-8 max-w-5xl font-sans text-[2.9rem] leading-[1.02] font-extrabold tracking-tight text-zinc-950 md:text-7xl lg:text-[5.4rem] dark:text-white"
+          style={{ animationDelay: '120ms' }}
+        >
+          I turn ideas into <span className="text-outline">clear,</span>{' '}
+          <span className="text-outline">fast</span> web products, end to end.
+        </h1>
+
+        <p
+          className="animate-fade-up mt-8 max-w-xl font-sans text-lg leading-relaxed text-zinc-600 dark:text-zinc-400"
+          style={{ animationDelay: '240ms' }}
+        >
+          I&apos;m Muhammad Bilal. I work beyond the task handoff: researching the problem,
+          discussing user flows and business requirements, shaping the solution, and engineering
+          production-ready web products with React and Next.js.
+        </p>
+
+        <div className="animate-fade-up mt-10 flex flex-wrap gap-3" style={{ animationDelay: '360ms' }}>
+          <a
+            href="#work"
+            className="inline-flex items-center gap-2 rounded-[3px] bg-lime-400 px-6 py-3.5 font-mono text-sm font-semibold text-zinc-950 transition-colors hover:bg-lime-300"
           >
-            Muhammad Bilal
-          </h1>
-          <p
-            className="animate-fade-up mt-6 text-lg leading-relaxed text-zinc-600 sm:text-xl dark:text-zinc-300"
-            style={{ animationDelay: '220ms' }}
+            Explore selected work
+            <ArrowDownRight className="h-4 w-4" />
+          </a>
+          <a
+            href="https://www.linkedin.com/in/muhammad-bilal-engineer"
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center gap-2 rounded-[3px] border border-zinc-300 bg-white px-6 py-3.5 font-mono text-sm font-semibold text-zinc-900 transition-colors hover:border-zinc-500 dark:border-white/15 dark:bg-white/5 dark:text-zinc-100 dark:hover:border-white/40"
           >
-            I build products end-to-end — not just interfaces. From early R&amp;D and user-flow
-            discussions to digging into business requirements, I take ownership from problem to
-            production and make the complicated feel simple.
-          </p>
-          <div
-            className="animate-fade-up mt-8 flex flex-wrap items-center gap-4"
-            style={{ animationDelay: '320ms' }}
+            LinkedIn
+            <ArrowUpRight className="h-4 w-4" />
+          </a>
+          <a
+            href="/resume.pdf"
+            className="inline-flex items-center gap-2 rounded-[3px] border border-zinc-300 bg-white px-6 py-3.5 font-mono text-sm font-semibold text-zinc-900 transition-colors hover:border-zinc-500 dark:border-white/15 dark:bg-white/5 dark:text-zinc-100 dark:hover:border-white/40"
           >
-            <a
-              href="#products"
-              className="inline-flex items-center gap-2 rounded-full bg-emerald-600 px-6 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-emerald-700 dark:bg-emerald-500 dark:hover:bg-emerald-400"
-            >
-              View products
-              <ArrowDown size={16} />
-            </a>
-            <a
-              href="#contact"
-              className="inline-flex items-center gap-2 rounded-full border border-zinc-300 px-6 py-3.5 text-sm font-semibold text-zinc-700 transition-colors hover:border-emerald-500 hover:text-emerald-600 dark:border-zinc-700 dark:text-zinc-200 dark:hover:border-emerald-400 dark:hover:text-emerald-400"
-            >
-              <Mail size={16} />
-              Get in touch
-            </a>
-            <a
-              href="https://www.linkedin.com/in/muhammad-bilal-engineer"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Muhammad Bilal on LinkedIn"
-              className="inline-flex h-12 w-12 items-center justify-center rounded-full border border-zinc-300 text-zinc-600 transition-colors hover:border-emerald-500 hover:text-emerald-600 dark:border-zinc-700 dark:text-zinc-300 dark:hover:border-emerald-400 dark:hover:text-emerald-400"
-            >
-              <LinkedInIcon size={20} />
-            </a>
+            Download résumé
+            <ArrowDown className="h-4 w-4" />
+          </a>
+        </div>
+
+        <div
+          className="animate-fade-up mt-16 grid max-w-3xl grid-cols-3 gap-6 border-t border-zinc-300 pt-6 dark:border-white/10"
+          style={{ animationDelay: '480ms' }}
+        >
+          {facts.map((fact) => (
+            <div key={fact.label}>
+              <p className="font-mono text-[11px] tracking-wider text-zinc-500 uppercase dark:text-zinc-400">
+                {fact.label}
+              </p>
+              <p className="mt-1.5 font-sans text-sm font-semibold text-zinc-900 dark:text-zinc-100">
+                {fact.value}
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Marquee ticker */}
+      <div className="relative mt-16 border-y border-zinc-200 bg-white py-4 md:mt-24 dark:border-white/10 dark:bg-zinc-900/40">
+        <div className="flex overflow-hidden" aria-hidden>
+          <div className="animate-marquee flex w-max shrink-0 items-center">
+            {[...tickerItems, ...tickerItems].map((phrase, i) => (
+              <span key={i} className="flex shrink-0 items-center">
+                <span className="px-8 font-serif text-xl text-zinc-800 italic dark:text-zinc-200">
+                  {phrase}
+                </span>
+                <span className="h-2 w-2 rotate-45 bg-lime-400" />
+              </span>
+            ))}
           </div>
         </div>
       </div>

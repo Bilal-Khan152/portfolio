@@ -1,10 +1,12 @@
 import Hero from '../components/Hero';
 import About from '../components/About';
+import WhatIDo from '../components/WhatIDo';
 import Expertise from '../components/Expertise';
-import Products from '../components/Products';
+import Work from '../components/Work';
 import Experience from '../components/Experience';
-import Reviews from '../components/Reviews';
-import Contact from '../components/Contact';
+import Collaboration from '../components/Collaboration';
+import Testimonials from '../components/Testimonials';
+import Footer from '../components/Footer';
 import Reveal from '../components/Reveal';
 
 export default function Home() {
@@ -14,19 +16,25 @@ export default function Home() {
       <Reveal>
         <About />
       </Reveal>
-      <Reveal delay={80}>
+      <Reveal>
+        <WhatIDo />
+      </Reveal>
+      <Reveal>
         <Expertise />
       </Reveal>
-      <Reveal delay={80}>
-        <Products />
+      <Reveal>
+        <Work />
       </Reveal>
-      <Reveal delay={80}>
+      <Reveal>
         <Experience />
       </Reveal>
-      <Reveal delay={80}>
-        <Reviews />
+      <Reveal>
+        <Collaboration />
       </Reveal>
-      <Contact />
+      <Reveal>
+        <Testimonials />
+      </Reveal>
+      <Footer />
     </>
   );
 }

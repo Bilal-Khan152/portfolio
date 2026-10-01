@@ -1,53 +1,82 @@
-import { Globe2, Layers, Code2, Bot } from 'lucide-react';
+import { Bot } from 'lucide-react';
+import Reveal from './Reveal';
 
-const items = [
+const cards = [
   {
-    icon: Globe2,
-    title: 'Web Application Development',
-    copy: 'Full-featured, responsive web applications — from architecture and state management to polished, accessible interfaces.',
+    n: 'E01',
+    tag: 'END TO END',
+    title: 'Web application development',
+    text: 'Responsive, API-connected applications shaped from business requirements and user flows through to a production-ready experience.',
   },
   {
-    icon: Layers,
-    title: 'SaaS Development',
-    copy: 'Multi-tenant product thinking: scalable frontends, complex dashboards, and workflows built for growing platforms.',
+    n: 'E02',
+    tag: 'PRODUCT SYSTEMS',
+    title: 'SaaS development',
+    text: 'Scalable multi-tenant platforms with role-based journeys, onboarding flows, dashboards, and dependable data states.',
   },
   {
-    icon: Code2,
-    title: 'Frontend Development',
-    copy: 'Pixel-careful, performance-minded UI engineering with React, Next.js, and modern tooling — shipped with ownership.',
+    n: 'E03',
+    tag: 'INTERFACE LAYER',
+    title: 'Frontend development',
+    text: 'Maintainable component systems, thoughtful state integration, and accessible interfaces that stay fast across screen sizes.',
   },
   {
-    icon: Bot,
+    n: 'E04',
+    tag: 'CONVERSATIONAL AI',
     title: 'AI Assistant Development',
-    copy: 'Conversational AI woven into real products — chat interfaces, streaming responses, and context-aware experiences users rely on.',
+    text: 'Conversational AI assistants and chat experiences built directly into real products with clear, useful user flows.',
+    icon: true,
   },
 ];
 
 export default function Expertise() {
   return (
-    <section id="expertise" className="scroll-mt-24 bg-zinc-50 py-16 sm:py-24 dark:bg-zinc-900/40">
-      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-        <p className="text-sm font-semibold uppercase tracking-widest text-emerald-600 dark:text-emerald-400">
-          Expertise
-        </p>
-        <h2 className="mt-2 text-3xl font-bold tracking-tight text-zinc-900 sm:text-4xl dark:text-white">
-          Where I do my best work
-        </h2>
-        <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {items.map((item) => (
-            <div
-              key={item.title}
-              className="rounded-2xl border border-zinc-200 bg-white p-8 transition-all duration-300 hover:-translate-y-1 hover:border-emerald-400 hover:shadow-xl hover:shadow-emerald-600/10 dark:border-zinc-800 dark:bg-zinc-900 dark:hover:border-emerald-700 dark:hover:shadow-emerald-400/10"
-            >
-              <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-emerald-100 text-emerald-700 dark:bg-emerald-950 dark:text-emerald-400">
-                <item.icon size={24} />
+    <section id="expertise">
+      <div className="max-w-6xl mx-auto px-6 py-24 md:py-32">
+        <div className="md:grid md:grid-cols-12 md:gap-8">
+          <div className="md:col-span-3">
+            <Reveal>
+              <p className="font-mono text-xs text-zinc-500 dark:text-zinc-400">03 / 06</p>
+              <p className="font-mono text-sm text-zinc-950 dark:text-zinc-50 mt-2">Expertise</p>
+            </Reveal>
+          </div>
+
+          <div className="md:col-span-9 mt-10 md:mt-0">
+            <Reveal>
+              <h2 className="font-sans font-bold tracking-tight text-4xl md:text-6xl text-zinc-950 dark:text-zinc-50">
+                Where I can contribute.
+              </h2>
+              <p className="mt-6 text-lg leading-relaxed text-zinc-600 dark:text-zinc-400 max-w-2xl">
+                Four focused areas where product engineering, technical execution, and frontend
+                craft come together.
+              </p>
+            </Reveal>
+
+            <Reveal delay={120}>
+              <div className="grid md:grid-cols-2 gap-px bg-zinc-200 dark:bg-white/10 border border-zinc-200 dark:border-white/10 mt-12">
+                {cards.map((card) => (
+                  <div
+                    key={card.n}
+                    className="bg-white dark:bg-[#131316] p-8 md:p-10 min-h-[280px] flex flex-col"
+                  >
+                    <div className="flex items-center justify-between gap-4">
+                      <p className="font-mono text-xs text-blue-600 dark:text-blue-400">{card.n}</p>
+                      <p className="font-mono text-[11px] uppercase tracking-wide text-zinc-500 dark:text-zinc-400 flex items-center gap-1.5">
+                        {card.icon && <Bot size={14} className="text-blue-600 dark:text-blue-400" />}
+                        {card.tag}
+                      </p>
+                    </div>
+                    <h3 className="font-sans font-bold tracking-tight text-3xl md:text-[2rem] leading-tight text-zinc-950 dark:text-zinc-50 mt-10">
+                      {card.title}
+                    </h3>
+                    <p className="text-[15px] leading-relaxed text-zinc-600 dark:text-zinc-400 mt-4">
+                      {card.text}
+                    </p>
+                  </div>
+                ))}
               </div>
-              <h3 className="mt-5 text-xl font-semibold text-zinc-900 dark:text-white">
-                {item.title}
-              </h3>
-              <p className="mt-3 leading-relaxed text-zinc-600 dark:text-zinc-400">{item.copy}</p>
-            </div>
-          ))}
+            </Reveal>
+          </div>
         </div>
       </div>
     </section>

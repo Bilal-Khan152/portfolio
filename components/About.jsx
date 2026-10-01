@@ -1,52 +1,100 @@
-import Image from 'next/image';
+import Reveal from './Reveal';
 
-const skills = ['React.js', 'Next.js', 'Tailwind CSS', 'JavaScript', 'Redux Toolkit', 'RTK Query'];
+const principles = [
+  {
+    n: '01',
+    title: 'Think before building',
+    text: 'Question assumptions, map the flow, and make the right problem clear before writing code.',
+  },
+  {
+    n: '02',
+    title: 'Built to scale',
+    text: 'Reusable components and patterns that stay coherent as products grow.',
+  },
+  {
+    n: '03',
+    title: 'Outcome aware',
+    text: 'Connect implementation choices to user needs and business value.',
+  },
+];
 
 export default function About() {
   return (
-    <section id="about" className="scroll-mt-24 py-16 sm:py-24">
-      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-        <p className="text-sm font-semibold uppercase tracking-widest text-emerald-600 dark:text-emerald-400">
-          About
-        </p>
-        <h2 className="mt-2 text-3xl font-bold tracking-tight text-zinc-900 sm:text-4xl dark:text-white">
-          Engineer who thinks in products
-        </h2>
-        <div className="mt-10 grid items-start gap-10 md:grid-cols-[minmax(0,5fr)_minmax(0,7fr)]">
-          <div className="overflow-hidden rounded-2xl border border-zinc-200 dark:border-zinc-800">
-            <Image
-              src="/bilal.jpg"
-              alt="Portrait of Muhammad Bilal"
-              width={640}
-              height={800}
-              className="h-auto w-full object-cover"
-              priority={false}
-            />
+    <section id="about">
+      <div className="max-w-6xl mx-auto px-6 py-24 md:py-32">
+        <div className="md:grid md:grid-cols-12 md:gap-8">
+          <div className="md:col-span-3">
+            <Reveal>
+              <p className="font-mono text-xs text-zinc-500 dark:text-zinc-400">01 / 06</p>
+              <p className="font-mono text-sm text-zinc-950 dark:text-zinc-50 mt-2">About</p>
+            </Reveal>
           </div>
-          <div>
-            <p className="text-lg leading-relaxed text-zinc-600 dark:text-zinc-300">
-              I&apos;m a Frontend Software Engineer from Lahore, Pakistan, with around two years of
-              experience building real, production web applications. I&apos;ve shipped work with{' '}
-              <span className="font-semibold text-zinc-900 dark:text-white">Xeven Solutions</span>{' '}
-              and <span className="font-semibold text-zinc-900 dark:text-white">HazelSoft</span>,
-              and what sets me apart is how I work: I do the R&amp;D, sit in the flow discussions,
-              and dig into business requirements before writing a line of code.
-            </p>
-            <p className="mt-4 text-lg leading-relaxed text-zinc-600 dark:text-zinc-300">
-              My stack centers on React.js, Next.js, Tailwind CSS, JavaScript, Redux Toolkit, and
-              RTK Query — chosen to build interfaces that are fast, maintainable, and genuinely
-              easy for people to use.
-            </p>
-            <div className="mt-6 flex flex-wrap gap-2">
-              {skills.map((s) => (
-                <span
-                  key={s}
-                  className="rounded-full border border-zinc-200 bg-zinc-50 px-4 py-2 text-sm font-medium text-zinc-700 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-300"
-                >
-                  {s}
-                </span>
-              ))}
-            </div>
+
+          <div className="md:col-span-9 mt-10 md:mt-0">
+            <Reveal>
+              <div className="grid md:grid-cols-5 gap-8">
+                <div className="md:col-span-2">
+                  <div className="relative overflow-hidden border border-zinc-200 dark:border-white/10 bg-white dark:bg-[#131316] aspect-[3/4]">
+                    <img
+                      src="/bilal.jpg"
+                      alt="Muhammad Bilal"
+                      className="absolute inset-0 h-full w-full object-cover"
+                    />
+                    <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/75 via-black/30 to-transparent p-4 flex items-end justify-between gap-2">
+                      <p className="font-sans font-bold text-white text-xl leading-tight">
+                        Muhammad
+                        <br />
+                        Bilal
+                      </p>
+                      <p className="font-mono text-[10px] tracking-wide text-white/85 text-right leading-relaxed">
+                        LAHORE,
+                        <br />
+                        PAKISTAN
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="md:col-span-3">
+                  <p className="font-sans font-medium text-2xl md:text-[1.75rem] leading-snug tracking-tight text-zinc-950 dark:text-zinc-50">
+                    Great software isn&apos;t only about clean code. It&apos;s about understanding{' '}
+                    <span className="font-serif italic text-blue-600 dark:text-blue-400">
+                      why a feature matters
+                    </span>
+                    , who it helps, and how it moves the product forward.
+                  </p>
+                  <div className="grid sm:grid-cols-2 gap-6 mt-8">
+                    <p className="text-[15px] leading-relaxed text-zinc-600 dark:text-zinc-400">
+                      I&apos;m a product-minded frontend engineer with hands-on experience building
+                      responsive, high-performance web applications. I care about maintainable
+                      architecture, accessible interactions, and the details that make a product
+                      feel dependable.
+                    </p>
+                    <p className="text-[15px] leading-relaxed text-zinc-600 dark:text-zinc-400">
+                      My work starts before implementation. I explore the problem, contribute to
+                      R&amp;D, discuss flows with stakeholders, and translate business
+                      requirements into end-to-end experiences people can use with confidence.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </Reveal>
+
+            <Reveal delay={120}>
+              <div className="grid md:grid-cols-3 md:divide-x md:divide-zinc-200 dark:md:divide-white/10 mt-14 md:mt-20">
+                {principles.map((p, i) => (
+                  <div key={p.n} className={i === 0 ? 'md:pr-8' : 'md:px-8'}>
+                    <p className="font-mono text-xs text-blue-600 dark:text-blue-400">{p.n}</p>
+                    <h3 className="font-sans font-semibold text-lg text-zinc-950 dark:text-zinc-50 mt-6">
+                      {p.title}
+                    </h3>
+                    <p className="text-sm leading-relaxed text-zinc-600 dark:text-zinc-400 mt-3">
+                      {p.text}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </Reveal>
           </div>
         </div>
       </div>
