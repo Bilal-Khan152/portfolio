@@ -45,7 +45,7 @@ export default function Navbar() {
             type="button"
             onClick={toggle}
             aria-label={theme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme'}
-            className="flex h-10 w-10 items-center justify-center border border-zinc-300 text-zinc-700 transition-colors hover:border-zinc-400 hover:text-zinc-950 dark:border-white/15 dark:text-zinc-300 dark:hover:border-white/30 dark:hover:text-white"
+            className="flex h-10 w-10 cursor-pointer items-center justify-center border border-zinc-300 text-zinc-700 transition-colors hover:border-zinc-400 hover:text-zinc-950 dark:border-white/15 dark:text-zinc-300 dark:hover:border-white/30 dark:hover:text-white"
           >
             {mounted ? (
               theme === 'dark' ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />
@@ -57,7 +57,7 @@ export default function Navbar() {
             type="button"
             onClick={() => setOpen((v) => !v)}
             aria-label={open ? 'Close menu' : 'Open menu'}
-            className="flex h-10 w-10 items-center justify-center border border-zinc-300 text-zinc-700 md:hidden dark:border-white/15 dark:text-zinc-300"
+            className="flex h-10 w-10 cursor-pointer items-center justify-center border border-zinc-300 text-zinc-700 md:hidden dark:border-white/15 dark:text-zinc-300"
           >
             {open ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
           </button>

@@ -1,6 +1,13 @@
 import { ArrowDown, ArrowDownRight, ArrowUpRight } from 'lucide-react';
 
-const tickerItems = Array.from({ length: 6 }, () => 'I turn ideas into clear, fast web products, end to end.');
+const tickerItems = [
+  'I turn ideas into clear, fast web products, end to end.',
+  '2+ years shipping React & Next.js apps',
+  'SaaS dashboards & AI-powered interfaces',
+  'Discovery to production, end to end',
+  'Pixel-precise UI, performance-obsessed',
+  'API integration & scalable state architecture',
+];
 
 const facts = [
   { label: 'Experience', value: '2 years' },

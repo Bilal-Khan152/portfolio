@@ -2,14 +2,14 @@
 
 import { createContext, useContext, useEffect, useState } from 'react';
 
-const ThemeContext = createContext({ theme: 'light', toggle: () => {}, mounted: false });
+const ThemeContext = createContext({ theme: 'dark', toggle: () => {}, mounted: false });
 
 function getInitialTheme() {
-  if (typeof window === 'undefined') return 'light';
+  if (typeof window === 'undefined') return 'dark';
   try {
-    return window.localStorage.getItem('theme') === 'dark' ? 'dark' : 'light';
+    return window.localStorage.getItem('theme') === 'light' ? 'light' : 'dark';
   } catch {
-    return 'light';
+    return 'dark';
   }
 }
 
