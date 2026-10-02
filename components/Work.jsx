@@ -303,8 +303,9 @@ export default function Work() {
     if (filter === 'Learning build') return p.type === 'learning';
     return true;
   });
-  const shown =
-    filter === 'All work' && !showMore ? matches.filter((p) => p.type === 'product') : matches;
+  const productCards = matches.filter((p) => p.type === 'product');
+  const extraCards = matches.filter((p) => p.type !== 'product');
+  const extraExpanded = showMore || filter !== 'All work';
 
   return (
     <section id="work" className="border-t border-zinc-200 dark:border-white/10">
@@ -334,7 +335,7 @@ export default function Work() {
                       key={f}
                       type="button"
                       onClick={() => handleFilter(f)}
-                      className={`border px-4 py-2 font-mono text-xs ${
+                      className={`cursor-pointer border px-4 py-2 font-mono text-xs ${
                         active
                           ? 'border-zinc-950 bg-zinc-950 text-white dark:border-white dark:bg-white dark:text-zinc-950'
                           : 'border-zinc-300 text-zinc-500 dark:border-white/15 dark:text-zinc-400'
@@ -348,10 +349,24 @@ export default function Work() {
             </Reveal>
 
             <div className="mt-8 space-y-8">
-              {shown.map((p, i) => (
+              {productCards.map((p, i) => (
                 <Reveal key={p.num} delay={i * 60}>
                   <ProjectCard project={p} />
                 </Reveal>
+              ))}
+              {extraCards.map((p, i) => (
+                <div
+                  key={p.num}
+                  className={`grid transition-all duration-500 ease-in-out ${
+                    extraExpanded ? 'grid-rows-[1fr] opacity-100' : '-mt-8 grid-rows-[0fr] opacity-0'
+                  }`}
+                >
+                  <div className="overflow-hidden">
+                    <Reveal delay={(productCards.length + i) * 60}>
+                      <ProjectCard project={p} />
+                    </Reveal>
+                  </div>
+                </div>
               ))}
             </div>
 
@@ -360,7 +375,7 @@ export default function Work() {
                 <button
                   type="button"
                   onClick={() => setShowMore((v) => !v)}
-                  className="inline-flex items-center gap-2 border border-zinc-300 px-6 py-3 font-mono text-xs text-zinc-900 dark:border-white/15 dark:text-zinc-100"
+                  className="inline-flex cursor-pointer items-center gap-2 border border-zinc-300 px-6 py-3 font-mono text-xs text-zinc-900 transition-colors hover:border-zinc-950 dark:border-white/15 dark:text-zinc-100 dark:hover:border-white/40"
                 >
                   {showMore ? 'Show less' : 'Show more'}
                   {showMore ? <ArrowUp size={14} /> : <ArrowDown size={14} />}

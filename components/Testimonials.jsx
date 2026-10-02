@@ -15,6 +15,14 @@ const testimonials = [
     quote:
       'I had the opportunity to work with Bilal on a Point of Sale project for one of my clients. He was responsible for handling the frontend development of the system and demonstrated a strong technical understanding throughout the project. Bilal has a great ability to break down complex problems into smaller, manageable tasks and approach them with a clear and structured mindset. He communicates and collaborates well with the team, takes ownership of his work, and is capable of handling challenging frontend requirements effectively. Overall, working with Bilal was a great experience. His technical skills, problem-solving approach, and ability to collaborate make him a valuable developer to work with.',
   },
+  {
+    name: 'Muhammad Irfan',
+    title: 'ML Engineer | Python • SQL • API Integrations | AI Agents, Predictive Models',
+    location: 'Lahore, Punjab, Pakistan',
+    photo: '/irfan.png',
+    quote:
+      'It was a privilege working with Bilal on a Car Management System project, and it was an outstanding experience. He consistently displayed professionalism, teamwork, and a problem-solving mindset, handling challenges with positivity and precision. His attention to detail, technical expertise, and supportive attitude made collaboration both smooth and enjoyable. Bilal\u2019s dedication and cooperative spirit make him a valuable asset to any team. I\u2019m truly grateful for the opportunity to work with him and would be delighted to collaborate again in the future.',
+  },
 ];
 
 export default function Testimonials() {
@@ -23,8 +31,14 @@ export default function Testimonials() {
   const total = testimonials.length;
   const t = testimonials[index];
 
-  const prev = () => setIndex((i) => (i - 1 + total) % total);
-  const next = () => setIndex((i) => (i + 1) % total);
+  const prev = () => {
+    setExpanded(false);
+    setIndex((i) => (i - 1 + total) % total);
+  };
+  const next = () => {
+    setExpanded(false);
+    setIndex((i) => (i + 1) % total);
+  };
   const pad = (n) => String(n).padStart(2, '0');
 
   return (
@@ -33,7 +47,7 @@ export default function Testimonials() {
         <Reveal>
           <div className="flex items-center justify-between gap-6">
             <h2 className="font-sans font-bold tracking-tight text-2xl md:text-3xl text-[#09090B] dark:text-[#FAFAFA]">
-              Product Owners &amp; Colleagues Review
+              Reviews
             </h2>
             <div className="flex items-center gap-3 shrink-0">
               <span className="font-mono text-xs text-[#52525B] dark:text-[#A1A1AA]">
@@ -45,7 +59,7 @@ export default function Testimonials() {
                   onClick={prev}
                   disabled={total <= 1}
                   aria-label="Previous review"
-                  className="w-10 h-10 border border-[#E4E4E7] dark:border-white/10 bg-white dark:bg-[#131316] flex items-center justify-center text-[#09090B] dark:text-[#FAFAFA] transition-opacity disabled:opacity-40 hover:border-[#09090B] dark:hover:border-white/40"
+                  className="w-10 h-10 cursor-pointer border border-[#E4E4E7] dark:border-white/10 bg-white dark:bg-[#131316] flex items-center justify-center text-[#09090B] dark:text-[#FAFAFA] transition-opacity disabled:opacity-40 hover:border-[#09090B] dark:hover:border-white/40"
                 >
                   <ArrowLeft size={16} />
                 </button>
@@ -54,7 +68,7 @@ export default function Testimonials() {
                   onClick={next}
                   disabled={total <= 1}
                   aria-label="Next review"
-                  className="w-10 h-10 border border-[#E4E4E7] dark:border-white/10 bg-white dark:bg-[#131316] flex items-center justify-center text-[#09090B] dark:text-[#FAFAFA] transition-opacity disabled:opacity-40 hover:border-[#09090B] dark:hover:border-white/40"
+                  className="w-10 h-10 cursor-pointer border border-[#E4E4E7] dark:border-white/10 bg-white dark:bg-[#131316] flex items-center justify-center text-[#09090B] dark:text-[#FAFAFA] transition-opacity disabled:opacity-40 hover:border-[#09090B] dark:hover:border-white/40"
                 >
                   <ArrowRight size={16} />
                 </button>
@@ -96,20 +110,22 @@ export default function Testimonials() {
                 <button
                   type="button"
                   onClick={() => setExpanded((v) => !v)}
-                  className="font-mono text-xs font-bold underline underline-offset-4 text-[#09090B] dark:text-[#FAFAFA] mt-4"
+                  className="font-mono text-xs font-bold underline underline-offset-4 text-[#09090B] dark:text-[#FAFAFA] mt-4 cursor-pointer"
                 >
                   {expanded ? 'Show less' : 'Read more'}
                 </button>
                 <div className="mt-6">
-                  <a
-                    href={t.linkedin}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1 font-mono text-xs text-[#2563EB] underline underline-offset-4"
-                  >
-                    VIEW LINKEDIN PROFILE
-                    <ArrowUpRight size={14} />
-                  </a>
+                  {t.linkedin && (
+                    <a
+                      href={t.linkedin}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1 font-mono text-xs text-[#2563EB] underline underline-offset-4"
+                    >
+                      VIEW LINKEDIN PROFILE
+                      <ArrowUpRight size={14} />
+                    </a>
+                  )}
                 </div>
               </div>
             </div>
