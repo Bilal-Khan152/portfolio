@@ -26,7 +26,7 @@ const rows = [
 export default function WhatIDo() {
   return (
     <section id="what-i-do">
-      <div className="max-w-6xl mx-auto px-6 py-24 md:py-32">
+      <div className="max-w-6xl mx-auto px-6 py-16 md:py-24">
         <div className="md:grid md:grid-cols-12 md:gap-8">
           <div className="md:col-span-3">
             <Reveal>

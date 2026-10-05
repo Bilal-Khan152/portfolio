@@ -20,6 +20,7 @@ const testimonials = [
     title: 'ML Engineer | Python • SQL • API Integrations | AI Agents, Predictive Models',
     location: 'Lahore, Punjab, Pakistan',
     photo: '/irfan.png',
+    linkedin: 'https://www.linkedin.com/in/mirfan120/?skipRedirect=true',
     quote:
       'It was a privilege working with Bilal on a Car Management System project, and it was an outstanding experience. He consistently displayed professionalism, teamwork, and a problem-solving mindset, handling challenges with positivity and precision. His attention to detail, technical expertise, and supportive attitude made collaboration both smooth and enjoyable. Bilal\u2019s dedication and cooperative spirit make him a valuable asset to any team. I\u2019m truly grateful for the opportunity to work with him and would be delighted to collaborate again in the future.',
   },
@@ -43,11 +44,11 @@ export default function Testimonials() {
 
   return (
     <section id="reviews">
-      <div className="max-w-6xl mx-auto px-6 py-24 md:py-32">
+      <div className="max-w-6xl mx-auto px-6 py-16 md:py-24">
         <Reveal>
           <div className="flex items-center justify-between gap-6">
             <h2 className="font-sans font-bold tracking-tight text-2xl md:text-3xl text-[#09090B] dark:text-[#FAFAFA]">
-              Reviews
+              Product Owners &amp; Colleagues Reviews
             </h2>
             <div className="flex items-center gap-3 shrink-0">
               <span className="font-mono text-xs text-[#52525B] dark:text-[#A1A1AA]">

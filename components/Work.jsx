@@ -7,15 +7,13 @@ import Reveal from './Reveal';
 const CENTER = { x: 200, y: 200 };
 
 /**
- * Dark animated architecture diagram: subtle grid, dashed curved connectors
- * from outer nodes into the center, lime pulses traveling along each path,
- * and a pulsing halo around the center node.
+ * Dark static architecture diagram: subtle grid, dashed curved connectors
+ * from outer nodes into the center node. No animation — hardcoded boxes.
  */
 function ArchitectureDiagram({
   center,
   centerTone = 'lime',
   nodes = [],
-  pulse = '#A3E635',
 }) {
   const uid = useId().replace(/[^a-zA-Z0-9]/g, '');
   const gridId = `arch-grid-${uid}`;
@@ -43,7 +41,7 @@ function ArchitectureDiagram({
     <div className="relative h-full min-h-[320px] overflow-hidden bg-[#0B0E13] md:min-h-[400px]">
       <svg
         viewBox="0 0 400 400"
-        preserveAspectRatio="xMidYMid slice"
+        preserveAspectRatio="xMidYMid meet"
         className="absolute inset-0 h-full w-full"
         aria-hidden="true"
       >
@@ -79,39 +77,12 @@ function ArchitectureDiagram({
           />
         ))}
 
-        {/* traveling pulses */}
-        {nodes.map((n, i) => {
-          const d = pathFor(n);
-          const dur = 2.8 + i * 0.7;
-          return (
-            <g key={`pulse-${n.label}`}>
-              <circle r="4" fill={pulse} filter={`url(#${glowId})`}>
-                <animateMotion dur={`${dur}s`} begin={`${i * 0.55}s`} repeatCount="indefinite" path={d} />
-              </circle>
-              <circle r="2.5" fill={pulse} opacity="0.85">
-                <animateMotion
-                  dur={`${dur}s`}
-                  begin={`${i * 0.55 + dur / 2}s`}
-                  repeatCount="indefinite"
-                  path={d}
-                />
-              </circle>
-            </g>
-          );
-        })}
-
         {/* outer nodes */}
-        {nodes.map((n, i) => {
-          const w = n.label.length * 8 + 30;
+        {nodes.map((n) => {
+          const w = n.label.length * 7 + 26;
           const h = 32;
           return (
-            <g key={`node-${n.label}`} opacity="0.9">
-              <animate
-                attributeName="opacity"
-                values="0.65;1;0.65"
-                dur={`${3 + i * 0.6}s`}
-                repeatCount="indefinite"
-              />
+            <g key={`node-${n.label}`} opacity="0.95">
               <rect
                 x={n.x - w / 2}
                 y={n.y - h / 2}
@@ -128,8 +99,8 @@ function ArchitectureDiagram({
                 dy="0.35em"
                 textAnchor="middle"
                 fill="#E4E4E7"
-                fontSize="11"
-                letterSpacing="1.5"
+                fontSize="10"
+                letterSpacing="1"
                 style={{ fontFamily: 'monospace' }}
               >
                 {n.label}
@@ -137,12 +108,6 @@ function ArchitectureDiagram({
             </g>
           );
         })}
-
-        {/* center halo pulse */}
-        <circle cx={CENTER.x} cy={CENTER.y} r="36" fill="none" stroke={centerFill} strokeWidth="1.5">
-          <animate attributeName="r" values="36;88" dur="2.6s" repeatCount="indefinite" />
-          <animate attributeName="opacity" values="0.55;0" dur="2.6s" repeatCount="indefinite" />
-        </circle>
 
         {/* center node */}
         <g filter={`url(#${glowId})`}>
@@ -187,10 +152,10 @@ const PROJECTS = [
       center: 'AI WORKSPACE',
       centerTone: 'lime',
       nodes: [
-        { label: 'CLIENTS', x: 78, y: 78 },
-        { label: 'TASKS', x: 322, y: 78, glow: '#2563EB' },
-        { label: 'PIPELINE', x: 78, y: 322 },
-        { label: 'ONBOARD', x: 322, y: 322 },
+        { label: 'CLIENT MANAGEMENT', x: 100, y: 78 },
+        { label: 'PROPOSAL GENERATION', x: 300, y: 78, glow: '#2563EB' },
+        { label: 'PROJECT MANAGEMENT', x: 100, y: 322 },
+        { label: 'HUMAN RESOURCE MANAGEMENT', x: 300, y: 322 },
       ],
     },
   },
@@ -208,10 +173,10 @@ const PROJECTS = [
       center: 'RESTAURANT OPS',
       centerTone: 'blue',
       nodes: [
-        { label: 'SHIFTS', x: 78, y: 78 },
-        { label: 'FEEDBACK', x: 322, y: 78 },
-        { label: 'REVIEWS', x: 78, y: 322 },
-        { label: 'INSIGHTS', x: 322, y: 322 },
+        { label: 'SHIFTS', x: 100, y: 78 },
+        { label: 'FEEDBACK', x: 300, y: 78 },
+        { label: 'REVIEWS', x: 100, y: 322 },
+        { label: 'INSIGHTS', x: 300, y: 322 },
       ],
     },
   },
@@ -229,10 +194,10 @@ const PROJECTS = [
       center: 'CAR SYSTEM',
       centerTone: 'lime',
       nodes: [
-        { label: 'ROLES', x: 78, y: 78 },
-        { label: 'CHAT', x: 322, y: 78 },
-        { label: 'FIREBASE', x: 78, y: 322 },
-        { label: 'ALERTS', x: 322, y: 322 },
+        { label: 'ROLES', x: 100, y: 78 },
+        { label: 'CHAT', x: 300, y: 78 },
+        { label: 'FIREBASE', x: 100, y: 322 },
+        { label: 'ALERTS', x: 300, y: 322 },
       ],
     },
   },
@@ -309,7 +274,7 @@ export default function Work() {
 
   return (
     <section id="work" className="border-t border-zinc-200 dark:border-white/10">
-      <div className="mx-auto max-w-6xl px-6 py-24 md:py-32">
+      <div className="mx-auto max-w-6xl px-6 py-16 md:py-24">
         <div className="md:grid md:grid-cols-12 md:gap-8">
           <div className="md:col-span-3">
             <Reveal>
