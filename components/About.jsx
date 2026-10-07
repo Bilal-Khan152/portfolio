@@ -36,7 +36,7 @@ export default function About() {
                 <div className="md:col-span-2">
                   <div className="relative overflow-hidden aspect-[3/4]">
                     <img
-                      src="/bilal.jpg"
+                      src="/bilal.png"
                       alt="Muhammad Bilal"
                       className="absolute inset-0 h-full w-full object-cover"
                     />
