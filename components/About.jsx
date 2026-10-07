@@ -34,13 +34,13 @@ export default function About() {
             <Reveal>
               <div className="grid md:grid-cols-5 gap-8">
                 <div className="md:col-span-2">
-                  <div className="relative overflow-hidden border border-zinc-200 dark:border-white/10 bg-white dark:bg-[#131316] aspect-[3/4]">
+                  <div className="relative overflow-hidden aspect-[3/4]">
                     <img
                       src="/bilal.jpg"
                       alt="Muhammad Bilal"
                       className="absolute inset-0 h-full w-full object-cover"
                     />
-                    <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/75 via-black/30 to-transparent p-4 flex items-end justify-between gap-2">
+                    <div className="absolute inset-x-0 bottom-0 flex h-1/2 items-end justify-between gap-2 bg-gradient-to-t from-black/90 via-black/40 to-transparent p-5">
                       <p className="font-sans font-bold text-white text-xl leading-tight">
                         Muhammad
                         <br />
