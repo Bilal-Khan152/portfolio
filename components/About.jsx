@@ -58,7 +58,7 @@ export default function About() {
                 <div className="md:col-span-3">
                   <p className="font-sans font-medium text-2xl md:text-[1.75rem] leading-snug tracking-tight text-zinc-950 dark:text-zinc-50">
                     Great software isn&apos;t only about clean code. It&apos;s about understanding{' '}
-                    <span className="font-serif italic text-blue-600 dark:text-blue-400">
+                    <span className="text-blue-600 dark:text-blue-400">
                       why a feature matters
                     </span>
                     , who it helps, and how it moves the product forward.

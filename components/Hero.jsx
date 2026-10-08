@@ -99,7 +99,7 @@ export default function Hero() {
           <div className="animate-marquee flex w-max shrink-0 items-center">
             {[...tickerItems, ...tickerItems].map((phrase, i) => (
               <span key={i} className="flex shrink-0 items-center">
-                <span className="px-8 font-serif text-xl text-zinc-800 italic dark:text-zinc-200">
+                <span className="px-8 text-xl text-zinc-800 dark:text-zinc-200">
                   {phrase}
                 </span>
                 <span className="h-2 w-2 rotate-45 bg-lime-400" />
