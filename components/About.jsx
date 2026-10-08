@@ -35,14 +35,10 @@ export default function About() {
               <div className="grid md:grid-cols-5 gap-8">
                 <div className="md:col-span-2">
                   <div className="relative overflow-hidden aspect-[3/4]">
-                    <div
-                      aria-hidden="true"
-                      className="absolute inset-0 bg-[radial-gradient(ellipse_70%_60%_at_50%_38%,rgba(255,255,255,0.65),transparent_70%)] dark:bg-[radial-gradient(ellipse_70%_60%_at_50%_38%,rgba(255,255,255,0.16),transparent_70%)]"
-                    />
                     <img
-                      src="/bilal.png"
+                      src="/bilal-desk.jpg"
                       alt="Muhammad Bilal"
-                      className="absolute inset-0 h-full w-full object-cover drop-shadow-[0_12px_28px_rgba(0,0,0,0.35)] dark:drop-shadow-[0_0_20px_rgba(255,255,255,0.35)_0_0_70px_rgba(255,255,255,0.14)]"
+                      className="absolute inset-0 h-full w-full object-cover"
                     />
                     <div className="absolute inset-x-0 bottom-0 flex h-1/2 items-end justify-between gap-2 bg-gradient-to-t from-black/90 via-black/40 to-transparent p-5">
                       <p className="font-sans font-bold text-white text-xl leading-tight">
