@@ -278,7 +278,7 @@ export default function Work() {
         <div className="md:grid md:grid-cols-12 md:gap-8">
           <div className="md:col-span-3">
             <Reveal>
-              <p className="font-mono text-xs text-zinc-500 dark:text-zinc-400">04 / 06</p>
+              <p className="font-mono text-xs text-zinc-500 dark:text-zinc-400">05 / 07</p>
               <p className="mt-2 font-mono text-sm text-zinc-900 dark:text-zinc-100">
                 Selected work
               </p>

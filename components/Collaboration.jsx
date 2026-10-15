@@ -21,7 +21,7 @@ export default function Collaboration() {
         <div className="md:grid md:grid-cols-12 md:gap-8">
           <div className="md:col-span-3 mb-10 md:mb-0">
             <Reveal>
-              <p className="font-mono text-xs text-[#52525B] dark:text-[#A1A1AA]">06 / 06</p>
+              <p className="font-mono text-xs text-[#52525B] dark:text-[#A1A1AA]">07 / 07</p>
               <p className="font-mono text-sm text-[#09090B] dark:text-[#FAFAFA] mt-2">Collaboration</p>
             </Reveal>
           </div>

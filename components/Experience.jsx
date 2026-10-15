@@ -25,7 +25,7 @@ export default function Experience() {
         <div className="md:grid md:grid-cols-12 md:gap-8">
           <div className="md:col-span-3">
             <Reveal>
-              <p className="font-mono text-xs text-zinc-500 dark:text-zinc-400">05 / 06</p>
+              <p className="font-mono text-xs text-zinc-500 dark:text-zinc-400">06 / 07</p>
               <p className="mt-2 font-mono text-sm text-zinc-900 dark:text-zinc-100">Experience</p>
             </Reveal>
           </div>

@@ -4,7 +4,7 @@ const rows = [
   {
     n: '01',
     title: 'Product discovery & engineering',
-    text: 'R&D, flow exploration, and business-requirement discussions carried through to production-ready React and Next.js experiences.',
+    text: 'R&D, flow exploration, and business-requirement discussions carried through to production-ready experiences.',
   },
   {
     n: '02',
@@ -30,7 +30,7 @@ export default function WhatIDo() {
         <div className="md:grid md:grid-cols-12 md:gap-8">
           <div className="md:col-span-3">
             <Reveal>
-              <p className="font-mono text-xs text-zinc-500 dark:text-zinc-400">02 / 06</p>
+              <p className="font-mono text-xs text-zinc-500 dark:text-zinc-400">02 / 07</p>
               <p className="font-mono text-sm text-zinc-950 dark:text-zinc-50 mt-2">What I do</p>
             </Reveal>
           </div>

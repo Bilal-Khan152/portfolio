@@ -2,6 +2,7 @@ import Hero from '../components/Hero';
 import About from '../components/About';
 import WhatIDo from '../components/WhatIDo';
 import Expertise from '../components/Expertise';
+import Skills from '../components/Skills';
 import Work from '../components/Work';
 import Experience from '../components/Experience';
 import Collaboration from '../components/Collaboration';
@@ -21,6 +22,9 @@ export default function Home() {
       </Reveal>
       <Reveal>
         <Expertise />
+      </Reveal>
+      <Reveal>
+        <Skills />
       </Reveal>
       <Reveal>
         <Work />

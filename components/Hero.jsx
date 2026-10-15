@@ -2,7 +2,6 @@ import { ArrowDown, ArrowDownRight, ArrowUpRight } from 'lucide-react';
 
 const tickerItems = [
   'I turn ideas into clear, fast web products, end to end.',
-  '2+ years shipping React & Next.js apps',
   'SaaS dashboards & AI-powered interfaces',
   'Discovery to production, end to end',
   'Pixel-precise UI, performance-obsessed',
@@ -12,7 +11,6 @@ const tickerItems = [
 const facts = [
   { label: 'Experience', value: '2 years' },
   { label: 'Focus', value: 'Product engineering' },
-  { label: 'Core stack', value: 'React · Next.js' },
 ];
 
 export default function Hero() {
@@ -47,7 +45,7 @@ export default function Hero() {
         >
           I&apos;m Muhammad Bilal. I work beyond the task handoff: researching the problem,
           discussing user flows and business requirements, shaping the solution, and engineering
-          production-ready web products with React and Next.js.
+          production-ready web products.
         </p>
 
         <div className="animate-fade-up mt-10 flex flex-wrap gap-3" style={{ animationDelay: '360ms' }}>
@@ -77,7 +75,7 @@ export default function Hero() {
         </div>
 
         <div
-          className="animate-fade-up mt-16 grid max-w-3xl grid-cols-3 gap-6 border-t border-zinc-300 pt-6 dark:border-white/10"
+          className="animate-fade-up mt-16 grid max-w-3xl grid-cols-2 gap-6 border-t border-zinc-300 pt-6 dark:border-white/10"
           style={{ animationDelay: '480ms' }}
         >
           {facts.map((fact) => (
