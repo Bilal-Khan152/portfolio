@@ -1,4 +1,17 @@
 import Reveal from './Reveal';
+import { techIcons } from './techIcons';
+
+function TechIcon({ slug }) {
+  const icon = techIcons[slug];
+  if (!icon) return null;
+  return (
+    <svg viewBox="0 0 24 24" fill={icon.fill} className="h-full w-full" aria-hidden>
+      {icon.paths.map((d, i) => (
+        <path key={i} d={d} />
+      ))}
+    </svg>
+  );
+}
 
 function UnleashIcon() {
   return (
@@ -81,16 +94,7 @@ export default function Skills() {
                         className="flex items-center gap-3 rounded-xl border border-zinc-200 dark:border-white/10 bg-white dark:bg-white/5 px-4 py-3"
                       >
                         <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-white p-1.5 shadow-sm">
-                          {skill.custom ? (
-                            <UnleashIcon />
-                          ) : (
-                            <img
-                              src={`https://cdn.simpleicons.org/${skill.slug}`}
-                              alt={`${skill.name} icon`}
-                              loading="lazy"
-                              className="h-full w-full"
-                            />
-                          )}
+                          {skill.custom ? <UnleashIcon /> : <TechIcon slug={skill.slug} />}
                         </span>
                         <span className="font-sans text-sm font-medium text-zinc-900 dark:text-zinc-100">
                           {skill.name}
