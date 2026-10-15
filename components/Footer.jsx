@@ -5,24 +5,26 @@ import Reveal from './Reveal';
 import { ArrowUpRight, Copy, Check } from 'lucide-react';
 
 const EMAIL = 'bilalkhandev66@gmail.com';
+const PHONE = '+923139594577';
+const PHONE_LABEL = '+92 313 9594577';
 const LINKEDIN = 'https://www.linkedin.com/in/muhammad-bilal-engineer';
 
 export default function Footer() {
-  const [copied, setCopied] = useState(false);
+  const [copiedKey, setCopiedKey] = useState(null);
 
-  const copyEmail = async () => {
+  const copyText = async (text, key) => {
     try {
-      await navigator.clipboard.writeText(EMAIL);
+      await navigator.clipboard.writeText(text);
     } catch {
       const ta = document.createElement('textarea');
-      ta.value = EMAIL;
+      ta.value = text;
       document.body.appendChild(ta);
       ta.select();
       document.execCommand('copy');
       document.body.removeChild(ta);
     }
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
+    setCopiedKey(key);
+    setTimeout(() => setCopiedKey(null), 2000);
   };
 
   return (
@@ -54,29 +56,30 @@ export default function Footer() {
               </p>
 
               <div className="flex flex-wrap gap-3 mt-8">
-                <a
-                  href={`mailto:${EMAIL}`}
-                  className="inline-flex items-center gap-2 bg-[#A3E635] text-black font-sans font-bold text-sm px-6 py-3.5"
+                <button
+                  type="button"
+                  onClick={() => copyText(PHONE, 'phone')}
+                  className="inline-flex cursor-pointer items-center gap-2 bg-[#A3E635] text-black font-sans font-bold text-sm px-6 py-3.5 transition-colors hover:bg-[#b9f04e]"
                 >
-                  Email me
-                  <ArrowUpRight size={16} />
-                </a>
+                  {copiedKey === 'phone' ? <Check size={16} /> : <Copy size={16} />}
+                  {copiedKey === 'phone' ? 'Copied' : PHONE_LABEL}
+                </button>
                 <a
                   href={LINKEDIN}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 border border-white/30 text-white font-sans font-bold text-sm px-6 py-3.5"
+                  className="inline-flex cursor-pointer items-center gap-2 border border-white/30 text-white font-sans font-bold text-sm px-6 py-3.5 transition-colors hover:border-white/60"
                 >
                   LinkedIn
                   <ArrowUpRight size={16} />
                 </a>
                 <button
                   type="button"
-                  onClick={copyEmail}
-                  className="inline-flex items-center gap-2 bg-white text-black font-sans font-bold text-sm px-6 py-3.5"
+                  onClick={() => copyText(EMAIL, 'email')}
+                  className="inline-flex cursor-pointer items-center gap-2 border border-white/30 text-white font-sans font-bold text-sm px-6 py-3.5 transition-colors hover:border-white/60"
                 >
-                  {copied ? <Check size={16} /> : <Copy size={16} />}
-                  {copied ? 'Copied' : 'Copy email'}
+                  {copiedKey === 'email' ? <Check size={16} /> : <Copy size={16} />}
+                  {copiedKey === 'email' ? 'Copied' : 'Copy email'}
                 </button>
               </div>
 
