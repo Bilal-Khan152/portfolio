@@ -47,7 +47,10 @@ const groups = [
   },
   {
     label: 'Tooling',
-    skills: [{ name: 'Git', slug: 'git' }],
+    skills: [
+      { name: 'Git', slug: 'git' },
+      { name: 'Cursor', slug: 'cursor' },
+    ],
   },
   {
     label: 'Third-party integrations',
