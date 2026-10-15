@@ -2,22 +2,22 @@ import Reveal from './Reveal';
 
 const rows = [
   {
-    n: 'A01',
+    n: '01',
     title: 'Product discovery & engineering',
     text: 'R&D, flow exploration, and business-requirement discussions carried through to production-ready React and Next.js experiences.',
   },
   {
-    n: 'A02',
+    n: '02',
     title: 'UI systems & architecture',
     text: 'Reusable component patterns, predictable state management, and maintainable foundations for growing products.',
   },
   {
-    n: 'A03',
+    n: '03',
     title: 'API & state integration',
     text: 'Reliable data flows using Redux Toolkit, RTK Query, Axios, and thoughtful loading, error, and empty states.',
   },
   {
-    n: 'A04',
+    n: '04',
     title: 'Performance & polish',
     text: 'Accessible, pixel-precise experiences with careful attention to responsiveness, consistency, and runtime quality.',
   },
