@@ -153,9 +153,9 @@ const PROJECTS = [
       centerTone: 'lime',
       nodes: [
         { label: 'CLIENT MANAGEMENT', x: 100, y: 78 },
-        { label: 'PROPOSAL GENERATION', x: 300, y: 78, glow: '#2563EB' },
+        { label: 'PROPOSAL GENERATION', x: 285, y: 78, glow: '#2563EB' },
         { label: 'PROJECT MANAGEMENT', x: 100, y: 322 },
-        { label: 'HUMAN RESOURCE MANAGEMENT', x: 300, y: 322 },
+        { label: 'HUMAN RESOURCE MANAGEMENT', x: 285, y: 322 },
       ],
     },
   },
@@ -237,7 +237,7 @@ function ProjectCard({ project }) {
               href={project.cta.href}
               target="_blank"
               rel="noreferrer"
-              className="mt-8 inline-flex items-center gap-2 self-start bg-zinc-950 px-5 py-3 font-mono text-xs tracking-wide text-white dark:bg-white dark:text-zinc-950"
+              className="mt-8 inline-flex items-center gap-2 self-start bg-lime-400 px-5 py-3 font-mono text-xs font-semibold tracking-wide text-zinc-950 transition-colors hover:bg-lime-300"
             >
               {project.cta.label}
               <ArrowUpRight size={14} />
