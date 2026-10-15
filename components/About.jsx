@@ -57,25 +57,21 @@ export default function About() {
 
                 <div className="md:col-span-3">
                   <p className="font-sans font-medium text-2xl md:text-[1.75rem] leading-snug tracking-tight text-zinc-950 dark:text-zinc-50">
-                    Great software isn&apos;t only about clean code. It&apos;s about understanding{' '}
+                    Great software isn&apos;t only about clean code. It&apos;s about{' '}
                     <span className="text-blue-600 dark:text-blue-400">
                       why a feature matters
                     </span>
                     , who it helps, and how it moves the product forward.
                   </p>
-                  <div className="grid sm:grid-cols-2 gap-6 mt-8">
-                    <p className="text-[15px] leading-relaxed text-zinc-600 dark:text-zinc-400">
-                      I&apos;m a product-minded frontend engineer with hands-on experience building
-                      responsive, high-performance web applications. I care about maintainable
-                      architecture, accessible interactions, and the details that make a product
-                      feel dependable.
-                    </p>
-                    <p className="text-[15px] leading-relaxed text-zinc-600 dark:text-zinc-400">
-                      My work starts before implementation. I explore the problem, contribute to
-                      R&amp;D, discuss flows with stakeholders, and translate business
-                      requirements into end-to-end experiences people can use with confidence.
-                    </p>
-                  </div>
+                  <p className="text-[15px] leading-relaxed text-zinc-600 dark:text-zinc-400 mt-8">
+                    I&apos;m a product-minded frontend engineer with hands-on experience building
+                    responsive, high-performance web applications. I care about maintainable
+                    architecture, accessible interactions, and the details that make a product
+                    feel dependable. My work starts before implementation — I explore the
+                    problem, contribute to R&amp;D, discuss flows with stakeholders, and
+                    translate business requirements into end-to-end experiences people can use
+                    with confidence.
+                  </p>
                 </div>
               </div>
             </Reveal>
