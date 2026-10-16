@@ -1,11 +1,20 @@
 import Reveal from './Reveal';
 import { techIcons } from './techIcons';
 
+// Icons with near-black brand fills get white in dark mode so they stay
+// visible directly on the dark card (no tile behind them).
+const DARK_FILL_WHITE = new Set(['nextdotjs', 'shadcnui', 'cursor', 'posthog', 'sentry']);
+
 function TechIcon({ slug }) {
   const icon = techIcons[slug];
   if (!icon) return null;
   return (
-    <svg viewBox="0 0 24 24" fill={icon.fill} className="h-full w-full" aria-hidden>
+    <svg
+      viewBox="0 0 24 24"
+      fill={icon.fill}
+      className={`h-full w-full ${DARK_FILL_WHITE.has(slug) ? 'dark:fill-white' : ''}`}
+      aria-hidden
+    >
       {icon.paths.map((d, i) => (
         <path key={i} d={d} />
       ))}
@@ -94,9 +103,9 @@ export default function Skills() {
                     {group.skills.map((skill) => (
                       <div
                         key={skill.name}
-                        className="flex flex-col items-center gap-4 rounded-xl border border-zinc-200 dark:border-white/10 bg-white dark:bg-white/5 px-4 py-7"
+                        className="flex flex-col items-center gap-5 rounded-xl border border-zinc-200 dark:border-white/10 bg-white dark:bg-white/5 px-4 py-8"
                       >
-                        <span className="flex h-16 w-16 shrink-0 items-center justify-center rounded-lg bg-white p-3 shadow-md">
+                        <span className="h-14 w-14 shrink-0">
                           {skill.custom ? <UnleashIcon /> : <TechIcon slug={skill.slug} />}
                         </span>
                         <span className="font-sans text-sm font-semibold text-zinc-900 dark:text-zinc-100">
