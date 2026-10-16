@@ -3,25 +3,25 @@ import Reveal from './Reveal';
 
 const cards = [
   {
-    n: 'E01',
+    n: '01',
     tag: 'END TO END',
     title: 'Web application development',
     text: 'Responsive, API-connected applications shaped from business requirements and user flows through to a production-ready experience.',
   },
   {
-    n: 'E02',
+    n: '02',
     tag: 'PRODUCT SYSTEMS',
     title: 'SaaS development',
     text: 'Scalable multi-tenant platforms with role-based journeys, onboarding flows, dashboards, and dependable data states.',
   },
   {
-    n: 'E03',
+    n: '03',
     tag: 'INTERFACE LAYER',
     title: 'Frontend development',
     text: 'Maintainable component systems, thoughtful state integration, and accessible interfaces that stay fast across screen sizes.',
   },
   {
-    n: 'E04',
+    n: '04',
     tag: 'CONVERSATIONAL AI',
     title: 'AI Assistant Development',
     text: 'Conversational AI assistants and chat experiences built directly into real products with clear, useful user flows.',
