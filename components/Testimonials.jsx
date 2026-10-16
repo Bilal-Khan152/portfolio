@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useLayoutEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import Reveal from './Reveal';
 import { ArrowLeft, ArrowRight, ArrowUpRight } from 'lucide-react';
@@ -30,8 +30,26 @@ export default function Testimonials() {
   const [index, setIndex] = useState(0);
   const [dir, setDir] = useState(1);
   const [expanded, setExpanded] = useState(false);
+  const quoteRef = useRef(null);
   const total = testimonials.length;
   const t = testimonials[index];
+
+  // Smooth expand/collapse: animate max-height between 3 lines and full quote.
+  useLayoutEffect(() => {
+    const el = quoteRef.current;
+    if (!el) return;
+    const applyHeight = () => {
+      if (expanded) {
+        el.style.maxHeight = el.scrollHeight + 'px';
+      } else {
+        const lh = parseFloat(getComputedStyle(el).lineHeight);
+        el.style.maxHeight = Math.ceil(3 * lh) + 'px';
+      }
+    };
+    applyHeight();
+    window.addEventListener('resize', applyHeight);
+    return () => window.removeEventListener('resize', applyHeight);
+  }, [expanded, index]);
 
   const prev = () => {
     setExpanded(false);
@@ -107,9 +125,8 @@ export default function Testimonials() {
               </div>
               <div className="md:col-span-8">
                 <blockquote
-                  className={`text-lg leading-relaxed text-[#52525B] dark:text-[#A1A1AA] ${
-                    expanded ? '' : 'line-clamp-3'
-                  }`}
+                  ref={quoteRef}
+                  className="text-lg leading-relaxed text-[#52525B] dark:text-[#A1A1AA] overflow-hidden transition-[max-height] duration-500 ease-in-out"
                 >
                   {t.quote}
                 </blockquote>
