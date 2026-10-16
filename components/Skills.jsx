@@ -90,16 +90,16 @@ export default function Skills() {
                   <p className="font-mono text-xs uppercase tracking-wider text-zinc-500 dark:text-zinc-400">
                     {group.label}
                   </p>
-                  <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 mt-4">
+                  <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 mt-5">
                     {group.skills.map((skill) => (
                       <div
                         key={skill.name}
-                        className="flex items-center gap-3 rounded-xl border border-zinc-200 dark:border-white/10 bg-white dark:bg-white/5 px-4 py-3"
+                        className="flex flex-col items-center gap-4 rounded-xl border border-zinc-200 dark:border-white/10 bg-white dark:bg-white/5 px-4 py-7"
                       >
-                        <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-white p-1.5 shadow-sm">
+                        <span className="flex h-16 w-16 shrink-0 items-center justify-center rounded-lg bg-white p-3 shadow-md">
                           {skill.custom ? <UnleashIcon /> : <TechIcon slug={skill.slug} />}
                         </span>
-                        <span className="font-sans text-sm font-medium text-zinc-900 dark:text-zinc-100">
+                        <span className="font-sans text-sm font-semibold text-zinc-900 dark:text-zinc-100">
                           {skill.name}
                         </span>
                       </div>
