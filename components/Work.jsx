@@ -313,7 +313,7 @@ export default function Work() {
               </div>
             </Reveal>
 
-            <div className="mt-8 space-y-8">
+            <div key={filter} className="mt-8 space-y-8 animate-fade-slide-in">
               {productCards.map((p, i) => (
                 <Reveal key={p.num} delay={i * 60}>
                   <ProjectCard project={p} />

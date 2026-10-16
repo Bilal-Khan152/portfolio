@@ -28,16 +28,19 @@ const testimonials = [
 
 export default function Testimonials() {
   const [index, setIndex] = useState(0);
+  const [dir, setDir] = useState(1);
   const [expanded, setExpanded] = useState(false);
   const total = testimonials.length;
   const t = testimonials[index];
 
   const prev = () => {
     setExpanded(false);
+    setDir(-1);
     setIndex((i) => (i - 1 + total) % total);
   };
   const next = () => {
     setExpanded(false);
+    setDir(1);
     setIndex((i) => (i + 1) % total);
   };
   const pad = (n) => String(n).padStart(2, '0');
@@ -81,7 +84,9 @@ export default function Testimonials() {
         <Reveal delay={80}>
           <div
             key={index}
-            className="mt-8 border border-dashed border-zinc-300 dark:border-white/20 bg-white dark:bg-[#131316] p-8 md:p-10"
+            className={`mt-8 border border-dashed border-zinc-300 dark:border-white/20 bg-white dark:bg-[#131316] p-8 md:p-10 ${
+              dir === 1 ? 'animate-slide-in-right' : 'animate-slide-in-left'
+            }`}
           >
             <div className="grid md:grid-cols-12 gap-8">
               <div className="md:col-span-4 flex md:block items-start gap-5">
