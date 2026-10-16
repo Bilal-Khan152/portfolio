@@ -13,11 +13,11 @@ export default function Reveal({ children, delay = 0, className = '' }) {
     const el = ref.current;
     if (!el) return;
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      setVisible(true);
+      requestAnimationFrame(() => setVisible(true));
       return;
     }
     if (typeof IntersectionObserver === 'undefined') {
-      setVisible(true);
+      requestAnimationFrame(() => setVisible(true));
       return;
     }
     const observer = new IntersectionObserver(

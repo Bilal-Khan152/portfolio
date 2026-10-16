@@ -67,7 +67,7 @@ export default function About() {
                     I&apos;m a product-minded frontend engineer with hands-on experience building
                     responsive, high-performance web applications. I care about maintainable
                     architecture, accessible interactions, and the details that make a product
-                    feel dependable. My work starts before implementation — I explore the
+                    feel dependable. My work starts before implementation I explore the
                     problem, contribute to R&amp;D, discuss flows with stakeholders, and
                     translate business requirements into end-to-end experiences people can use
                     with confidence.

@@ -1,7 +1,7 @@
 'use client';
 
 import { useId, useState } from 'react';
-import { ArrowDown, ArrowUp, ArrowUpRight } from 'lucide-react';
+import { ArrowLeft, ArrowRight, ArrowUpRight } from 'lucide-react';
 import Reveal from './Reveal';
 
 const CENTER = { x: 200, y: 200 };
@@ -207,30 +207,32 @@ const FILTERS = ['All work', 'Product', 'Learning build'];
 
 function ProjectCard({ project }) {
   return (
-    <article className="border border-zinc-200 bg-white dark:border-white/10 dark:bg-zinc-900">
-      <div className="grid md:grid-cols-2">
-        <div className="flex flex-col p-8 md:p-10">
-          <div className="flex items-center justify-between font-mono text-[11px] tracking-widest text-blue-600 dark:text-blue-500">
-            <span>
-              {project.num} · {project.tag}
-            </span>
-            <span>{project.company}</span>
-          </div>
-          <h3 className="mt-5 font-sans text-4xl font-extrabold tracking-tight text-zinc-950 md:text-5xl dark:text-white">
-            {project.title}
-          </h3>
-          <p className="mt-4 flex-1 leading-relaxed text-zinc-500 dark:text-zinc-400">
-            {project.description}
-          </p>
-          <div className="mt-6 flex flex-wrap gap-2">
-            {project.chips.map((chip) => (
-              <span
-                key={chip}
-                className="border border-zinc-200 px-3 py-1.5 font-mono text-[11px] text-zinc-600 dark:border-white/10 dark:text-zinc-400"
-              >
-                {chip}
+    <article className="h-full border border-zinc-200 bg-white dark:border-white/10 dark:bg-zinc-900">
+      <div className="grid h-full md:grid-cols-2">
+        <div className="flex flex-col justify-between p-8 md:p-10">
+          <div>
+            <div className="flex items-center justify-between font-mono text-[11px] tracking-widest text-blue-600 dark:text-blue-500">
+              <span>
+                {project.num} · {project.tag}
               </span>
-            ))}
+              <span>{project.company}</span>
+            </div>
+            <h3 className="mt-5 font-sans text-4xl font-extrabold tracking-tight text-zinc-950 md:text-5xl dark:text-white">
+              {project.title}
+            </h3>
+            <p className="mt-4 leading-relaxed text-zinc-500 dark:text-zinc-400">
+              {project.description}
+            </p>
+            <div className="mt-6 flex flex-wrap gap-2">
+              {project.chips.map((chip) => (
+                <span
+                  key={chip}
+                  className="border border-zinc-200 px-3 py-1.5 font-mono text-[11px] text-zinc-600 dark:border-white/10 dark:text-zinc-400"
+                >
+                  {chip}
+                </span>
+              ))}
+            </div>
           </div>
           {project.cta && (
             <a
@@ -256,11 +258,13 @@ function ProjectCard({ project }) {
 
 export default function Work() {
   const [filter, setFilter] = useState('All work');
-  const [showMore, setShowMore] = useState(false);
+  const [index, setIndex] = useState(0);
+  const [touchStartX, setTouchStartX] = useState(null);
+  const [touchEndX, setTouchEndX] = useState(null);
 
   const handleFilter = (f) => {
     setFilter(f);
-    setShowMore(false);
+    setIndex(0);
   };
 
   const matches = PROJECTS.filter((p) => {
@@ -268,9 +272,48 @@ export default function Work() {
     if (filter === 'Learning build') return p.type === 'learning';
     return true;
   });
-  const productCards = matches.filter((p) => p.type === 'product');
-  const extraCards = matches.filter((p) => p.type !== 'product');
-  const extraExpanded = showMore || filter !== 'All work';
+
+  const total = matches.length;
+  const currentIndex = total > 0 ? Math.min(index, total - 1) : 0;
+
+  const prev = () => {
+    setIndex((i) => (i - 1 + total) % total);
+  };
+  const next = () => {
+    setIndex((i) => (i + 1) % total);
+  };
+  const pad = (n) => String(n).padStart(2, '0');
+
+  const minSwipeDistance = 50;
+
+  const onTouchStart = (e) => {
+    setTouchEndX(null);
+    setTouchStartX(e.targetTouches[0].clientX);
+  };
+
+  const onTouchMove = (e) => {
+    setTouchEndX(e.targetTouches[0].clientX);
+  };
+
+  const onTouchEnd = () => {
+    if (!touchStartX || !touchEndX) return;
+    const distance = touchStartX - touchEndX;
+    if (distance > minSwipeDistance && total > 1) {
+      next();
+    } else if (distance < -minSwipeDistance && total > 1) {
+      prev();
+    }
+  };
+
+  const onKeyDown = (e) => {
+    if (e.key === 'ArrowLeft') {
+      e.preventDefault();
+      prev();
+    } else if (e.key === 'ArrowRight') {
+      e.preventDefault();
+      next();
+    }
+  };
 
   return (
     <section id="work" className="border-t border-zinc-200 dark:border-white/10">
@@ -292,61 +335,77 @@ export default function Work() {
             </Reveal>
 
             <Reveal delay={80}>
-              <div className="mt-8 flex flex-wrap gap-2">
-                {FILTERS.map((f) => {
-                  const active = filter === f;
-                  return (
+              <div className="mt-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                <div className="flex flex-wrap gap-2">
+                  {FILTERS.map((f) => {
+                    const active = filter === f;
+                    return (
+                      <button
+                        key={f}
+                        type="button"
+                        onClick={() => handleFilter(f)}
+                        className={`cursor-pointer border px-4 py-2 font-mono text-xs transition-colors ${
+                          active
+                            ? 'border-zinc-950 bg-zinc-950 text-white dark:border-white dark:bg-white dark:text-zinc-950'
+                            : 'border-zinc-300 text-zinc-500 hover:border-zinc-950 dark:border-white/15 dark:text-zinc-400 dark:hover:border-white/40'
+                        }`}
+                      >
+                        {f}
+                      </button>
+                    );
+                  })}
+                </div>
+
+                <div className="flex items-center justify-between sm:justify-end gap-3 shrink-0">
+                  <span className="font-mono text-xs text-[#52525B] dark:text-[#A1A1AA]">
+                    {pad(currentIndex + 1)} / {pad(total)}
+                  </span>
+                  <div className="flex gap-2">
                     <button
-                      key={f}
                       type="button"
-                      onClick={() => handleFilter(f)}
-                      className={`cursor-pointer border px-4 py-2 font-mono text-xs ${
-                        active
-                          ? 'border-zinc-950 bg-zinc-950 text-white dark:border-white dark:bg-white dark:text-zinc-950'
-                          : 'border-zinc-300 text-zinc-500 dark:border-white/15 dark:text-zinc-400'
-                      }`}
+                      onClick={prev}
+                      disabled={total <= 1}
+                      aria-label="Previous project"
+                      className="w-10 h-10 cursor-pointer border border-[#E4E4E7] dark:border-white/10 bg-white dark:bg-[#131316] flex items-center justify-center text-[#09090B] dark:text-[#FAFAFA] transition-opacity disabled:opacity-40 hover:border-[#09090B] dark:hover:border-white/40"
                     >
-                      {f}
+                      <ArrowLeft size={16} />
                     </button>
-                  );
-                })}
+                    <button
+                      type="button"
+                      onClick={next}
+                      disabled={total <= 1}
+                      aria-label="Next project"
+                      className="w-10 h-10 cursor-pointer border border-[#E4E4E7] dark:border-white/10 bg-white dark:bg-[#131316] flex items-center justify-center text-[#09090B] dark:text-[#FAFAFA] transition-opacity disabled:opacity-40 hover:border-[#09090B] dark:hover:border-white/40"
+                    >
+                      <ArrowRight size={16} />
+                    </button>
+                  </div>
+                </div>
               </div>
             </Reveal>
 
-            <div className="mt-8 space-y-8">
-              {productCards.map((p, i) => (
-                <Reveal key={p.num} delay={i * 60}>
-                  <ProjectCard project={p} />
-                </Reveal>
-              ))}
-              {extraCards.map((p, i) => (
+            <Reveal delay={120}>
+              <div
+                tabIndex={0}
+                onKeyDown={onKeyDown}
+                onTouchStart={onTouchStart}
+                onTouchMove={onTouchMove}
+                onTouchEnd={onTouchEnd}
+                aria-label="Projects horizontal slider"
+                className="mt-8 relative overflow-hidden focus:outline-none focus-visible:ring-1 focus-visible:ring-zinc-400"
+              >
                 <div
-                  key={p.num}
-                  className={`grid transition-all duration-500 ease-in-out ${
-                    extraExpanded ? 'grid-rows-[1fr] opacity-100' : '-mt-8 grid-rows-[0fr] opacity-0'
-                  }`}
+                  className="flex transition-transform duration-500 ease-out will-change-transform"
+                  style={{ transform: `translateX(-${currentIndex * 100}%)` }}
                 >
-                  <div className="overflow-hidden">
-                    <Reveal delay={(productCards.length + i) * 60}>
+                  {matches.map((p) => (
+                    <div key={p.num} className="w-full shrink-0">
                       <ProjectCard project={p} />
-                    </Reveal>
-                  </div>
+                    </div>
+                  ))}
                 </div>
-              ))}
-            </div>
-
-            {filter === 'All work' && (
-              <Reveal className="mt-10 flex justify-center">
-                <button
-                  type="button"
-                  onClick={() => setShowMore((v) => !v)}
-                  className="inline-flex cursor-pointer items-center gap-2 border border-zinc-300 px-6 py-3 font-mono text-xs text-zinc-900 transition-colors hover:border-zinc-950 dark:border-white/15 dark:text-zinc-100 dark:hover:border-white/40"
-                >
-                  {showMore ? 'Show less' : 'Show more'}
-                  {showMore ? <ArrowUp size={14} /> : <ArrowDown size={14} />}
-                </button>
-              </Reveal>
-            )}
+              </div>
+            </Reveal>
           </div>
         </div>
       </div>
