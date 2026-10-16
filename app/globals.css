@@ -146,21 +146,27 @@ body {
   }
 }
 
-/* Smooth, understated theme transitions */
-body,
-header,
-section,
-footer,
-div,
-article,
-a,
-button,
-span,
-p,
-h1,
-h2,
-h3 {
-  transition-property: background-color, border-color, color, fill, stroke;
-  transition-duration: 0.3s;
-  transition-timing-function: ease;
+/* Smooth, understated theme transitions.
+   Kept inside @layer base so Tailwind's transition utilities
+   (slider tracks, expand/collapse, reveals) in the utilities layer
+   always win — otherwise this rule silently kills every transform/
+   height/opacity transition on the site. */
+@layer base {
+  body,
+  header,
+  section,
+  footer,
+  div,
+  article,
+  a,
+  button,
+  span,
+  p,
+  h1,
+  h2,
+  h3 {
+    transition-property: background-color, border-color, color, fill, stroke;
+    transition-duration: 0.3s;
+    transition-timing-function: ease;
+  }
 }
