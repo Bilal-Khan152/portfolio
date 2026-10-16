@@ -22,9 +22,9 @@ const cards = [
   },
   {
     n: '04',
-    tag: 'CONVERSATIONAL AI',
-    title: 'AI Assistant Development',
-    text: 'Conversational AI assistants and chat experiences built directly into real products with clear, useful user flows.',
+    tag: 'AI ASSISTED',
+    title: 'AI-assisted development',
+    text: 'Modern AI tooling woven into the workflow — faster scaffolding, debugging, and iteration without compromising code quality.',
     icon: true,
   },
 ];
