@@ -2,6 +2,7 @@ import { Archivo, JetBrains_Mono, Instrument_Serif } from 'next/font/google';
 import './globals.css';
 import { ThemeProvider } from '../components/theme';
 import Navbar from '../components/Navbar';
+import SmoothScroll from '../components/SmoothScroll';
 
 const archivo = Archivo({
   subsets: ['latin'],
@@ -40,6 +41,7 @@ export default function RootLayout({ children }) {
       </head>
       <body className={`${archivo.variable} ${jetbrainsMono.variable} ${instrumentSerif.variable}`}>
         <ThemeProvider>
+          <SmoothScroll />
           <Navbar />
           <main>{children}</main>
         </ThemeProvider>

@@ -9,7 +9,8 @@
 }
 
 html {
-  scroll-behavior: smooth;
+  /* Native smooth anchor scrolling is off — Lenis (SmoothScroll) owns all
+     scrolling for the buttery effect; the two conflict if both are on. */
 }
 
 body {
