@@ -93,19 +93,19 @@ export default function Skills() {
               </p>
             </Reveal>
 
-            <div className="mt-12 space-y-10">
+            <div className="mt-10 space-y-8">
               {groups.map((group, gi) => (
                 <Reveal key={group.label} delay={gi * 60}>
                   <p className="font-mono text-xs uppercase tracking-wider text-zinc-500 dark:text-zinc-400">
                     {group.label}
                   </p>
-                  <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 mt-5">
+                  <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 mt-4">
                     {group.skills.map((skill) => (
                       <div
                         key={skill.name}
-                        className="flex flex-col items-center gap-5 rounded-xl border border-zinc-200 dark:border-white/10 bg-white dark:bg-white/5 px-4 py-8"
+                        className="flex items-center gap-3 rounded-xl border border-zinc-200 dark:border-white/10 bg-white dark:bg-white/5 px-4 py-3"
                       >
-                        <span className="h-14 w-14 shrink-0">
+                        <span className="h-10 w-10 shrink-0">
                           {skill.custom ? <UnleashIcon /> : <TechIcon slug={skill.slug} />}
                         </span>
                         <span className="font-sans text-sm font-semibold text-zinc-900 dark:text-zinc-100">
