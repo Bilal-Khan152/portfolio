@@ -161,29 +161,8 @@ const PROJECTS = [
   },
   {
     num: '02',
-    tag: 'OPERATIONS PLATFORM',
-    company: 'HAZELSOFT',
-    title: 'FR-Survey',
-    description:
-      'A restaurant management system for shift operations, customer feedback, reviews, and performance visibility. I helped build responsive interfaces aligned with business requirements.',
-    chips: ['React.js', 'Redux', 'Axios', 'MUI', 'React-Bootstrap'],
-    cta: null,
-    type: 'product',
-    diagram: {
-      center: 'RESTAURANT OPS',
-      centerTone: 'blue',
-      nodes: [
-        { label: 'SHIFTS', x: 100, y: 78 },
-        { label: 'FEEDBACK', x: 300, y: 78 },
-        { label: 'REVIEWS', x: 100, y: 322 },
-        { label: 'INSIGHTS', x: 300, y: 322 },
-      ],
-    },
-  },
-  {
-    num: '03',
     tag: 'HEALTHCARE PLATFORM',
-    company: 'SOMALIA',
+    company: 'XEVEN SOLUTIONS',
     title: 'Ogow Health',
     description:
       'A national child-immunization platform for Somalia. Hospitals and clinics record newborn vaccinations and dose histories in one place, giving health officials a clear view of coverage across the country.',
@@ -198,6 +177,27 @@ const PROJECTS = [
         { label: 'CLINICS', x: 300, y: 78 },
         { label: 'VACCINE RECORDS', x: 100, y: 322 },
         { label: 'DOSE HISTORY', x: 300, y: 322 },
+      ],
+    },
+  },
+  {
+    num: '03',
+    tag: 'PROPERTY MANAGEMENT',
+    company: 'PRIVATE CLIENT',
+    title: 'Real Estate',
+    description:
+      'A private management system for a town owner — tracking plot sales, customer installments, invoices, and plot inventory in one place.',
+    chips: ['React.js', 'Redux Toolkit', 'Axios', 'Tailwind CSS'],
+    cta: null,
+    type: 'product',
+    diagram: {
+      center: 'TOWN PLOTS',
+      centerTone: 'lime',
+      nodes: [
+        { label: 'PLOT SALES', x: 100, y: 78 },
+        { label: 'INSTALLMENTS', x: 300, y: 78 },
+        { label: 'CUSTOMERS', x: 100, y: 322 },
+        { label: 'INVOICES', x: 300, y: 322 },
       ],
     },
   },
