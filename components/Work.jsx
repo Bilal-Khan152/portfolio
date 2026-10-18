@@ -187,8 +187,8 @@ const PROJECTS = [
     title: 'Ogow Health',
     description:
       'A national child-immunization platform for Somalia. Hospitals and clinics record newborn vaccinations and dose histories in one place, giving health officials a clear view of coverage across the country.',
-    chips: [],
-    cta: null,
+    chips: ['React.js', 'Redux', 'Axios', 'Tailwind CSS'],
+    cta: { label: 'Visit product', href: 'https://ogowhealth.com/en/' },
     type: 'product',
     diagram: {
       center: 'IMMUNIZATION',
