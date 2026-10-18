@@ -182,28 +182,26 @@ const PROJECTS = [
   },
   {
     num: '03',
-    tag: 'LEARNING BUILD',
-    company: 'PERSONAL',
-    title: 'Car Management System',
+    tag: 'HEALTHCARE PLATFORM',
+    company: 'SOMALIA',
+    title: 'Ogow Health',
     description:
-      'A role-based car management app with a real-time chat system, notifications, and Firebase-backed data — built to explore product flows end to end.',
-    chips: ['React.js', 'Context API', 'Firebase', 'Tailwind CSS'],
+      'A national child-immunization platform for Somalia. Hospitals and clinics record newborn vaccinations and dose histories in one place, giving health officials a clear view of coverage across the country.',
+    chips: [],
     cta: null,
-    type: 'learning',
+    type: 'product',
     diagram: {
-      center: 'CAR SYSTEM',
-      centerTone: 'lime',
+      center: 'IMMUNIZATION',
+      centerTone: 'blue',
       nodes: [
-        { label: 'ROLES', x: 100, y: 78 },
-        { label: 'CHAT', x: 300, y: 78 },
-        { label: 'FIREBASE', x: 100, y: 322 },
-        { label: 'ALERTS', x: 300, y: 322 },
+        { label: 'HOSPITALS', x: 100, y: 78 },
+        { label: 'CLINICS', x: 300, y: 78 },
+        { label: 'VACCINE RECORDS', x: 100, y: 322 },
+        { label: 'DOSE HISTORY', x: 300, y: 322 },
       ],
     },
   },
 ];
-
-const FILTERS = ['All work', 'Product', 'Learning build'];
 
 function ProjectCard({ project }) {
   return (
@@ -257,21 +255,11 @@ function ProjectCard({ project }) {
 }
 
 export default function Work() {
-  const [filter, setFilter] = useState('All work');
   const [index, setIndex] = useState(0);
   const [touchStartX, setTouchStartX] = useState(null);
   const [touchEndX, setTouchEndX] = useState(null);
 
-  const handleFilter = (f) => {
-    setFilter(f);
-    setIndex(0);
-  };
-
-  const matches = PROJECTS.filter((p) => {
-    if (filter === 'Product') return p.type === 'product';
-    if (filter === 'Learning build') return p.type === 'learning';
-    return true;
-  });
+  const matches = PROJECTS;
 
   const total = matches.length;
   const currentIndex = total > 0 ? Math.min(index, total - 1) : 0;
@@ -335,51 +323,29 @@ export default function Work() {
             </Reveal>
 
             <Reveal delay={80}>
-              <div className="mt-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-                <div className="flex flex-wrap gap-2">
-                  {FILTERS.map((f) => {
-                    const active = filter === f;
-                    return (
-                      <button
-                        key={f}
-                        type="button"
-                        onClick={() => handleFilter(f)}
-                        className={`cursor-pointer border px-4 py-2 font-mono text-xs transition-colors ${
-                          active
-                            ? 'border-zinc-950 bg-zinc-950 text-white dark:border-white dark:bg-white dark:text-zinc-950'
-                            : 'border-zinc-300 text-zinc-500 hover:border-zinc-950 dark:border-white/15 dark:text-zinc-400 dark:hover:border-white/40'
-                        }`}
-                      >
-                        {f}
-                      </button>
-                    );
-                  })}
-                </div>
-
-                <div className="flex items-center justify-between sm:justify-end gap-3 shrink-0">
-                  <span className="font-mono text-xs text-[#52525B] dark:text-[#A1A1AA]">
-                    {pad(currentIndex + 1)} / {pad(total)}
-                  </span>
-                  <div className="flex gap-2">
-                    <button
-                      type="button"
-                      onClick={prev}
-                      disabled={total <= 1}
-                      aria-label="Previous project"
-                      className="w-10 h-10 cursor-pointer border border-[#E4E4E7] dark:border-white/10 bg-white dark:bg-[#131316] flex items-center justify-center text-[#09090B] dark:text-[#FAFAFA] transition-opacity disabled:opacity-40 hover:border-[#09090B] dark:hover:border-white/40"
-                    >
-                      <ArrowLeft size={16} />
-                    </button>
-                    <button
-                      type="button"
-                      onClick={next}
-                      disabled={total <= 1}
-                      aria-label="Next project"
-                      className="w-10 h-10 cursor-pointer border border-[#E4E4E7] dark:border-white/10 bg-white dark:bg-[#131316] flex items-center justify-center text-[#09090B] dark:text-[#FAFAFA] transition-opacity disabled:opacity-40 hover:border-[#09090B] dark:hover:border-white/40"
-                    >
-                      <ArrowRight size={16} />
-                    </button>
-                  </div>
+              <div className="mt-8 flex items-center justify-end gap-3">
+                <span className="font-mono text-xs text-[#52525B] dark:text-[#A1A1AA]">
+                  {pad(currentIndex + 1)} / {pad(total)}
+                </span>
+                <div className="flex gap-2">
+                  <button
+                    type="button"
+                    onClick={prev}
+                    disabled={total <= 1}
+                    aria-label="Previous project"
+                    className="w-10 h-10 cursor-pointer border border-[#E4E4E7] dark:border-white/10 bg-white dark:bg-[#131316] flex items-center justify-center text-[#09090B] dark:text-[#FAFAFA] transition-opacity disabled:opacity-40 hover:border-[#09090B] dark:hover:border-white/40"
+                  >
+                    <ArrowLeft size={16} />
+                  </button>
+                  <button
+                    type="button"
+                    onClick={next}
+                    disabled={total <= 1}
+                    aria-label="Next project"
+                    className="w-10 h-10 cursor-pointer border border-[#E4E4E7] dark:border-white/10 bg-white dark:bg-[#131316] flex items-center justify-center text-[#09090B] dark:text-[#FAFAFA] transition-opacity disabled:opacity-40 hover:border-[#09090B] dark:hover:border-white/40"
+                  >
+                    <ArrowRight size={16} />
+                  </button>
                 </div>
               </div>
             </Reveal>
