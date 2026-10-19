@@ -18,7 +18,7 @@ const cards = [
     n: '03',
     tag: 'INTERFACE LAYER',
     title: 'Classic and Agentic Frontend development',
-    text: 'Maintainable component systems, thoughtful state integration, and accessible interfaces that stay fast across screen sizes.',
+    text: 'Solid classic foundations — clean components, sane state management, and accessible interfaces that stay fast. Simple screens and loading spinners don\'t cut it anymore, so agentic AI is part of how I build: faster iteration, same care.',
   },
   {
     n: '04',

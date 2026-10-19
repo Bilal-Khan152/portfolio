@@ -70,7 +70,8 @@ export default function About() {
                     feel dependable. My work starts before implementation I explore the
                     problem, contribute to R&amp;D, discuss flows with stakeholders, and
                     translate business requirements into end-to-end experiences people can use
-                    with confidence.
+                    with confidence. Classic frontend alone doesn&apos;t cut it anymore — so I keep
+                    agentic AI in the loop, shipping faster without losing the craft.
                   </p>
                 </div>
               </div>
