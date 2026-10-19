@@ -27,7 +27,7 @@ const testimonials = [
   {
     name: 'Usman Younas',
     title: 'Full-Stack Developer | React.js • Next.js • NestJS | PostgreSQL | JavaScript | Redux Toolkit | Tailwind CSS',
-    photo: null,
+    photo: '/usman.png',
     linkedin: 'https://www.linkedin.com/in/usman-younas-2aa830262/',
     quote:
       'It was a pleasure working with Bilal on the COVIS AI project. He has a good combination of technical skills and professionalism. He is always willing to learn, share ideas, and work together as a team. I really enjoyed working with him and appreciated his positive attitude and dedication. Wishing him all the best for his future journey!',
