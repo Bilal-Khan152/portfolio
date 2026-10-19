@@ -24,6 +24,14 @@ const testimonials = [
     quote:
       'It was a privilege working with Bilal on a Car Management System project, and it was an outstanding experience. He consistently displayed professionalism, teamwork, and a problem-solving mindset, handling challenges with positivity and precision. His attention to detail, technical expertise, and supportive attitude made collaboration both smooth and enjoyable. Bilal\u2019s dedication and cooperative spirit make him a valuable asset to any team. I\u2019m truly grateful for the opportunity to work with him and would be delighted to collaborate again in the future.',
   },
+  {
+    name: 'Usman Younas',
+    title: 'Full-Stack Developer | React.js • Next.js • NestJS | PostgreSQL | JavaScript | Redux Toolkit | Tailwind CSS',
+    photo: null,
+    linkedin: 'https://www.linkedin.com/in/usman-younas-2aa830262/',
+    quote:
+      'It was a pleasure working with Bilal on the COVIS AI project. He has a good combination of technical skills and professionalism. He is always willing to learn, share ideas, and work together as a team. I really enjoyed working with him and appreciated his positive attitude and dedication. Wishing him all the best for his future journey!',
+  },
 ];
 
 function TestimonialCard({ testimonial: t, isExpanded, onToggleExpand }) {
@@ -48,19 +56,34 @@ function TestimonialCard({ testimonial: t, isExpanded, onToggleExpand }) {
     <div className="w-full shrink-0 p-8 md:p-10">
       <div className="grid md:grid-cols-12 gap-8">
         <div className="md:col-span-4 flex md:block items-start gap-5">
-          <Image
-            src={t.photo}
-            alt={t.name}
-            width={96}
-            height={96}
-            className="w-24 h-24 rounded-lg object-cover shrink-0"
-          />
+          {t.photo ? (
+            <Image
+              src={t.photo}
+              alt={t.name}
+              width={96}
+              height={96}
+              className="w-24 h-24 rounded-lg object-cover shrink-0"
+            />
+          ) : (
+            <div className="w-24 h-24 rounded-lg shrink-0 flex items-center justify-center bg-zinc-200 dark:bg-white/10">
+              <span className="font-sans font-bold text-2xl text-zinc-600 dark:text-zinc-300">
+                {t.name
+                  .split(' ')
+                  .map((w) => w[0])
+                  .join('')
+                  .slice(0, 2)
+                  .toUpperCase()}
+              </span>
+            </div>
+          )}
           <div className="md:mt-5">
             <p className="font-sans font-bold text-[#09090B] dark:text-[#FAFAFA]">{t.name}</p>
             <p className="text-sm text-[#52525B] dark:text-[#A1A1AA] mt-1">{t.title}</p>
-            <p className="font-mono text-[11px] text-[#52525B] dark:text-[#A1A1AA] mt-2">
-              {t.location}
-            </p>
+            {t.location && (
+              <p className="font-mono text-[11px] text-[#52525B] dark:text-[#A1A1AA] mt-2">
+                {t.location}
+              </p>
+            )}
           </div>
         </div>
         <div className="md:col-span-8">
