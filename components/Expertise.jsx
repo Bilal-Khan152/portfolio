@@ -17,7 +17,7 @@ const cards = [
   {
     n: '03',
     tag: 'INTERFACE LAYER',
-    title: 'Frontend development',
+    title: 'Classic and Agentic Frontend development',
     text: 'Maintainable component systems, thoughtful state integration, and accessible interfaces that stay fast across screen sizes.',
   },
   {
