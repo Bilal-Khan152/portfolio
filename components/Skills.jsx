@@ -78,7 +78,7 @@ export default function Skills() {
         <div className="md:grid md:grid-cols-12 md:gap-8">
           <div className="md:col-span-3">
             <Reveal>
-              <p className="font-mono text-xs text-zinc-500 dark:text-zinc-400">04 / 07</p>
+              <p className="font-mono text-xs text-zinc-500 dark:text-zinc-400">04 / 06</p>
               <p className="font-mono text-sm text-zinc-950 dark:text-zinc-50 mt-2">Skills</p>
             </Reveal>
           </div>

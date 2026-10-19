@@ -5,7 +5,6 @@ import Expertise from '../components/Expertise';
 import Skills from '../components/Skills';
 import Work from '../components/Work';
 import Experience from '../components/Experience';
-import Collaboration from '../components/Collaboration';
 import Testimonials from '../components/Testimonials';
 import Footer from '../components/Footer';
 import Reveal from '../components/Reveal';
@@ -31,9 +30,6 @@ export default function Home() {
       </Reveal>
       <Reveal>
         <Experience />
-      </Reveal>
-      <Reveal>
-        <Collaboration />
       </Reveal>
       <Reveal>
         <Testimonials />
