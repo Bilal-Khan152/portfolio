@@ -144,7 +144,7 @@ const PROJECTS = [
     company: 'XEVEN SOLUTIONS',
     title: 'COVIS AI',
     description:
-      'An AI-powered platform for client management, tasks, business development, and onboarding. Frontend across tenants and user roles — plus the COVIS Chrome extension: LinkedIn and Upwork profile scraping, and AI analysis of live Upwork jobs.',
+      'An AI-powered platform for client management, tasks, business development, and onboarding. Frontend across tenants and user roles, plus the COVIS Chrome extension: LinkedIn and Upwork profile scraping, and AI analysis of live Upwork jobs.',
     chips: ['Next.js', 'JavaScript', 'Tailwind CSS', 'Shadcn', 'RTK Query', 'Sentry'],
     ctas: [
       { label: 'Visit COVIS AI', href: 'https://covis.ai/' },
@@ -192,7 +192,7 @@ const PROJECTS = [
     company: 'PRIVATE CLIENT',
     title: 'Real Estate',
     description:
-      'A private management system for a town owner — tracking plot sales, customer installments, invoices, and plot inventory in one place.',
+      'A private management system for a town owner, tracking plot sales, customer installments, invoices, and plot inventory in one place.',
     chips: ['React.js', 'Redux Toolkit', 'Axios', 'Tailwind CSS'],
     ctas: [],
     type: 'product',

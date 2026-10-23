@@ -43,7 +43,7 @@ export default function Footer() {
 
             <div className="relative">
               <p className="font-mono text-xs text-[#A1A1AA]">
-                <span className="text-[#A3E635]">——</span>&nbsp;&nbsp;Have a product challenge?
+                <span className="mr-3 inline-block h-[2px] w-10 bg-[#A3E635] align-middle" />Have a product challenge?
               </p>
               <h2 className="font-sans font-extrabold tracking-tight text-4xl md:text-6xl mt-4">
                 Making the complicated

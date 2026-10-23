@@ -15,7 +15,15 @@ html {
 
 body {
   font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
-  @apply bg-[#F4F4F6] text-zinc-950 antialiased dark:bg-[#09090B] dark:text-zinc-50;
+  @apply bg-[#F2F0EB] text-zinc-950 antialiased dark:bg-[#09090B] dark:text-zinc-50;
+}
+
+/* Light mode comfort: the old cool blue-gray bg + stark white cards glared.
+   Warm the paper tone (body above) and take pure-white surfaces down to a
+   soft warm off-white in light mode only. Unlayered on purpose so it wins
+   over Tailwind's utility layer; dark mode is untouched (:not(.dark)). */
+html:not(.dark) .bg-white {
+  background-color: #faf9f6;
 }
 
 /* Hollow / outlined display text (hero keywords) */

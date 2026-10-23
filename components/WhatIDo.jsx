@@ -4,7 +4,7 @@ const rows = [
   {
     n: '01',
     title: 'Product discovery & engineering',
-    text: 'R&D, feature design, flow exploration, and business requirements — carried through to production.',
+    text: 'R&D, feature design, flow exploration, and business requirements, carried through to production.',
   },
   {
     n: '02',
@@ -14,7 +14,7 @@ const rows = [
   {
     n: '03',
     title: 'API & state integration',
-    text: 'Redux Toolkit, RTK Query, and Axios — with loading, error, and empty states handled properly.',
+    text: 'Redux Toolkit, RTK Query, and Axios, with loading, error, and empty states handled properly.',
   },
   {
     n: '04',

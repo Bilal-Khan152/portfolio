@@ -6,7 +6,7 @@ const cards = [
     n: '01',
     tag: 'END TO END',
     title: 'Web application development',
-    text: 'Responsive, API-connected web apps — from feature design and user flows to production.',
+    text: 'Responsive, API-connected web apps, from feature design and user flows to production.',
   },
   {
     n: '02',
@@ -18,13 +18,13 @@ const cards = [
     n: '03',
     tag: 'INTERFACE LAYER',
     title: 'Classic and Agentic Frontend development',
-    text: 'Clean components, sane state, accessible interfaces that stay fast. Classic craft where it counts, agentic AI where it helps — simple screens and loading spinners no longer cut it.',
+    text: 'Clean components, sane state, accessible interfaces that stay fast. Classic craft where it counts, agentic AI where it helps. Simple screens and loading spinners no longer cut it.',
   },
   {
     n: '04',
     tag: 'AI ASSISTED',
     title: 'AI-assisted development',
-    text: 'AI tooling in the daily workflow — faster scaffolding, debugging, and iteration, without dropping code quality.',
+    text: 'AI tooling in the daily workflow: faster scaffolding, debugging, and iteration, without dropping code quality.',
     icon: true,
   },
 ];

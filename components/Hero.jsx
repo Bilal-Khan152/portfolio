@@ -43,8 +43,8 @@ export default function Hero() {
           className="animate-fade-up mt-8 max-w-xl font-sans text-lg leading-relaxed text-zinc-600 dark:text-zinc-400"
           style={{ animationDelay: '240ms' }}
         >
-          Muhammad Bilal — frontend engineer building scalable, multi-tenant SaaS
-          systems. Frontend has moved from classic screens to agentic development —
+          Muhammad Bilal, frontend engineer building scalable, multi-tenant SaaS
+          systems. Frontend has moved from classic screens to agentic development:
           AI in the loop, without losing the craft.
         </p>
 
