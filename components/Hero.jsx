@@ -1,11 +1,11 @@
 import { ArrowDown, ArrowDownRight, ArrowUpRight } from 'lucide-react';
 
 const tickerItems = [
-  'I turn ideas into clear, fast web products, end to end.',
-  'SaaS dashboards & AI-powered interfaces',
-  'Discovery to production, end to end',
-  'Pixel-precise UI, performance-obsessed',
-  'API integration & scalable state architecture',
+  'Multi-tenant SaaS frontends',
+  'React · Next.js · Tailwind CSS',
+  'Chrome extensions & data tooling',
+  'Dashboards, roles & permissions',
+  'Agentic AI in the workflow',
 ];
 
 const facts = [
@@ -35,17 +35,17 @@ export default function Hero() {
           className="animate-fade-up mt-8 max-w-5xl font-sans text-[2.9rem] leading-[1.02] font-extrabold tracking-tight text-zinc-950 md:text-7xl lg:text-[5.4rem] dark:text-white"
           style={{ animationDelay: '120ms' }}
         >
-          I turn ideas into <span className="text-outline">clear,</span>{' '}
-          <span className="text-outline">fast</span> web products, end to end.
+          Production frontends for <span className="text-outline">SaaS</span> and{' '}
+          <span className="text-outline">AI</span> products.
         </h1>
 
         <p
           className="animate-fade-up mt-8 max-w-xl font-sans text-lg leading-relaxed text-zinc-600 dark:text-zinc-400"
           style={{ animationDelay: '240ms' }}
         >
-          I&apos;m Muhammad Bilal. I work beyond the task handoff: researching the problem,
-          discussing user flows and business requirements, shaping the solution, and engineering
-          production-ready web products.
+          Muhammad Bilal — frontend engineer at Xeven Solutions, building COVIS AI, a
+          multi-tenant SaaS platform. The work covers R&amp;D, user flows, and business
+          requirements — not just the interface.
         </p>
 
         <div className="animate-fade-up mt-10 flex flex-wrap gap-3" style={{ animationDelay: '360ms' }}>

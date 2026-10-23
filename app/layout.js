@@ -26,7 +26,7 @@ const instrumentSerif = Instrument_Serif({
 export const metadata = {
   title: 'Muhammad Bilal — Frontend Engineer',
   description:
-    'Muhammad Bilal is a frontend engineer from Lahore, Pakistan, with a product-engineering mindset — building products end-to-end, from R&D and user flows to business requirements and production.',
+    'Muhammad Bilal — frontend engineer in Lahore, Pakistan, building COVIS AI at Xeven Solutions. Multi-tenant SaaS frontends in React and Next.js.',
 };
 
 export default function RootLayout({ children }) {

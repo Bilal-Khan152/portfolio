@@ -4,12 +4,12 @@ const principles = [
   {
     n: '01',
     title: 'Think before building',
-    text: 'Question assumptions, map the flow, and make the right problem clear before writing code.',
+    text: 'Map the flow and pin down the real problem before any code gets written.',
   },
   {
     n: '02',
     title: 'Built to scale',
-    text: 'Reusable components and patterns that stay coherent as products grow.',
+    text: 'Reusable components and patterns that hold up as products grow.',
   },
   {
     n: '03',
@@ -57,21 +57,20 @@ export default function About() {
 
                 <div className="md:col-span-3">
                   <p className="font-sans font-medium text-2xl md:text-[1.75rem] leading-snug tracking-tight text-zinc-950 dark:text-zinc-50">
-                    Great software isn&apos;t only about clean code. It&apos;s about{' '}
+                    Every build starts with{' '}
                     <span className="text-blue-600 dark:text-blue-400">
-                      why a feature matters
+                      the problem
                     </span>
-                    , who it helps, and how it moves the product forward.
+                    {' '}— who it helps, what it solves, and what the business actually needs.
                   </p>
                   <p className="text-[15px] leading-relaxed text-zinc-600 dark:text-zinc-400 mt-8">
-                    I&apos;m a product-minded frontend engineer with hands-on experience building
-                    responsive, high-performance web applications. I care about maintainable
-                    architecture, accessible interactions, and the details that make a product
-                    feel dependable. My work starts before implementation I explore the
-                    problem, contribute to R&amp;D, discuss flows with stakeholders, and
-                    translate business requirements into end-to-end experiences people can use
-                    with confidence. Classic frontend alone doesn&apos;t cut it anymore — so I keep
-                    agentic AI in the loop, shipping faster without losing the craft.
+                    Frontend engineer based in Lahore, with two years of production experience
+                    in React, Next.js, and Tailwind CSS. Currently building COVIS AI at Xeven
+                    Solutions — a multi-tenant SaaS platform — including a Chrome extension
+                    that pulls LinkedIn and Upwork data into the product. Work starts before
+                    implementation: R&amp;D, flow discussions, and business requirements.
+                    Agentic AI tools are part of the process now; classic frontend alone no
+                    longer cuts it.
                   </p>
                 </div>
               </div>

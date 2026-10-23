@@ -4,22 +4,22 @@ const rows = [
   {
     n: '01',
     title: 'Product discovery & engineering',
-    text: 'R&D, flow exploration, and business-requirement discussions carried through to production-ready experiences.',
+    text: 'R&D, flow exploration, and business requirements — carried through to production.',
   },
   {
     n: '02',
     title: 'UI systems & architecture',
-    text: 'Reusable component patterns, predictable state management, and maintainable foundations for growing products.',
+    text: 'Reusable component patterns, predictable state, and foundations that stay maintainable as products grow.',
   },
   {
     n: '03',
     title: 'API & state integration',
-    text: 'Reliable data flows using Redux Toolkit, RTK Query, Axios, and thoughtful loading, error, and empty states.',
+    text: 'Redux Toolkit, RTK Query, and Axios — with loading, error, and empty states handled properly.',
   },
   {
     n: '04',
     title: 'Performance & polish',
-    text: 'Accessible, pixel-precise experiences with careful attention to responsiveness, consistency, and runtime quality.',
+    text: 'Accessible interfaces, responsive on every screen, with attention to runtime performance.',
   },
 ];
 
@@ -31,14 +31,14 @@ export default function WhatIDo() {
           <div className="md:col-span-3">
             <Reveal>
               <p className="font-mono text-xs text-zinc-500 dark:text-zinc-400">02 / 06</p>
-              <p className="font-mono text-sm text-zinc-950 dark:text-zinc-50 mt-2">What I do</p>
+              <p className="font-mono text-sm text-zinc-950 dark:text-zinc-50 mt-2">Capabilities</p>
             </Reveal>
           </div>
 
           <div className="md:col-span-9 mt-10 md:mt-0">
             <Reveal>
               <h2 className="font-sans font-bold tracking-tight text-4xl md:text-6xl text-zinc-950 dark:text-zinc-50">
-                Product engineering that connects discovery to delivery.
+                From discovery to delivery.
               </h2>
             </Reveal>
 

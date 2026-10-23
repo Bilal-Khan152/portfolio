@@ -86,10 +86,10 @@ export default function Skills() {
           <div className="md:col-span-9 mt-10 md:mt-0">
             <Reveal>
               <h2 className="font-sans font-bold tracking-tight text-4xl md:text-6xl text-zinc-950 dark:text-zinc-50">
-                My technical stack.
+                Technical stack.
               </h2>
               <p className="mt-6 text-lg leading-relaxed text-zinc-600 dark:text-zinc-400 max-w-2xl">
-                The languages, frameworks, and services I use to ship production work.
+                The languages, frameworks, and services behind the production work.
               </p>
             </Reveal>
 

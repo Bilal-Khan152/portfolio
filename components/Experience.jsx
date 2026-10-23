@@ -4,17 +4,17 @@ const ITEMS = [
   {
     meta: '12/2025 — PRESENT · XEVEN SOLUTIONS · COVIS AI',
     title: 'Frontend Engineer',
-    body: 'Contributing to product R&D and flow discussions, then developing and maintaining a multi-tenant SaaS frontend that turns business requirements into consistent experiences across organizations and roles.',
+    body: 'Product R&D and flow discussions, plus development and maintenance of a multi-tenant SaaS frontend used across organizations and roles.',
   },
   {
     meta: '10/2024 — 12/2025 · HAZELSOFT · FR-SURVEY',
     title: 'Associate Software Engineer',
-    body: 'Built user-friendly, responsive interfaces for a restaurant management platform while collaborating with frontend teammates and the project manager.',
+    body: 'Responsive interfaces for a restaurant management platform, built with a frontend team and project manager.',
   },
   {
     meta: '03/2021 — 03/2025 · ABDUL WALI KHAN UNIVERSITY',
     title: 'BS Computer Science',
-    body: 'Studied computer science in Nowshera, Pakistan, building the technical foundation for product-focused frontend engineering.',
+    body: 'Degree in computer science from Nowshera, Pakistan.',
   },
 ];
 
@@ -32,7 +32,7 @@ export default function Experience() {
           <div className="mt-10 md:col-span-9 md:mt-0">
             <Reveal>
               <h2 className="font-sans text-4xl font-bold tracking-tight text-zinc-950 md:text-6xl dark:text-white">
-                Building across product teams and business contexts.
+                Where the experience comes from.
               </h2>
             </Reveal>
             <div className="mt-12 space-y-6">

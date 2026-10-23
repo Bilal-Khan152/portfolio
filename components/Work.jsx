@@ -144,7 +144,7 @@ const PROJECTS = [
     company: 'XEVEN SOLUTIONS',
     title: 'COVIS AI',
     description:
-      'An AI-powered platform for client management, tasks, business development, and onboarding. I develop and maintain the frontend across tenants and user roles, working with backend, AI, and QA teams.',
+      'An AI-powered platform for client management, tasks, business development, and onboarding. Frontend development and maintenance across tenants and user roles, in collaboration with backend, AI, and QA teams.',
     chips: ['Next.js', 'JavaScript', 'Tailwind CSS', 'Shadcn', 'RTK Query', 'Sentry'],
     cta: { label: 'Visit product', href: 'https://covis.ai/' },
     type: 'product',

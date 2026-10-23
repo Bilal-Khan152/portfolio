@@ -46,13 +46,12 @@ export default function Footer() {
                 <span className="text-[#A3E635]">——</span>&nbsp;&nbsp;Have a product challenge?
               </p>
               <h2 className="font-sans font-extrabold tracking-tight text-4xl md:text-6xl mt-4">
-                Let&apos;s make the complicated
+                Making the complicated
                 <br />
                 feel <span className="text-[#A3E635]">simple.</span>
               </h2>
               <p className="text-[#A1A1AA] max-w-xl leading-relaxed mt-6">
-                I&apos;m open to product engineering opportunities, thoughtful collaborations, and
-                conversations about turning complex requirements into better web experiences.
+                Open to frontend engineering roles and freelance product work.
               </p>
 
               <div className="flex flex-wrap gap-3 mt-8">

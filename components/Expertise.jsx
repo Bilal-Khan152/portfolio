@@ -6,7 +6,7 @@ const cards = [
     n: '01',
     tag: 'END TO END',
     title: 'Web application development',
-    text: 'Responsive, API-connected applications shaped from business requirements and user flows through to a production-ready experience.',
+    text: 'Responsive, API-connected web apps — from requirements and user flows to production.',
   },
   {
     n: '02',
@@ -18,13 +18,13 @@ const cards = [
     n: '03',
     tag: 'INTERFACE LAYER',
     title: 'Classic and Agentic Frontend development',
-    text: 'Solid classic foundations — clean components, sane state management, and accessible interfaces that stay fast. Simple screens and loading spinners don\'t cut it anymore, so agentic AI is part of how I build: faster iteration, same care.',
+    text: 'Clean components, sane state, accessible interfaces that stay fast. Classic craft where it counts, agentic AI where it helps — simple screens and loading spinners no longer cut it.',
   },
   {
     n: '04',
     tag: 'AI ASSISTED',
     title: 'AI-assisted development',
-    text: 'Modern AI tooling woven into the workflow — faster scaffolding, debugging, and iteration without compromising code quality.',
+    text: 'AI tooling in the daily workflow — faster scaffolding, debugging, and iteration, without dropping code quality.',
     icon: true,
   },
 ];
@@ -44,11 +44,10 @@ export default function Expertise() {
           <div className="md:col-span-9 mt-10 md:mt-0">
             <Reveal>
               <h2 className="font-sans font-bold tracking-tight text-4xl md:text-6xl text-zinc-950 dark:text-zinc-50">
-                Where I can contribute.
+                Core expertise.
               </h2>
               <p className="mt-6 text-lg leading-relaxed text-zinc-600 dark:text-zinc-400 max-w-2xl">
-                Four focused areas where product engineering, technical execution, and frontend
-                craft come together.
+                Four areas of day-to-day work.
               </p>
             </Reveal>
 
