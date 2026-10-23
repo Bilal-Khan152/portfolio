@@ -74,7 +74,7 @@ const groups = [
 export default function Skills() {
   return (
     <section id="skills">
-      <div className="max-w-6xl mx-auto px-6 py-16 md:py-24">
+      <div className="max-w-6xl mx-auto px-6 py-12 md:py-16">
         <div className="md:grid md:grid-cols-12 md:gap-8">
           <div className="md:col-span-3">
             <Reveal>

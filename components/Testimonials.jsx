@@ -181,7 +181,7 @@ export default function Testimonials() {
 
   return (
     <section id="reviews">
-      <div className="max-w-6xl mx-auto px-6 py-16 md:py-24">
+      <div className="max-w-6xl mx-auto px-6 py-12 md:py-16">
         <Reveal>
           <div className="flex items-center justify-between gap-6">
             <h2 className="font-sans font-bold tracking-tight text-2xl md:text-3xl text-[#09090B] dark:text-[#FAFAFA]">

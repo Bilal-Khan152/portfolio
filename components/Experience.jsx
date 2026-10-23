@@ -21,7 +21,7 @@ const ITEMS = [
 export default function Experience() {
   return (
     <section id="experience" className="border-t border-zinc-200 dark:border-white/10">
-      <div className="mx-auto max-w-6xl px-6 py-16 md:py-24">
+      <div className="mx-auto max-w-6xl px-6 py-12 md:py-16">
         <div className="md:grid md:grid-cols-12 md:gap-8">
           <div className="md:col-span-3">
             <Reveal>
