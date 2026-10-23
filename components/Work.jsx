@@ -144,9 +144,15 @@ const PROJECTS = [
     company: 'XEVEN SOLUTIONS',
     title: 'COVIS AI',
     description:
-      'An AI-powered platform for client management, tasks, business development, and onboarding. Frontend development and maintenance across tenants and user roles, in collaboration with backend, AI, and QA teams.',
+      'An AI-powered platform for client management, tasks, business development, and onboarding. Frontend across tenants and user roles — plus the COVIS Chrome extension: LinkedIn and Upwork profile scraping, and AI analysis of live Upwork jobs.',
     chips: ['Next.js', 'JavaScript', 'Tailwind CSS', 'Shadcn', 'RTK Query', 'Sentry'],
-    cta: { label: 'Visit product', href: 'https://covis.ai/' },
+    ctas: [
+      { label: 'Visit COVIS AI', href: 'https://covis.ai/' },
+      {
+        label: 'Get the Chrome extension',
+        href: 'https://chromewebstore.google.com/detail/covis-ai/gpfpiggbllfnafhflkipicojfhnnpkdc',
+      },
+    ],
     type: 'product',
     diagram: {
       center: 'AI WORKSPACE',
@@ -167,7 +173,7 @@ const PROJECTS = [
     description:
       'A national child-immunization platform for Somalia. Hospitals and clinics record newborn vaccinations and dose histories in one place, giving health officials a clear view of coverage across the country.',
     chips: ['React.js', 'Redux', 'Axios', 'Tailwind CSS'],
-    cta: { label: 'Visit product', href: 'https://ogowhealth.com/en/' },
+    ctas: [{ label: 'Visit Ogow Health', href: 'https://ogowhealth.com/en/' }],
     type: 'product',
     diagram: {
       center: 'IMMUNIZATION',
@@ -188,7 +194,7 @@ const PROJECTS = [
     description:
       'A private management system for a town owner — tracking plot sales, customer installments, invoices, and plot inventory in one place.',
     chips: ['React.js', 'Redux Toolkit', 'Axios', 'Tailwind CSS'],
-    cta: null,
+    ctas: [],
     type: 'product',
     diagram: {
       center: 'TOWN PLOTS',
@@ -232,16 +238,25 @@ function ProjectCard({ project }) {
               ))}
             </div>
           </div>
-          {project.cta && (
-            <a
-              href={project.cta.href}
-              target="_blank"
-              rel="noreferrer"
-              className="mt-8 inline-flex items-center gap-2 self-start bg-lime-400 px-5 py-3 font-mono text-xs font-semibold tracking-wide text-zinc-950 transition-colors hover:bg-lime-300"
-            >
-              {project.cta.label}
-              <ArrowUpRight size={14} />
-            </a>
+          {project.ctas?.length > 0 && (
+            <div className="mt-8 flex flex-wrap gap-3">
+              {project.ctas.map((cta, i) => (
+                <a
+                  key={cta.href}
+                  href={cta.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  className={
+                    i === 0
+                      ? 'inline-flex items-center gap-2 bg-lime-400 px-5 py-3 font-mono text-xs font-semibold tracking-wide text-zinc-950 transition-colors hover:bg-lime-300'
+                      : 'inline-flex items-center gap-2 border border-zinc-300 px-5 py-3 font-mono text-xs font-semibold tracking-wide text-zinc-900 transition-colors hover:border-zinc-500 dark:border-white/15 dark:text-zinc-100 dark:hover:border-white/40'
+                  }
+                >
+                  {cta.label}
+                  <ArrowUpRight size={14} />
+                </a>
+              ))}
+            </div>
           )}
         </div>
         <ArchitectureDiagram
