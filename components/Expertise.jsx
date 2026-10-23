@@ -46,13 +46,13 @@ export default function Expertise() {
               <h2 className="font-sans font-bold tracking-tight text-4xl md:text-6xl text-zinc-950 dark:text-zinc-50">
                 Core expertise.
               </h2>
-              <p className="mt-6 text-lg leading-relaxed text-zinc-600 dark:text-zinc-400 max-w-2xl">
+              <p className="mt-4 text-lg leading-relaxed text-zinc-600 dark:text-zinc-400 max-w-2xl">
                 Four areas of day-to-day work.
               </p>
             </Reveal>
 
             <Reveal delay={120}>
-              <div className="grid md:grid-cols-2 gap-px bg-zinc-200 dark:bg-white/10 border border-zinc-200 dark:border-white/10 mt-12">
+              <div className="grid md:grid-cols-2 gap-px bg-zinc-200 dark:bg-white/10 border border-zinc-200 dark:border-white/10 mt-8">
                 {cards.map((card) => (
                   <div
                     key={card.n}
@@ -65,7 +65,7 @@ export default function Expertise() {
                         {card.tag}
                       </p>
                     </div>
-                    <h3 className="font-sans font-bold tracking-tight text-3xl md:text-[2rem] leading-tight text-zinc-950 dark:text-zinc-50 mt-10">
+                    <h3 className="font-sans font-bold tracking-tight text-3xl md:text-[2rem] leading-tight text-zinc-950 dark:text-zinc-50 mt-6">
                       {card.title}
                     </h3>
                     <p className="text-[15px] leading-relaxed text-zinc-600 dark:text-zinc-400 mt-4">
