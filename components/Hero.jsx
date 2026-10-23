@@ -43,9 +43,9 @@ export default function Hero() {
           className="animate-fade-up mt-8 max-w-xl font-sans text-lg leading-relaxed text-zinc-600 dark:text-zinc-400"
           style={{ animationDelay: '240ms' }}
         >
-          Muhammad Bilal — frontend engineer with two years of production experience in
-          React and Next.js. The work covers R&amp;D, feature design, user flows, and
-          business requirements — not just the interface.
+          Muhammad Bilal — frontend engineer building scalable, multi-tenant SaaS
+          systems. Frontend has moved from classic screens to agentic development —
+          AI in the loop, without losing the craft.
         </p>
 
         <div className="animate-fade-up mt-10 flex flex-wrap gap-3" style={{ animationDelay: '360ms' }}>
