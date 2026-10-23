@@ -4,7 +4,7 @@ const rows = [
   {
     n: '01',
     title: 'Product discovery & engineering',
-    text: 'R&D, flow exploration, and business requirements — carried through to production.',
+    text: 'R&D, feature design, flow exploration, and business requirements — carried through to production.',
   },
   {
     n: '02',

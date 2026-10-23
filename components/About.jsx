@@ -65,12 +65,11 @@ export default function About() {
                   </p>
                   <p className="text-[15px] leading-relaxed text-zinc-600 dark:text-zinc-400 mt-8">
                     Frontend engineer based in Lahore, with two years of production experience
-                    in React, Next.js, and Tailwind CSS. Currently building COVIS AI at Xeven
-                    Solutions — a multi-tenant SaaS platform — including a Chrome extension
-                    that pulls LinkedIn and Upwork data into the product. Work starts before
-                    implementation: R&amp;D, flow discussions, and business requirements.
-                    Agentic AI tools are part of the process now; classic frontend alone no
-                    longer cuts it.
+                    in React, Next.js, and Tailwind CSS. Day-to-day work: multi-tenant SaaS
+                    dashboards, data-heavy interfaces, and browser extensions. Work starts
+                    before implementation — R&amp;D, feature design, flow discussions, and
+                    business requirements. Agentic AI tools are part of the process now;
+                    classic frontend alone no longer cuts it.
                   </p>
                 </div>
               </div>

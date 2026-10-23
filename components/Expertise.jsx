@@ -6,7 +6,7 @@ const cards = [
     n: '01',
     tag: 'END TO END',
     title: 'Web application development',
-    text: 'Responsive, API-connected web apps — from requirements and user flows to production.',
+    text: 'Responsive, API-connected web apps — from feature design and user flows to production.',
   },
   {
     n: '02',
