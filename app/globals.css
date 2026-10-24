@@ -15,21 +15,32 @@ html {
 
 body {
   font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
-  @apply bg-[#F2F0EB] text-zinc-950 antialiased dark:bg-[#09090B] dark:text-zinc-50;
+  @apply bg-[#ECE9E1] text-zinc-950 antialiased dark:bg-[#09090B] dark:text-zinc-50;
 }
 
-/* Light mode comfort: the old cool blue-gray bg + stark white cards glared.
-   Warm the paper tone (body above) and take pure-white surfaces down to a
-   soft warm off-white in light mode only. Unlayered on purpose so it wins
-   over Tailwind's utility layer; dark mode is untouched (:not(.dark)). */
+/* Light mode comfort: cool blue-gray bg + stark whites + pure near-black
+   text glared. Fixes, light mode only: warmer/deeper paper bg (body above),
+   white surfaces taken down to a soft warm off-white, and the harshest
+   near-black (#09090B) text/fills softened to charcoal. Unlayered on
+   purpose so these win over Tailwind's utility layer; dark mode is
+   untouched (:not(.dark)). */
 html:not(.dark) .bg-white {
-  background-color: #faf9f6;
+  background-color: #f7f5ef;
+}
+html:not(.dark) .text-zinc-950 {
+  color: #26262b;
+}
+html:not(.dark) .text-zinc-900 {
+  color: #34343a;
+}
+html:not(.dark) .bg-zinc-950 {
+  background-color: #26262b;
 }
 
 /* Hollow / outlined display text (hero keywords) */
 .text-outline {
   color: transparent;
-  -webkit-text-stroke: 2px #09090b;
+  -webkit-text-stroke: 2px #26262b;
 }
 .dark .text-outline {
   -webkit-text-stroke-color: #fafafa;
