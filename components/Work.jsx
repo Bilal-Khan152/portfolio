@@ -144,15 +144,9 @@ const PROJECTS = [
     company: 'XEVEN SOLUTIONS',
     title: 'COVIS AI',
     description:
-      'An AI-powered platform for client management, tasks, business development, and onboarding. Frontend across tenants and user roles, plus the COVIS Chrome extension: LinkedIn and Upwork profile scraping, and AI analysis of live Upwork jobs.',
+      'An AI-powered platform for client management, tasks, business development, and onboarding. Frontend across tenants and user roles.',
     chips: ['Next.js', 'JavaScript', 'Tailwind CSS', 'Shadcn', 'RTK Query', 'Sentry'],
-    ctas: [
-      { label: 'Visit COVIS AI', href: 'https://covis.ai/' },
-      {
-        label: 'Chrome extension',
-        href: 'https://chromewebstore.google.com/detail/covis-ai/gpfpiggbllfnafhflkipicojfhnnpkdc',
-      },
-    ],
+    ctas: [{ label: 'Visit COVIS AI', href: 'https://covis.ai/' }],
     type: 'product',
     diagram: {
       center: 'AI WORKSPACE',
@@ -167,6 +161,32 @@ const PROJECTS = [
   },
   {
     num: '02',
+    tag: 'CHROME EXTENSION',
+    company: 'XEVEN SOLUTIONS',
+    title: 'COVIS AI Extension',
+    description:
+      "A Chrome extension that scrapes LinkedIn profiles and Upwork jobs and analyzes them with AI. Every profile and job is read against the user's own profile, turning raw pages into fit scores, strengths, and gaps.",
+    chips: ['Chrome Extension', 'JavaScript', 'Web Scraping', 'AI Analysis'],
+    ctas: [
+      {
+        label: 'Chrome extension',
+        href: 'https://chromewebstore.google.com/detail/covis-ai/gpfpiggbllfnafhflkipicojfhnnpkdc',
+      },
+    ],
+    type: 'product',
+    diagram: {
+      center: 'AI ANALYZER',
+      centerTone: 'lime',
+      nodes: [
+        { label: 'LINKEDIN PROFILES', x: 100, y: 78 },
+        { label: 'UPWORK JOBS', x: 285, y: 78, glow: '#2563EB' },
+        { label: 'PROFILE ANALYZER', x: 100, y: 322 },
+        { label: 'FIT SCORING', x: 285, y: 322 },
+      ],
+    },
+  },
+  {
+    num: '03',
     tag: 'HEALTHCARE PLATFORM',
     company: 'XEVEN SOLUTIONS',
     title: 'Ogow Health',
@@ -187,7 +207,7 @@ const PROJECTS = [
     },
   },
   {
-    num: '03',
+    num: '04',
     tag: 'PROPERTY MANAGEMENT',
     company: 'PRIVATE CLIENT',
     title: 'Real Estate',
