@@ -2,10 +2,10 @@
 
 import { useState } from 'react';
 import Reveal from './Reveal';
-import { ArrowUpRight, Copy, Check } from 'lucide-react';
+import { ArrowUpRight, Copy, Check, MessageCircle } from 'lucide-react';
 
 const EMAIL = 'bilalkhandev66@gmail.com';
-const PHONE = '+923139594577';
+const WHATSAPP = 'https://wa.me/923139594577';
 const PHONE_LABEL = '+92 313 9594577';
 const LINKEDIN = 'https://www.linkedin.com/in/muhammad-bilal-engineer';
 
@@ -55,14 +55,16 @@ export default function Footer() {
               </p>
 
               <div className="flex flex-wrap gap-3 mt-8">
-                <button
-                  type="button"
-                  onClick={() => copyText(PHONE, 'phone')}
+                <a
+                  href={WHATSAPP}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Chat on WhatsApp"
                   className="inline-flex cursor-pointer items-center gap-2 bg-[#A3E635] text-black font-sans font-bold text-sm px-6 py-3.5 transition-colors hover:bg-[#b9f04e]"
                 >
-                  {copiedKey === 'phone' ? <Check size={16} /> : <Copy size={16} />}
-                  {copiedKey === 'phone' ? 'Copied' : PHONE_LABEL}
-                </button>
+                  <MessageCircle size={16} />
+                  {PHONE_LABEL}
+                </a>
                 <a
                   href={LINKEDIN}
                   target="_blank"
