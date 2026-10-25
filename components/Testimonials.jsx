@@ -9,7 +9,7 @@ const testimonials = [
   {
     name: 'Shehroz Ahmed',
     title: 'Software Engineer | Business Developer | Client Acquisition & Web Solutions',
-    location: 'Islamabad, Islāmābād, Pakistan',
+    location: 'Islamabad, Pakistan',
     photo: '/shehroz.png',
     linkedin: 'https://www.linkedin.com/in/shehrozahmed7',
     quote:
@@ -27,6 +27,7 @@ const testimonials = [
   {
     name: 'Usman Younas',
     title: 'Full-Stack Developer | React.js • Next.js • NestJS | PostgreSQL | JavaScript | Redux Toolkit | Tailwind CSS',
+    location: 'Lahore, Punjab, Pakistan',
     photo: '/usman.png',
     linkedin: 'https://www.linkedin.com/in/usman-younas-2aa830262/',
     quote:
@@ -100,9 +101,8 @@ function TestimonialCard({ testimonial: t, isExpanded, onToggleExpand }) {
               </blockquote>
             </div>
             <div
-              className={`pointer-events-none absolute bottom-0 left-0 right-0 h-6 bg-gradient-to-t from-white dark:from-[#131316] to-transparent transition-opacity duration-300 ${
-                isExpanded ? 'opacity-0' : 'opacity-100'
-              }`}
+              className={`pointer-events-none absolute bottom-0 left-0 right-0 h-6 bg-gradient-to-t from-white dark:from-[#131316] to-transparent transition-opacity duration-300 ${isExpanded ? 'opacity-0' : 'opacity-100'
+                }`}
             />
           </div>
           <button

@@ -149,7 +149,7 @@ const PROJECTS = [
     ctas: [
       { label: 'Visit COVIS AI', href: 'https://covis.ai/' },
       {
-        label: 'Get the Chrome extension',
+        label: 'Chrome extension',
         href: 'https://chromewebstore.google.com/detail/covis-ai/gpfpiggbllfnafhflkipicojfhnnpkdc',
       },
     ],
