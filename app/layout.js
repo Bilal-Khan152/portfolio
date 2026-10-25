@@ -3,6 +3,7 @@ import './globals.css';
 import { ThemeProvider } from '../components/theme';
 import Navbar from '../components/Navbar';
 import SmoothScroll from '../components/SmoothScroll';
+import BackToTop from '../components/BackToTop';
 
 const archivo = Archivo({
   subsets: ['latin'],
@@ -44,6 +45,7 @@ export default function RootLayout({ children }) {
           <SmoothScroll />
           <Navbar />
           <main>{children}</main>
+          <BackToTop />
         </ThemeProvider>
       </body>
     </html>

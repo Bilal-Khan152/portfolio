@@ -18,6 +18,8 @@ export default function SmoothScroll() {
       smoothWheel: true,
       anchors: true,
     });
+    // Shared so UI like BackToTop can ride the same glide.
+    window.__lenis = lenis;
 
     let rafId;
     const raf = (time) => {
@@ -29,6 +31,7 @@ export default function SmoothScroll() {
     return () => {
       cancelAnimationFrame(rafId);
       lenis.destroy();
+      delete window.__lenis;
     };
   }, []);
 
