@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
+import { createPortal } from 'react-dom';
 import { isValidPhoneNumber } from 'react-phone-number-input';
 import { ArrowUpRight, CheckCircle2, X } from 'lucide-react';
 import PhoneInput from './PhoneInput';
@@ -93,7 +94,12 @@ export default function BookCallModal({ onClose }) {
     }
   };
 
-  return (
+  // Rendered through a portal at body level: the hero button that opens
+  // this modal sits inside an animated (opacity) wrapper, which creates a
+  // stacking context. Without the portal the modal's z-index is trapped
+  // inside that wrapper and later hero elements (facts row, ticker) paint
+  // over it.
+  return createPortal(
     <div className="fixed inset-0 z-[80] flex items-center justify-center p-4">
       <div
         aria-hidden="true"
@@ -226,6 +232,7 @@ export default function BookCallModal({ onClose }) {
           </>
         )}
       </div>
-    </div>
+    </div>,
+    document.body,
   );
 }
