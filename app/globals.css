@@ -135,6 +135,15 @@ html:not(.dark) .bg-zinc-950 {
   animation: modal-pop-out 0.2s ease-in forwards;
 }
 
+/* Hide scrollbars while keeping scroll (modals, dropdowns) */
+.scrollbar-hide {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
 /* Pulsing availability dot */
 @keyframes pulse-dot {
   0%,
