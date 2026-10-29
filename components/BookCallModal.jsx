@@ -182,6 +182,7 @@ export default function BookCallModal({ onClose }) {
                 <input
                   id="book-name"
                   type="text"
+                  autoFocus
                   autoComplete="name"
                   placeholder="Your name"
                   value={name}
