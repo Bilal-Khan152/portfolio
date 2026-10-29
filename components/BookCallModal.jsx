@@ -23,6 +23,7 @@ export default function BookCallModal({ onClose }) {
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
   const [website, setWebsite] = useState(''); // honeypot, humans never fill it
+  const [message, setMessage] = useState('');
   const [errors, setErrors] = useState({});
   const [sending, setSending] = useState(false);
   const [sent, setSent] = useState(false);
@@ -53,7 +54,7 @@ export default function BookCallModal({ onClose }) {
     setErrors(next);
     if (Object.keys(next).length > 0) return;
 
-    const details = { name: name.trim(), email: email.trim(), phone, website };
+    const details = { name: name.trim(), email: email.trim(), phone, website, message: message.trim() };
     setSending(true);
     try {
       const res = await fetch('/api/lead', {
@@ -70,6 +71,7 @@ export default function BookCallModal({ onClose }) {
     } catch {
       const lines = ['New call back request', `Name: ${details.name}`, `Phone: ${details.phone}`];
       if (details.email) lines.push(`Email: ${details.email}`);
+      if (details.message) lines.push(`Message: ${details.message}`);
       window.open(
         `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(lines.join('\n'))}`,
         '_blank',
@@ -182,6 +184,20 @@ export default function BookCallModal({ onClose }) {
                   <PhoneInput value={phone} onChange={setPhone} invalid={!!errors.phone} />
                 </div>
                 {errors.phone && <p className="mt-1.5 text-xs text-red-500">{errors.phone}</p>}
+              </div>
+
+              <div>
+                <label htmlFor="book-message" className={labelClass}>
+                  Message <span className="text-zinc-400 normal-case">(optional)</span>
+                </label>
+                <textarea
+                  id="book-message"
+                  rows={3}
+                  placeholder="A few words about the idea or project"
+                  value={message}
+                  onChange={(e) => setMessage(e.target.value)}
+                  className="mt-1.5 w-full resize-none rounded-[3px] border border-zinc-300 bg-white px-3.5 py-3 font-sans text-sm text-zinc-900 outline-none transition-colors placeholder:text-zinc-400 focus:border-lime-500 dark:border-white/15 dark:bg-white/5 dark:text-zinc-100"
+                />
               </div>
 
               <button

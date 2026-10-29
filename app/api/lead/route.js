@@ -74,6 +74,7 @@ export async function POST(request) {
   const name = String(body?.name ?? '').trim().slice(0, 80);
   const email = String(body?.email ?? '').trim().slice(0, 120);
   const phone = String(body?.phone ?? '').trim();
+  const message = String(body?.message ?? '').trim().slice(0, 1000);
   const digits = phone.replace(/\D/g, '');
 
   if (name.length < 2 || digits.length < 7 || digits.length > 15) {
@@ -82,6 +83,7 @@ export async function POST(request) {
 
   const lines = ['New call back request', `Name: ${name}`, `Phone: ${phone}`];
   if (email) lines.push(`Email: ${email}`);
+  if (message) lines.push(`Message: ${message}`);
   const text = lines.join('\n');
 
   const jobs = [];
