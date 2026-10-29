@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { isValidPhoneNumber } from 'react-phone-number-input';
 import { ArrowUpRight, CheckCircle2, X } from 'lucide-react';
 import PhoneInput from './PhoneInput';
@@ -27,10 +27,19 @@ export default function BookCallModal({ onClose }) {
   const [errors, setErrors] = useState({});
   const [sending, setSending] = useState(false);
   const [sent, setSent] = useState(false);
+  const [leaving, setLeaving] = useState(false);
+  const closeTimer = useRef(null);
+
+  // Play the exit animation, then let the parent unmount.
+  const requestClose = () => {
+    if (leaving) return;
+    setLeaving(true);
+    closeTimer.current = setTimeout(onClose, 200);
+  };
 
   useEffect(() => {
     const onKey = (e) => {
-      if (e.key === 'Escape') onClose();
+      if (e.key === 'Escape') requestClose();
     };
     document.addEventListener('keydown', onKey);
     window.__lenis?.stop();
@@ -40,8 +49,10 @@ export default function BookCallModal({ onClose }) {
       document.removeEventListener('keydown', onKey);
       window.__lenis?.start();
       document.body.style.overflow = prevOverflow;
+      if (closeTimer.current) clearTimeout(closeTimer.current);
     };
-  }, [onClose]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [leaving]);
 
   const submit = async (e) => {
     e.preventDefault();
@@ -76,7 +87,7 @@ export default function BookCallModal({ onClose }) {
         `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(lines.join('\n'))}`,
         '_blank',
       );
-      onClose();
+      requestClose();
     } finally {
       setSending(false);
     }
@@ -86,18 +97,18 @@ export default function BookCallModal({ onClose }) {
     <div className="fixed inset-0 z-[80] flex items-center justify-center p-4">
       <div
         aria-hidden="true"
-        onClick={onClose}
-        className="absolute inset-0 bg-zinc-950/70 backdrop-blur-sm"
+        onClick={requestClose}
+        className={`absolute inset-0 bg-zinc-950/80 backdrop-blur-sm ${leaving ? 'animate-modal-backdrop-out' : 'animate-modal-backdrop'}`}
       />
       <div
         role="dialog"
         aria-modal="true"
         aria-label="Request a call back"
-        className="animate-fade-up relative max-h-[92vh] w-full max-w-md overflow-y-auto rounded-xl border border-zinc-200 bg-white p-6 shadow-2xl md:p-8 dark:border-white/10 dark:bg-zinc-900"
+        className={`relative max-h-[92vh] w-full max-w-md overflow-y-auto rounded-xl border border-zinc-200 bg-white p-6 shadow-2xl md:p-8 dark:border-white/10 dark:bg-zinc-900 ${leaving ? 'animate-modal-card-out' : 'animate-modal-card'}`}
       >
         <button
           type="button"
-          onClick={onClose}
+          onClick={requestClose}
           aria-label="Close"
           className="absolute top-4 right-4 cursor-pointer p-1.5 text-zinc-500 transition-colors hover:text-zinc-900 dark:hover:text-zinc-100"
         >
@@ -115,7 +126,7 @@ export default function BookCallModal({ onClose }) {
             </p>
             <button
               type="button"
-              onClick={onClose}
+              onClick={requestClose}
               className="mt-6 inline-flex h-12 cursor-pointer items-center justify-center rounded-[3px] bg-lime-400 px-8 font-mono text-sm font-semibold text-zinc-950 transition-colors hover:bg-lime-300"
             >
               Done
@@ -179,7 +190,7 @@ export default function BookCallModal({ onClose }) {
               </div>
 
               <div>
-                <span className={labelClass}>Phone (WhatsApp)</span>
+                <span className={labelClass}>Phone number</span>
                 <div className="mt-1.5">
                   <PhoneInput value={phone} onChange={setPhone} invalid={!!errors.phone} />
                 </div>

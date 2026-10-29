@@ -94,6 +94,47 @@ html:not(.dark) .bg-zinc-950 {
   animation: fade-up 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 
+/* Modal motion: keyframes only, no base opacity, so the card stays fully
+   visible even if animations are disabled (reduced motion). */
+@keyframes modal-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes modal-pop-in {
+  from {
+    transform: translateY(14px) scale(0.97);
+  }
+  to {
+    transform: translateY(0) scale(1);
+  }
+}
+@keyframes modal-fade-out {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+@keyframes modal-pop-out {
+  from {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(10px) scale(0.98);
+  }
+}
+.animate-modal-backdrop {
+  animation: modal-fade-in 0.25s ease-out;
+}
+.animate-modal-card {
+  animation: modal-pop-in 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.animate-modal-backdrop-out {
+  animation: modal-fade-out 0.2s ease-in forwards;
+}
+.animate-modal-card-out {
+  animation: modal-pop-out 0.2s ease-in forwards;
+}
+
 /* Pulsing availability dot */
 @keyframes pulse-dot {
   0%,
