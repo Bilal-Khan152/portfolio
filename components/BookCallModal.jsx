@@ -3,7 +3,8 @@
 import { useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { isValidPhoneNumber } from 'react-phone-number-input';
-import { ArrowUpRight, CheckCircle2, X } from 'lucide-react';
+import { ArrowUpRight, X } from 'lucide-react';
+import { toast } from 'sonner';
 import PhoneInput from './PhoneInput';
 
 const WHATSAPP_NUMBER = '923139594577';
@@ -14,10 +15,10 @@ const inputClass =
   'h-12 w-full rounded-[3px] border border-zinc-300 bg-white px-3.5 font-sans text-sm text-zinc-900 outline-none transition-colors placeholder:text-zinc-400 focus:border-lime-500 dark:border-white/15 dark:bg-white/5 dark:text-zinc-100';
 
 /**
- * Call-back modal. On submit the details go to /api/lead, which notifies
- * Bilal on WhatsApp and/or email (free tiers, keys in env vars). If that
- * route is not configured or fails, it falls back to opening a pre-filled
- * WhatsApp chat so the lead is never lost.
+ * Call-back modal. On submit the details go to /api/lead, which emails
+ * Bilal via Resend. The result is reported with a toast (Sonner): success
+ * closes the modal, failure keeps it open and offers a WhatsApp action as
+ * a choice. The visitor is never auto-navigated anywhere.
  */
 export default function BookCallModal({ onClose }) {
   const [name, setName] = useState('');
@@ -27,7 +28,6 @@ export default function BookCallModal({ onClose }) {
   const [message, setMessage] = useState('');
   const [errors, setErrors] = useState({});
   const [sending, setSending] = useState(false);
-  const [sent, setSent] = useState(false);
   const [leaving, setLeaving] = useState(false);
   const closeTimer = useRef(null);
 
@@ -75,20 +75,26 @@ export default function BookCallModal({ onClose }) {
         body: JSON.stringify(details),
       });
       const data = await res.json().catch(() => null);
-      if (data?.ok) {
-        setSent(true);
-        return;
-      }
-      throw new Error('notify failed');
+      if (!data?.ok) throw new Error('notify failed');
+      toast.success('Request sent', {
+        description: 'Expect a call back soon.',
+      });
+      requestClose();
     } catch {
       const lines = ['New call back request', `Name: ${details.name}`, `Phone: ${details.phone}`];
       if (details.email) lines.push(`Email: ${details.email}`);
       if (details.message) lines.push(`Message: ${details.message}`);
-      window.open(
-        `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(lines.join('\n'))}`,
-        '_blank',
-      );
-      requestClose();
+      toast.error('Could not send your request', {
+        description: 'Try again, or send it on WhatsApp instead.',
+        action: {
+          label: 'WhatsApp',
+          onClick: () =>
+            window.open(
+              `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(lines.join('\n'))}`,
+              '_blank',
+            ),
+        },
+      });
     } finally {
       setSending(false);
     }
@@ -121,25 +127,7 @@ export default function BookCallModal({ onClose }) {
           <X className="h-5 w-5" />
         </button>
 
-        {sent ? (
-          <div className="py-6 text-center">
-            <CheckCircle2 className="mx-auto h-12 w-12 text-lime-500" />
-            <h3 className="mt-4 font-sans text-2xl font-extrabold tracking-tight text-zinc-950 dark:text-white">
-              Request sent
-            </h3>
-            <p className="mx-auto mt-2 max-w-xs font-sans text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
-              Thanks, {name.trim().split(' ')[0]}. Expect a call back soon.
-            </p>
-            <button
-              type="button"
-              onClick={requestClose}
-              className="mt-6 inline-flex h-12 cursor-pointer items-center justify-center rounded-[3px] bg-lime-400 px-8 font-mono text-sm font-semibold text-zinc-950 transition-colors hover:bg-lime-300"
-            >
-              Done
-            </button>
-          </div>
-        ) : (
-          <>
+        <>
             <p className="flex items-center gap-2.5 font-mono text-[11px] tracking-widest text-zinc-500 dark:text-zinc-400">
               <span className="inline-block h-2 w-2 bg-lime-400" />
               CALL ME BACK
@@ -229,8 +217,7 @@ export default function BookCallModal({ onClose }) {
                 Your details go straight to Bilal. Nothing else.
               </p>
             </form>
-          </>
-        )}
+        </>
       </div>
     </div>,
     document.body,
