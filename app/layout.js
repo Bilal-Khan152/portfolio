@@ -4,7 +4,7 @@ import { ThemeProvider } from '../components/theme';
 import Navbar from '../components/Navbar';
 import SmoothScroll from '../components/SmoothScroll';
 import BackToTop from '../components/BackToTop';
-import { Toaster } from 'sonner';
+import AppToaster from '../components/AppToaster';
 
 const archivo = Archivo({
   subsets: ['latin'],
@@ -47,16 +47,7 @@ export default function RootLayout({ children }) {
           <Navbar />
           <main>{children}</main>
           <BackToTop />
-          <Toaster
-            position="top-right"
-            toastOptions={{
-              style: {
-                background: '#18181B',
-                color: '#FAFAFA',
-                border: '1px solid rgba(255,255,255,0.14)',
-              },
-            }}
-          />
+          <AppToaster />
         </ThemeProvider>
       </body>
     </html>
