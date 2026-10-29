@@ -55,6 +55,16 @@ export default function BookCallModal({ onClose }) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [leaving]);
 
+  // Errors are added on submit only, but clear live as a field becomes
+  // valid while the visitor is still typing.
+  const clearError = (field) =>
+    setErrors((prev) => {
+      if (!prev[field]) return prev;
+      const next = { ...prev };
+      delete next[field];
+      return next;
+    });
+
   const submit = async (e) => {
     e.preventDefault();
     const next = {};
@@ -161,7 +171,10 @@ export default function BookCallModal({ onClose }) {
                   autoComplete="name"
                   placeholder="Your name"
                   value={name}
-                  onChange={(e) => setName(e.target.value)}
+                  onChange={(e) => {
+                    setName(e.target.value);
+                    if (e.target.value.trim().length >= 2) clearError('name');
+                  }}
                   className={`${inputClass} mt-1.5 ${errors.name ? 'border-red-400 dark:border-red-400' : ''}`}
                 />
                 {errors.name && <p className="mt-1.5 text-xs text-red-500">{errors.name}</p>}
@@ -177,7 +190,11 @@ export default function BookCallModal({ onClose }) {
                   autoComplete="email"
                   placeholder="you@company.com"
                   value={email}
-                  onChange={(e) => setEmail(e.target.value)}
+                  onChange={(e) => {
+                    setEmail(e.target.value);
+                    if (!e.target.value || /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e.target.value.trim()))
+                      clearError('email');
+                  }}
                   className={`${inputClass} mt-1.5 ${errors.email ? 'border-red-400 dark:border-red-400' : ''}`}
                 />
                 {errors.email && <p className="mt-1.5 text-xs text-red-500">{errors.email}</p>}
@@ -186,7 +203,14 @@ export default function BookCallModal({ onClose }) {
               <div>
                 <span className={labelClass}>Phone number</span>
                 <div className="mt-1.5">
-                  <PhoneInput value={phone} onChange={setPhone} invalid={!!errors.phone} />
+                  <PhoneInput
+                    value={phone}
+                    onChange={(val) => {
+                      setPhone(val);
+                      if (val && isValidPhoneNumber(val)) clearError('phone');
+                    }}
+                    invalid={!!errors.phone}
+                  />
                 </div>
                 {errors.phone && <p className="mt-1.5 text-xs text-red-500">{errors.phone}</p>}
               </div>
