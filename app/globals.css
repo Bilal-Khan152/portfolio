@@ -144,6 +144,24 @@ html:not(.dark) .bg-zinc-950 {
   display: none;
 }
 
+/* Browser autofill paints fields with its own pale background. Force it
+   back to the field colors in both themes. */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0 1000px #ffffff inset;
+  -webkit-text-fill-color: #18181b;
+  caret-color: #18181b;
+  transition: background-color 99999s ease-in-out 0s;
+}
+.dark input:-webkit-autofill,
+.dark input:-webkit-autofill:hover,
+.dark input:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0 1000px #202024 inset;
+  -webkit-text-fill-color: #fafafa;
+  caret-color: #fafafa;
+}
+
 /* Pulsing availability dot */
 @keyframes pulse-dot {
   0%,

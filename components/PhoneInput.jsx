@@ -112,7 +112,7 @@ export default function PhoneInput({ value, onChange, invalid }) {
               className="h-10 w-full bg-transparent font-sans text-sm text-zinc-900 outline-none placeholder:text-zinc-400 dark:text-zinc-100"
             />
           </div>
-          <ul className="scrollbar-hide max-h-56 overflow-y-auto py-1">
+          <ul data-lenis-prevent className="scrollbar-hide max-h-56 overflow-y-auto py-1">
             {filtered.map((c) => (
               <li key={c.code}>
                 <button

@@ -139,6 +139,7 @@ export default function BookCallModal({ onClose }) {
         role="dialog"
         aria-modal="true"
         aria-label="Request a call back"
+        data-lenis-prevent
         className={`scrollbar-hide relative max-h-[92vh] w-full max-w-md overflow-y-auto rounded-xl border border-zinc-200 bg-white p-6 shadow-2xl md:p-8 dark:border-white/10 dark:bg-zinc-900 ${leaving ? 'animate-modal-card-out' : 'animate-modal-card'}`}
       >
         <button
