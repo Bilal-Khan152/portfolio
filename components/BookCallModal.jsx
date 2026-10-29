@@ -22,6 +22,7 @@ export default function BookCallModal({ onClose }) {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
+  const [website, setWebsite] = useState(''); // honeypot, humans never fill it
   const [errors, setErrors] = useState({});
   const [sending, setSending] = useState(false);
   const [sent, setSent] = useState(false);
@@ -52,7 +53,7 @@ export default function BookCallModal({ onClose }) {
     setErrors(next);
     if (Object.keys(next).length > 0) return;
 
-    const details = { name: name.trim(), email: email.trim(), phone };
+    const details = { name: name.trim(), email: email.trim(), phone, website };
     setSending(true);
     try {
       const res = await fetch('/api/lead', {
@@ -133,6 +134,16 @@ export default function BookCallModal({ onClose }) {
             </p>
 
             <form onSubmit={submit} noValidate className="mt-6 flex flex-col gap-4">
+              <input
+                type="text"
+                name="website"
+                value={website}
+                onChange={(e) => setWebsite(e.target.value)}
+                tabIndex={-1}
+                autoComplete="off"
+                aria-hidden="true"
+                className="absolute -left-[9999px] h-px w-px opacity-0"
+              />
               <div>
                 <label htmlFor="book-name" className={labelClass}>
                   Name
