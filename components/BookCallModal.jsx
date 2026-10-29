@@ -30,14 +30,21 @@ export default function BookCallModal({ onClose }) {
   const [sending, setSending] = useState(false);
   const [leaving, setLeaving] = useState(false);
   const closeTimer = useRef(null);
+  const leavingRef = useRef(false);
 
-  // Play the exit animation, then let the parent unmount.
+  // Play the exit animation, then let the parent unmount. Guarded by a ref:
+  // a state-guarded version re-triggers the effect below, whose cleanup
+  // used to cancel this very timer, leaving an invisible overlay mounted
+  // forever (page unscrollable, clicks dead).
   const requestClose = () => {
-    if (leaving) return;
+    if (leavingRef.current) return;
+    leavingRef.current = true;
     setLeaving(true);
     closeTimer.current = setTimeout(onClose, 200);
   };
 
+  // Scroll lock: mount once, release on unmount only. Must not depend on
+  // `leaving` and must never clear the close timer.
   useEffect(() => {
     const onKey = (e) => {
       if (e.key === 'Escape') requestClose();
@@ -50,10 +57,16 @@ export default function BookCallModal({ onClose }) {
       document.removeEventListener('keydown', onKey);
       window.__lenis?.start();
       document.body.style.overflow = prevOverflow;
-      if (closeTimer.current) clearTimeout(closeTimer.current);
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [leaving]);
+  }, []);
+
+  useEffect(
+    () => () => {
+      if (closeTimer.current) clearTimeout(closeTimer.current);
+    },
+    [],
+  );
 
   // Errors are added on submit only, but clear live as a field becomes
   // valid while the visitor is still typing.
