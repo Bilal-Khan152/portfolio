@@ -1,4 +1,5 @@
-import { ArrowDown, ArrowDownRight, ArrowUpRight } from 'lucide-react';
+import { ArrowDownRight, ArrowUpRight } from 'lucide-react';
+import BookCallButton from './BookCallButton';
 
 const tickerItems = [
   'Multi-tenant SaaS frontends',
@@ -44,14 +45,15 @@ export default function Hero() {
           style={{ animationDelay: '240ms' }}
         >
           Muhammad Bilal, frontend engineer building scalable, multi-tenant SaaS
-          systems. Frontend has moved from classic screens to agentic development:
-          AI in the loop, without losing the craft.
+          systems for founders and product teams. Frontend has moved from classic
+          screens to agentic development: AI in the loop, without losing the craft.
         </p>
 
         <div className="animate-fade-up mt-10 flex flex-wrap gap-3" style={{ animationDelay: '360ms' }}>
+          <BookCallButton />
           <a
             href="#work"
-            className="inline-flex items-center gap-2 rounded-[3px] bg-lime-400 px-6 py-3.5 font-mono text-sm font-semibold text-zinc-950 transition-colors hover:bg-lime-300"
+            className="inline-flex items-center gap-2 rounded-[3px] border border-zinc-300 bg-white px-6 py-3.5 font-mono text-sm font-semibold text-zinc-900 transition-colors hover:border-zinc-500 dark:border-white/15 dark:bg-white/5 dark:text-zinc-100 dark:hover:border-white/40"
           >
             Explore selected work
             <ArrowDownRight className="h-4 w-4" />
@@ -64,13 +66,6 @@ export default function Hero() {
           >
             LinkedIn
             <ArrowUpRight className="h-4 w-4" />
-          </a>
-          <a
-            href="/resume.pdf"
-            className="inline-flex items-center gap-2 rounded-[3px] border border-zinc-300 bg-white px-6 py-3.5 font-mono text-sm font-semibold text-zinc-900 transition-colors hover:border-zinc-500 dark:border-white/15 dark:bg-white/5 dark:text-zinc-100 dark:hover:border-white/40"
-          >
-            Download résumé
-            <ArrowDown className="h-4 w-4" />
           </a>
         </div>
 

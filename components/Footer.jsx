@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import Reveal from './Reveal';
-import { ArrowUpRight, Copy, Check, MessageCircle } from 'lucide-react';
+import { ArrowDown, ArrowUpRight, Copy, Check, MessageCircle } from 'lucide-react';
 
 const EMAIL = 'bilalkhandev66@gmail.com';
 const WHATSAPP = 'https://wa.me/923139594577';
@@ -82,6 +82,14 @@ export default function Footer() {
                   {copiedKey === 'email' ? <Check size={16} /> : <Copy size={16} />}
                   {copiedKey === 'email' ? 'Copied' : 'Copy email'}
                 </button>
+                <a
+                  href="/resume.pdf"
+                  download
+                  className="inline-flex cursor-pointer items-center gap-2 border border-white/30 text-white font-sans font-bold text-sm px-6 py-3.5 transition-colors hover:border-white/60"
+                >
+                  Download résumé
+                  <ArrowDown size={16} />
+                </a>
               </div>
 
               <div className="mt-16 pt-6 border-t border-white/10 flex flex-col sm:flex-row justify-between gap-2">
