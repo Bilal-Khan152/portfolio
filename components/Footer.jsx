@@ -51,7 +51,7 @@ export default function Footer() {
                 feel <span className="text-[#A3E635]">simple.</span>
               </h2>
               <p className="text-[#A1A1AA] max-w-xl leading-relaxed mt-6">
-                Open to frontend engineering roles and freelance product work.
+                Have a project or a product idea? Connect and see what can be built together.
               </p>
 
               <div className="flex flex-wrap gap-3 mt-8">
