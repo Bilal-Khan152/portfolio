@@ -46,7 +46,7 @@ export default function WhatIDo() {
               {rows.map((row, i) => (
                 <Reveal key={row.n} delay={i * 60}>
                   <div
-                    className={`grid md:grid-cols-12 gap-3 md:gap-4 py-8 border-t border-zinc-200 dark:border-white/10 transition-colors hover:bg-zinc-950/[0.03] dark:hover:bg-white/[0.04] ${
+                    className={`grid md:grid-cols-12 gap-3 md:gap-4 px-5 md:px-6 -mx-5 md:-mx-6 py-8 border-t border-zinc-200 dark:border-white/10 transition-colors hover:bg-zinc-950/[0.03] dark:hover:bg-white/[0.04] ${
                       i === rows.length - 1 ? 'border-b' : ''
                     }`}
                   >

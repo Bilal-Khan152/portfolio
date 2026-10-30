@@ -51,7 +51,7 @@ export default function Footer() {
                 feel <span className="text-[#A3E635]">simple.</span>
               </h2>
               <p className="text-[#A1A1AA] max-w-xl leading-relaxed mt-6">
-                Open to frontend engineering roles and freelance product work.
+                Have a project or a product idea? Connect and see what can be built together.
               </p>
 
               <div className="flex flex-wrap gap-3 mt-8">
@@ -83,8 +83,8 @@ export default function Footer() {
                   {copiedKey === 'email' ? 'Copied' : 'Copy email'}
                 </button>
                 <a
-                  href="/resume.pdf"
-                  download
+                  href="/Bilal-Frontend-Engineer.pdf"
+                  download="Bilal-Frontend-Engineer.pdf"
                   className="inline-flex cursor-pointer items-center gap-2 border border-white/30 text-white font-sans font-bold text-sm px-6 py-3.5 transition-colors hover:border-white/60"
                 >
                   Download résumé
