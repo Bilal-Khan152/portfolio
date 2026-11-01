@@ -2,12 +2,12 @@ import Reveal from './Reveal';
 
 const ITEMS = [
   {
-    meta: '12/2025 - PRESENT · XEVEN SOLUTIONS · COVIS AI',
+    meta: '12/2025 - PRESENT · XEVEN SOLUTIONS',
     title: 'Frontend Engineer',
     body: 'Product R&D, feature design, and flow discussions, plus development and maintenance of a multi-tenant SaaS frontend used across organizations and roles.',
   },
   {
-    meta: '10/2024 - 12/2025 · HAZELSOFT · FR-SURVEY',
+    meta: '10/2024 - 12/2025 · HAZELSOFT',
     title: 'Associate Software Engineer',
     body: 'Responsive interfaces for a restaurant management platform, built with a frontend team and project manager.',
   },
