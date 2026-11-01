@@ -7,7 +7,7 @@ import { PhoneIncoming } from 'lucide-react';
 const BookCallModal = dynamic(() => import('./BookCallModal'), { ssr: false });
 
 /**
- * Hero's primary action: opens the call-back modal. Also opens when the
+ * Hero action: opens the call-back modal. Also opens when the
  * page is visited with #call in the URL, so the form can be linked to.
  */
 export default function BookCallButton() {
@@ -22,7 +22,7 @@ export default function BookCallButton() {
       <button
         type="button"
         onClick={() => setOpen(true)}
-        className="inline-flex cursor-pointer items-center gap-2 rounded-[3px] bg-lime-400 px-6 py-3.5 font-mono text-sm font-semibold text-zinc-950 transition-colors hover:bg-lime-300"
+        className="inline-flex cursor-pointer items-center gap-2 rounded-[3px] border border-zinc-300 bg-white px-6 py-3.5 font-mono text-sm font-semibold text-zinc-900 transition-colors hover:border-zinc-500 dark:border-white/15 dark:bg-white/5 dark:text-zinc-100 dark:hover:border-white/40"
       >
         Call me back
         <PhoneIncoming className="h-4 w-4" />

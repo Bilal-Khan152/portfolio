@@ -50,10 +50,9 @@ export default function Hero() {
         </p>
 
         <div className="animate-fade-up mt-10 flex flex-wrap gap-3" style={{ animationDelay: '360ms' }}>
-          <BookCallButton />
           <a
             href="#work"
-            className="inline-flex items-center gap-2 rounded-[3px] border border-zinc-300 bg-white px-6 py-3.5 font-mono text-sm font-semibold text-zinc-900 transition-colors hover:border-zinc-500 dark:border-white/15 dark:bg-white/5 dark:text-zinc-100 dark:hover:border-white/40"
+            className="inline-flex cursor-pointer items-center gap-2 rounded-[3px] bg-lime-400 px-6 py-3.5 font-mono text-sm font-semibold text-zinc-950 transition-colors hover:bg-lime-300"
           >
             Explore selected work
             <ArrowDownRight className="h-4 w-4" />
@@ -67,6 +66,7 @@ export default function Hero() {
             LinkedIn
             <ArrowUpRight className="h-4 w-4" />
           </a>
+          <BookCallButton />
         </div>
 
         <div
