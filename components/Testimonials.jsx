@@ -47,10 +47,12 @@ const testimonials = [
 function TestimonialCard({ testimonial: t, isExpanded, onToggleExpand }) {
   const quoteRef = useRef(null);
   const [maxHeight, setMaxHeight] = useState('10.97rem');
+  const [isClamped, setIsClamped] = useState(false);
 
   useEffect(() => {
     const updateHeight = () => {
       if (quoteRef.current) {
+        setIsClamped(quoteRef.current.scrollHeight > 176);
         setMaxHeight(isExpanded ? `${quoteRef.current.scrollHeight}px` : '10.97rem');
       }
     };
@@ -109,18 +111,22 @@ function TestimonialCard({ testimonial: t, isExpanded, onToggleExpand }) {
                 {t.quote}
               </blockquote>
             </div>
-            <div
-              className={`pointer-events-none absolute bottom-0 left-0 right-0 h-6 bg-gradient-to-t from-white dark:from-[#131316] to-transparent transition-opacity duration-300 ${isExpanded ? 'opacity-0' : 'opacity-100'
-                }`}
-            />
+            {isClamped && (
+              <div
+                className={`pointer-events-none absolute bottom-0 left-0 right-0 h-6 bg-gradient-to-t from-white dark:from-[#131316] to-transparent transition-opacity duration-300 ${isExpanded ? 'opacity-0' : 'opacity-100'
+                  }`}
+              />
+            )}
           </div>
-          <button
-            type="button"
-            onClick={onToggleExpand}
-            className="font-mono text-xs font-bold underline underline-offset-4 text-[#09090B] dark:text-[#FAFAFA] mt-4 cursor-pointer transition-colors hover:text-blue-600 dark:hover:text-blue-400"
-          >
-            {isExpanded ? 'Show less' : 'Read more'}
-          </button>
+          {isClamped && (
+            <button
+              type="button"
+              onClick={onToggleExpand}
+              className="font-mono text-xs font-bold underline underline-offset-4 text-[#09090B] dark:text-[#FAFAFA] mt-4 cursor-pointer transition-colors hover:text-blue-600 dark:hover:text-blue-400"
+            >
+              {isExpanded ? 'Show less' : 'Read more'}
+            </button>
+          )}
           <div className="mt-6">
             {t.linkedin && (
               <a
