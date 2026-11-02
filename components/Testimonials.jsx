@@ -11,6 +11,7 @@ const testimonials = [
     title:
       '7+ MVPs Developed | I help AI founders and CEOs build smarter scalable AI products | Technical Product Manager (AI) | AI • Product Strategy • Innovation • Execution',
     photo: '/abdul.png',
+    linkedin: 'https://www.linkedin.com/in/abdulsamiimran',
     quote:
       'I have been working with Bilal for a year now, and I believe that Bilal possesses a great analytical mind and a sharp level of critical thinking! His ability to look into all the scenarios and edge cases related to his tasks has saved me hours of work, if he had overlooked those it would have costed our product weeks of rework! Moreover I believe Bilal has a great sense of ownership in him as well!',
   },
