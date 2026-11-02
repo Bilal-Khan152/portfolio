@@ -46,12 +46,12 @@ const testimonials = [
 
 function TestimonialCard({ testimonial: t, isExpanded, onToggleExpand }) {
   const quoteRef = useRef(null);
-  const [maxHeight, setMaxHeight] = useState('9.14rem');
+  const [maxHeight, setMaxHeight] = useState('10.97rem');
 
   useEffect(() => {
     const updateHeight = () => {
       if (quoteRef.current) {
-        setMaxHeight(isExpanded ? `${quoteRef.current.scrollHeight}px` : '9.14rem');
+        setMaxHeight(isExpanded ? `${quoteRef.current.scrollHeight}px` : '10.97rem');
       }
     };
     const rafId = requestAnimationFrame(updateHeight);
