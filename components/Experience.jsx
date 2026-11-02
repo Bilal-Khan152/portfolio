@@ -11,11 +11,6 @@ const ITEMS = [
     title: 'Associate Software Engineer',
     body: 'Responsive interfaces for a restaurant management platform, built with a frontend team and project manager.',
   },
-  {
-    meta: '03/2021 - 03/2025 · ABDUL WALI KHAN UNIVERSITY',
-    title: 'BS Computer Science',
-    body: 'Degree in computer science from Nowshera, Pakistan.',
-  },
 ];
 
 export default function Experience() {
