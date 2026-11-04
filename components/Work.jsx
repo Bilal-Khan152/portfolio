@@ -1,6 +1,6 @@
 'use client';
 
-import { useId, useState } from 'react';
+import { useEffect, useId, useRef, useState } from 'react';
 import { ArrowLeft, ArrowRight, ArrowUpRight } from 'lucide-react';
 import Reveal from './Reveal';
 
@@ -227,9 +227,50 @@ const PROJECTS = [
       ],
     },
   },
+  {
+    num: '05',
+    tag: 'POINT OF SALE',
+    company: 'PRIVATE CLIENT',
+    title: 'Milk Shop POS',
+    description:
+      "Point of sale system built for a milk shop in Gujarat to run daily operations on one screen. It handles counter billing, return bills, and customer accounts, while daily and monthly ledgers keep every balance and payment history current. Vendor records track milk supply and pending payments.",
+    chips: ['Next.js', 'Redux Toolkit', 'Tailwind CSS', 'Shadcn'],
+    ctas: [],
+    type: 'product',
+    diagram: {
+      center: 'POINT OF SALE',
+      centerTone: 'lime',
+      nodes: [
+        { label: 'BILLING', x: 100, y: 78 },
+        { label: 'RETURN BILLS', x: 300, y: 78, glow: '#2563EB' },
+        { label: 'CUSTOMER LEDGERS', x: 100, y: 322 },
+        { label: 'VENDORS', x: 300, y: 322 },
+      ],
+    },
+  },
 ];
 
 function ProjectCard({ project }) {
+  const descRef = useRef(null);
+  const [expanded, setExpanded] = useState(false);
+  const [isClamped, setIsClamped] = useState(false);
+  const [maxHeight, setMaxHeight] = useState('8.125rem');
+
+  useEffect(() => {
+    const updateHeight = () => {
+      if (descRef.current) {
+        setIsClamped(descRef.current.scrollHeight > 132);
+        setMaxHeight(expanded ? `${descRef.current.scrollHeight}px` : '8.125rem');
+      }
+    };
+    const rafId = requestAnimationFrame(updateHeight);
+    window.addEventListener('resize', updateHeight);
+    return () => {
+      cancelAnimationFrame(rafId);
+      window.removeEventListener('resize', updateHeight);
+    };
+  }, [expanded]);
+
   return (
     <article className="h-full border border-zinc-200 bg-white dark:border-white/10 dark:bg-zinc-900">
       <div className="grid h-full md:grid-cols-2">
@@ -244,9 +285,28 @@ function ProjectCard({ project }) {
             <h3 className="mt-5 font-sans text-4xl font-extrabold tracking-tight text-zinc-950 md:text-5xl dark:text-white">
               {project.title}
             </h3>
-            <p className="mt-4 leading-relaxed text-zinc-500 dark:text-zinc-400">
-              {project.description}
-            </p>
+            <div className="relative mt-4">
+              <div
+                style={{ maxHeight }}
+                className="overflow-hidden transition-[max-height] duration-500 ease-in-out"
+              >
+                <p ref={descRef} className="leading-relaxed text-zinc-500 dark:text-zinc-400">
+                  {project.description}
+                </p>
+              </div>
+              {isClamped && !expanded && (
+                <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-6 bg-gradient-to-t from-white dark:from-zinc-900 to-transparent" />
+              )}
+            </div>
+            {isClamped && (
+              <button
+                type="button"
+                onClick={() => setExpanded((c) => !c)}
+                className="font-mono text-xs font-bold underline underline-offset-4 text-zinc-950 dark:text-zinc-50 mt-3 cursor-pointer transition-colors hover:text-blue-600 dark:hover:text-blue-400"
+              >
+                {expanded ? 'Show less' : 'Show more'}
+              </button>
+            )}
             <div className="mt-6 flex flex-wrap gap-2">
               {project.chips.map((chip) => (
                 <span
