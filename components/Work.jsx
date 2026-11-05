@@ -231,9 +231,9 @@ const PROJECTS = [
     num: '05',
     tag: 'POINT OF SALE',
     company: 'PRIVATE CLIENT',
-    title: 'Milk Shop POS',
+    title: 'POS Systems',
     description:
-      "Point of sale system built for a milk shop in Gujarat to run daily operations on one screen. It handles counter billing, return bills, and customer accounts, while daily and monthly ledgers keep every balance and payment history current. Vendor records track milk supply and pending payments.",
+      "Point of sale system that runs a shop's daily operations on one screen: counter billing, return bills, customer accounts, and vendor records. Daily and monthly ledgers keep every balance and payment history current.",
     chips: ['Next.js', 'Redux Toolkit', 'Tailwind CSS', 'Shadcn'],
     ctas: [],
     type: 'product',
