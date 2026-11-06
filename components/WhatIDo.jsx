@@ -3,21 +3,26 @@ import Reveal from './Reveal';
 const rows = [
   {
     n: '01',
+    title: 'MVP development',
+    text: 'Idea scoped to its core features and built as a working product, ready for real users and early feedback.',
+  },
+  {
+    n: '02',
     title: 'Product discovery & engineering',
     text: 'R&D, feature design, flow exploration, and business requirements, carried through to production.',
   },
   {
-    n: '02',
+    n: '03',
     title: 'UI systems & architecture',
     text: 'Reusable component patterns, predictable state, and foundations that stay maintainable as products grow.',
   },
   {
-    n: '03',
+    n: '04',
     title: 'API & state integration',
     text: 'Redux Toolkit, RTK Query, and Axios, with loading, error, and empty states handled properly.',
   },
   {
-    n: '04',
+    n: '05',
     title: 'Performance & polish',
     text: 'Accessible interfaces, responsive on every screen, with attention to runtime performance.',
   },
