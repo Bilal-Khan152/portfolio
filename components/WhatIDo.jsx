@@ -3,7 +3,7 @@ import Reveal from './Reveal';
 const rows = [
   {
     n: '01',
-    title: 'MVP development',
+    title: 'MVP Development',
     text: 'Idea scoped to its core features and built as a working product, ready for real users and early feedback.',
   },
   {
