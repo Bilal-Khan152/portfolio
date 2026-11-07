@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Reveal from './Reveal';
+import ContactForm from './ContactForm';
 import { ArrowDown, ArrowUpRight, Copy, Check, MessageCircle } from 'lucide-react';
 
 const EMAIL = 'bilalkhandev66@gmail.com';
@@ -90,6 +91,13 @@ export default function Footer() {
                   Download résumé
                   <ArrowDown size={16} />
                 </a>
+              </div>
+
+              <div className="mt-12 border-t border-white/10 pt-10">
+                <p className="font-mono text-xs text-[#A1A1AA]">
+                  Send a message
+                </p>
+                <ContactForm />
               </div>
 
               <div className="mt-16 pt-6 border-t border-white/10 flex flex-col sm:flex-row justify-between gap-2">
