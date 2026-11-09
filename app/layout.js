@@ -29,6 +29,30 @@ export const metadata = {
   title: 'Muhammad Bilal - Frontend Engineer',
   description:
     'Muhammad Bilal, frontend engineer in Lahore, Pakistan. Multi-tenant SaaS frontends in React and Next.js.',
+  metadataBase: new URL('https://muhammad-bilal-engineer.vercel.app'),
+  openGraph: {
+    title: 'Muhammad Bilal - Frontend Engineer',
+    description:
+      'Muhammad Bilal, frontend engineer in Lahore, Pakistan. Multi-tenant SaaS frontends in React and Next.js.',
+    url: '/',
+    siteName: 'Muhammad Bilal',
+    images: [
+      {
+        url: '/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'Muhammad Bilal - Frontend Engineer',
+      },
+    ],
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Muhammad Bilal - Frontend Engineer',
+    description:
+      'Muhammad Bilal, frontend engineer in Lahore, Pakistan. Multi-tenant SaaS frontends in React and Next.js.',
+    images: ['/og-image.png'],
+  },
 };
 
 export default function RootLayout({ children }) {
