@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { toast } from 'sonner';
 import { Send } from 'lucide-react';
+import { track } from '../lib/analytics';
 
 const SERVICE_ID = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
 const TEMPLATE_ID = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
@@ -56,6 +57,7 @@ export default function ContactForm() {
         }),
       });
       if (!res.ok) throw new Error('EmailJS send failed');
+      track('contact_form_submitted');
       toast.success('Message sent');
       setForm({ name: '', email: '', message: '' });
     } catch {

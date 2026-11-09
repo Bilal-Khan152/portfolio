@@ -6,6 +6,7 @@ import { isValidPhoneNumber } from 'react-phone-number-input';
 import { ArrowUpRight, X } from 'lucide-react';
 import { toast } from 'sonner';
 import PhoneInput from './PhoneInput';
+import { track } from '../lib/analytics';
 
 const WHATSAPP_NUMBER = '923139594577';
 
@@ -28,6 +29,10 @@ export default function BookCallModal({ onClose }) {
   const [message, setMessage] = useState('');
   const [errors, setErrors] = useState({});
   const [sending, setSending] = useState(false);
+
+  useEffect(() => {
+    track('lead_modal_opened');
+  }, []);
   const [leaving, setLeaving] = useState(false);
   const closeTimer = useRef(null);
   const leavingRef = useRef(false);
@@ -99,6 +104,7 @@ export default function BookCallModal({ onClose }) {
       });
       const data = await res.json().catch(() => null);
       if (!data?.ok) throw new Error('notify failed');
+      track('lead_submitted');
       toast.success('Request sent', {
         description: 'Expect a call back soon.',
       });
@@ -107,6 +113,7 @@ export default function BookCallModal({ onClose }) {
       const lines = ['New call back request', `Name: ${details.name}`, `Phone: ${details.phone}`];
       if (details.email) lines.push(`Email: ${details.email}`);
       if (details.message) lines.push(`Message: ${details.message}`);
+      track('lead_failed');
       toast.error('Could not send your request', {
         description: 'Try again, or send it on WhatsApp instead.',
         action: {

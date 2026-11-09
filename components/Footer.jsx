@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import Reveal from './Reveal';
 import ContactForm from './ContactForm';
+import { track } from '../lib/analytics';
 import { ArrowDown, ArrowUpRight, Copy, Check, MessageCircle } from 'lucide-react';
 
 const EMAIL = 'bilalkhandev66@gmail.com';
@@ -61,6 +62,7 @@ export default function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Chat on WhatsApp"
+                  onClick={() => track('whatsapp_clicked')}
                   className="inline-flex cursor-pointer items-center gap-2 bg-[#A3E635] text-black font-sans font-bold text-sm px-6 py-3.5 transition-colors hover:bg-[#b9f04e]"
                 >
                   <MessageCircle size={16} />
@@ -70,6 +72,7 @@ export default function Footer() {
                   href={LINKEDIN}
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() => track('linkedin_clicked')}
                   className="inline-flex cursor-pointer items-center gap-2 border border-white/30 text-white font-sans font-bold text-sm px-6 py-3.5 transition-colors hover:border-white/60"
                 >
                   LinkedIn
@@ -77,7 +80,7 @@ export default function Footer() {
                 </a>
                 <button
                   type="button"
-                  onClick={() => copyText(EMAIL, 'email')}
+                  onClick={() => { copyText(EMAIL, 'email'); track('email_copied'); }}
                   className="inline-flex cursor-pointer items-center gap-2 border border-white/30 text-white font-sans font-bold text-sm px-6 py-3.5 transition-colors hover:border-white/60"
                 >
                   {copiedKey === 'email' ? <Check size={16} /> : <Copy size={16} />}
@@ -86,6 +89,7 @@ export default function Footer() {
                 <a
                   href="/Bilal-Frontend-Engineer.pdf"
                   download="Bilal-Frontend-Engineer.pdf"
+                  onClick={() => track('resume_downloaded')}
                   className="inline-flex cursor-pointer items-center gap-2 border border-white/30 text-white font-sans font-bold text-sm px-6 py-3.5 transition-colors hover:border-white/60"
                 >
                   Download résumé

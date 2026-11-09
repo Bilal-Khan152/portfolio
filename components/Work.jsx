@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useId, useRef, useState } from 'react';
+import { track } from '../lib/analytics';
 import { ArrowLeft, ArrowRight, ArrowUpRight } from 'lucide-react';
 import Reveal from './Reveal';
 
@@ -326,6 +327,7 @@ function ProjectCard({ project }) {
                   href={cta.href}
                   target="_blank"
                   rel="noreferrer"
+                  onClick={() => track('work_link_clicked', { project: project.title, label: cta.label })}
                   className={
                     i === 0
                       ? 'inline-flex items-center gap-2 bg-lime-400 px-5 py-3 font-mono text-xs font-semibold tracking-wide text-zinc-950 transition-colors hover:bg-lime-300'
