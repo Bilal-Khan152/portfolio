@@ -74,7 +74,7 @@ export default function ContactForm() {
       <div className="grid gap-4 sm:grid-cols-2">
         <div>
           <label htmlFor="contact-name" className={labelClass}>
-            Name
+            Name <span className="text-red-400">*</span>
           </label>
           <input
             id="contact-name"
@@ -90,7 +90,7 @@ export default function ContactForm() {
         </div>
         <div>
           <label htmlFor="contact-email" className={labelClass}>
-            Email
+            Email <span className="text-red-400">*</span>
           </label>
           <input
             id="contact-email"
@@ -107,7 +107,7 @@ export default function ContactForm() {
       </div>
       <div className="mt-4">
         <label htmlFor="contact-message" className={labelClass}>
-          Message
+          Message <span className="text-red-400">*</span>
         </label>
         <textarea
           id="contact-message"
