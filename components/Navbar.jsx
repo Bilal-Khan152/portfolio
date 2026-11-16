@@ -20,6 +20,9 @@ export default function Navbar() {
     <header className="sticky top-0 z-50 border-b border-zinc-200 bg-white/80 backdrop-blur-md dark:border-white/10 dark:bg-[#09090B]/70">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6">
         <a href="#top" className="flex items-baseline gap-2">
+          <span className="font-sans text-lg font-bold tracking-tight text-zinc-950 dark:text-white">
+            MB.
+          </span>
           <span className="font-mono text-xs text-zinc-500 dark:text-zinc-400">
             / Frontend Engineer
           </span>
