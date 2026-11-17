@@ -230,27 +230,6 @@ const PROJECTS = [
   },
   {
     num: '05',
-    tag: 'POINT OF SALE',
-    company: 'PRIVATE CLIENT',
-    title: 'POS Systems',
-    description:
-      "Point of sale system that runs a shop's daily operations on one screen: counter billing, return bills, customer accounts, and vendor records. Daily and monthly ledgers keep every balance and payment history current.",
-    chips: ['Next.js', 'Redux Toolkit', 'Tailwind CSS', 'Shadcn'],
-    ctas: [],
-    type: 'product',
-    diagram: {
-      center: 'POINT OF SALE',
-      centerTone: 'lime',
-      nodes: [
-        { label: 'BILLING', x: 100, y: 78 },
-        { label: 'RETURN BILLS', x: 300, y: 78, glow: '#2563EB' },
-        { label: 'CUSTOMER LEDGERS', x: 100, y: 322 },
-        { label: 'VENDORS', x: 300, y: 322 },
-      ],
-    },
-  },
-  {
-    num: '06',
     tag: 'RESTAURANT POS & ORDERING',
     company: 'PRIVATE CLIENT',
     title: 'Chilli Boon',
