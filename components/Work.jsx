@@ -249,6 +249,18 @@ const PROJECTS = [
       ],
     },
   },
+  {
+    num: '06',
+    tag: 'RESTAURANT POS & ORDERING',
+    company: 'PRIVATE CLIENT',
+    title: 'Chilli Boon',
+    description:
+      'A complete POS system for a small restaurant in Nowshera: an admin portal with separate logins for admin, staff and waiters, and a public website where customers browse the menu, place orders and reach the team directly.',
+    chips: ['Next.js', 'Tailwind CSS', 'Shadcn', 'ASP.NET Core', 'SQL Server', 'EF Core'],
+    ctas: [],
+    type: 'product',
+    image: { src: '/chilli-boon.jpg', alt: 'Chilli Boon restaurant website homepage' },
+  },
 ];
 
 function ProjectCard({ project }) {
@@ -341,11 +353,29 @@ function ProjectCard({ project }) {
             </div>
           )}
         </div>
-        <ArchitectureDiagram
-          center={project.diagram.center}
-          centerTone={project.diagram.centerTone}
-          nodes={project.diagram.nodes}
-        />
+        {project.image ? (
+          <div className="relative h-full min-h-[320px] overflow-hidden bg-[#0B3D20] md:min-h-[400px]">
+            <img
+              src={project.image.src}
+              alt=""
+              aria-hidden="true"
+              className="absolute inset-0 h-full w-full scale-110 object-cover opacity-50 blur-md"
+            />
+            <div className="absolute inset-0 flex items-center justify-center p-6 md:p-8">
+              <img
+                src={project.image.src}
+                alt={project.image.alt}
+                className="h-auto max-h-full w-full border border-white/15 object-contain shadow-2xl"
+              />
+            </div>
+          </div>
+        ) : (
+          <ArchitectureDiagram
+            center={project.diagram.center}
+            centerTone={project.diagram.centerTone}
+            nodes={project.diagram.nodes}
+          />
+        )}
       </div>
     </article>
   );
