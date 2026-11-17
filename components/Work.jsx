@@ -145,49 +145,20 @@ const PROJECTS = [
     company: 'XEVEN SOLUTIONS',
     title: 'COVIS AI',
     description:
-      'An AI-powered platform for client management, tasks, business development, and onboarding. Frontend across tenants and user roles.',
-    chips: ['Next.js', 'JavaScript', 'Tailwind CSS', 'Shadcn', 'RTK Query', 'Sentry'],
-    ctas: [{ label: 'Visit COVIS AI', href: 'https://covis.ai/' }],
-    type: 'product',
-    diagram: {
-      center: 'AI WORKSPACE',
-      centerTone: 'lime',
-      nodes: [
-        { label: 'CLIENT MANAGEMENT', x: 100, y: 78 },
-        { label: 'PROPOSAL GENERATION', x: 285, y: 78, glow: '#2563EB' },
-        { label: 'PROJECT MANAGEMENT', x: 100, y: 322 },
-        { label: 'HUMAN RESOURCE MANAGEMENT', x: 285, y: 322 },
-      ],
-    },
-  },
-  {
-    num: '02',
-    tag: 'CHROME EXTENSION',
-    company: 'XEVEN SOLUTIONS',
-    title: 'COVIS AI Extension',
-    description:
-      "A Chrome extension that scrapes LinkedIn profiles and Upwork jobs and analyzes them with AI. Every profile and job is read against the user's own profile, turning raw pages into fit scores, strengths, and gaps.",
-    chips: ['Chrome Extension', 'JavaScript', 'Web Scraping', 'AI Analysis'],
+      "An AI-powered platform for client management, tasks, business development, and onboarding. Its Chrome extension scrapes LinkedIn profiles and Upwork jobs and scores each against the user's own profile. Frontend across tenants and user roles.",
+    chips: ['Next.js', 'JavaScript', 'Tailwind CSS', 'Shadcn', 'RTK Query', 'Sentry', 'Chrome Extension', 'Web Scraping'],
     ctas: [
+      { label: 'Visit COVIS AI', href: 'https://covis.ai/' },
       {
         label: 'Chrome extension',
         href: 'https://chromewebstore.google.com/detail/covis-ai/gpfpiggbllfnafhflkipicojfhnnpkdc',
       },
     ],
     type: 'product',
-    diagram: {
-      center: 'AI ANALYZER',
-      centerTone: 'lime',
-      nodes: [
-        { label: 'LINKEDIN PROFILES', x: 100, y: 78 },
-        { label: 'UPWORK JOBS', x: 285, y: 78, glow: '#2563EB' },
-        { label: 'PROFILE ANALYZER', x: 100, y: 322 },
-        { label: 'FIT SCORING', x: 285, y: 322 },
-      ],
-    },
+    image: { src: '/covis-ai.jpg', alt: 'COVIS AI, from the first outreach to the last sprint' },
   },
   {
-    num: '03',
+    num: '02',
     tag: 'HEALTHCARE PLATFORM',
     company: 'XEVEN SOLUTIONS',
     title: 'Ogow Health',
@@ -196,19 +167,10 @@ const PROJECTS = [
     chips: ['React.js', 'Redux', 'Axios', 'Tailwind CSS'],
     ctas: [{ label: 'Visit Ogow Health', href: 'https://ogowhealth.com/en/' }],
     type: 'product',
-    diagram: {
-      center: 'IMMUNIZATION',
-      centerTone: 'blue',
-      nodes: [
-        { label: 'HOSPITALS', x: 100, y: 78 },
-        { label: 'CLINICS', x: 300, y: 78 },
-        { label: 'VACCINE RECORDS', x: 100, y: 322 },
-        { label: 'DOSE HISTORY', x: 300, y: 322 },
-      ],
-    },
+    image: { src: '/ogow-health.jpg', alt: 'Ogow Health, digital health platform' },
   },
   {
-    num: '04',
+    num: '03',
     tag: 'PROPERTY MANAGEMENT',
     company: 'PRIVATE CLIENT',
     title: 'Real Estate',
@@ -217,19 +179,10 @@ const PROJECTS = [
     chips: ['React.js', 'Redux Toolkit', 'Axios', 'Tailwind CSS'],
     ctas: [],
     type: 'product',
-    diagram: {
-      center: 'TOWN PLOTS',
-      centerTone: 'lime',
-      nodes: [
-        { label: 'PLOT SALES', x: 100, y: 78 },
-        { label: 'INSTALLMENTS', x: 300, y: 78 },
-        { label: 'CUSTOMERS', x: 100, y: 322 },
-        { label: 'INVOICES', x: 300, y: 322 },
-      ],
-    },
+    image: { src: '/real-estate.jpg', alt: 'Real Estate property management dashboard' },
   },
   {
-    num: '05',
+    num: '04',
     tag: 'RESTAURANT POS & ORDERING',
     company: 'PRIVATE CLIENT',
     title: 'Chilli Boon',
@@ -333,7 +286,7 @@ function ProjectCard({ project }) {
           )}
         </div>
         {project.image ? (
-          <div className="relative h-full min-h-[320px] overflow-hidden bg-[#0B3D20] md:min-h-[400px]">
+          <div className="relative h-full min-h-[320px] overflow-hidden bg-[#101014] md:min-h-[400px]">
             <img
               src={project.image.src}
               alt=""
