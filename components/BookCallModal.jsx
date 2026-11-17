@@ -184,7 +184,7 @@ export default function BookCallModal({ onClose }) {
               />
               <div>
                 <label htmlFor="book-name" className={labelClass}>
-                  Name
+                  Name <span className="text-red-400">*</span>
                 </label>
                 <input
                   id="book-name"
@@ -223,7 +223,7 @@ export default function BookCallModal({ onClose }) {
               </div>
 
               <div>
-                <span className={labelClass}>Phone number</span>
+                <span className={labelClass}>Phone number <span className="text-red-400">*</span></span>
                 <div className="mt-1.5">
                   <PhoneInput
                     value={phone}
