@@ -156,6 +156,7 @@ const PROJECTS = [
     ],
     type: 'product',
     image: { src: '/covis-ai.jpg', alt: 'COVIS AI, from the first outreach to the last sprint' },
+    showFullDescription: true,
   },
   {
     num: '02',
@@ -199,11 +200,16 @@ function ProjectCard({ project }) {
   const descRef = useRef(null);
   const [expanded, setExpanded] = useState(false);
   const [isClamped, setIsClamped] = useState(false);
-  const [maxHeight, setMaxHeight] = useState('8.125rem');
+  const [maxHeight, setMaxHeight] = useState(project.showFullDescription ? 'none' : '8.125rem');
 
   useEffect(() => {
     const updateHeight = () => {
       if (descRef.current) {
+        if (project.showFullDescription) {
+          setIsClamped(false);
+          setMaxHeight('none');
+          return;
+        }
         setIsClamped(descRef.current.scrollHeight > 132);
         setMaxHeight(expanded ? `${descRef.current.scrollHeight}px` : '8.125rem');
       }
