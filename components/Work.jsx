@@ -188,11 +188,12 @@ const PROJECTS = [
     company: 'PRIVATE CLIENT',
     title: 'Chilli Boon',
     description:
-      'A complete POS system for a small restaurant in Nowshera: an admin portal with separate logins for admin, staff and waiters, and a public website where customers browse the menu, place orders and reach the team directly.',
+      'Both sides of a complete POS system for a small restaurant in Nowshera: the admin portal, where staff run orders, kitchen and tables, and the public website, where customers place orders and reach the team directly.',
     chips: ['Next.js', 'Tailwind CSS', 'Shadcn', 'ASP.NET Core', 'SQL Server', 'EF Core'],
     ctas: [],
     type: 'product',
-    image: { src: '/chilli-boon.jpg', alt: 'Chilli Boon restaurant website homepage' },
+    image: { src: '/chilli-boon-admin.jpg', alt: 'Chilli Boon admin portal overview' },
+    imageSecondary: { src: '/chilli-boon.jpg', alt: 'Chilli Boon public website homepage' },
   },
 ];
 
@@ -299,13 +300,28 @@ function ProjectCard({ project }) {
               aria-hidden="true"
               className="absolute inset-0 h-full w-full scale-110 object-cover opacity-50 blur-md"
             />
-            <div className="absolute inset-0 flex items-center justify-center p-6 md:p-8">
-              <img
-                src={project.image.src}
-                alt={project.image.alt}
-                className="h-auto max-h-full w-full border border-white/15 object-contain shadow-2xl"
-              />
-            </div>
+            {project.imageSecondary ? (
+              <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 p-5 md:p-6">
+                <img
+                  src={project.image.src}
+                  alt={project.image.alt}
+                  className="h-auto max-h-[56%] w-auto max-w-full border border-white/15 object-contain shadow-2xl"
+                />
+                <img
+                  src={project.imageSecondary.src}
+                  alt={project.imageSecondary.alt}
+                  className="h-auto max-h-[38%] w-auto max-w-full border border-white/15 object-contain shadow-2xl"
+                />
+              </div>
+            ) : (
+              <div className="absolute inset-0 flex items-center justify-center p-6 md:p-8">
+                <img
+                  src={project.image.src}
+                  alt={project.image.alt}
+                  className="h-auto max-h-full w-full border border-white/15 object-contain shadow-2xl"
+                />
+              </div>
+            )}
           </div>
         ) : (
           <ArchitectureDiagram
