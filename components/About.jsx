@@ -70,7 +70,7 @@ export default function About() {
                     dashboards, data-heavy interfaces, and browser extensions. Work starts
                     before implementation: R&amp;D, feature design, flow discussions, and
                     business requirements. Agentic AI tools are part of the process now;
-                    systems thinking across the whole product, because classic frontend alone no longer cuts it.
+                    systems thinking across the whole product, because one layer alone no longer cuts it.
                   </p>
                 </div>
               </div>
