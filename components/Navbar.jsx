@@ -24,7 +24,7 @@ export default function Navbar() {
             MB.
           </span>
           <span className="font-mono text-xs text-zinc-500 dark:text-zinc-400">
-            / Frontend Engineer
+            / Software Engineer
           </span>
         </a>
 

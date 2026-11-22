@@ -33,7 +33,7 @@ function UnleashIcon() {
 
 const groups = [
   {
-    label: 'Frontend core',
+    label: 'Core stack',
     skills: [
       { name: 'JavaScript', slug: 'javascript' },
       { name: 'React.js', slug: 'react' },

@@ -2,7 +2,7 @@ import { ArrowDownRight, ArrowUpRight } from 'lucide-react';
 import BookCallButton from './BookCallButton';
 
 const tickerItems = [
-  'Multi-tenant SaaS frontends',
+  'Multi-tenant SaaS products',
   'React · Next.js · Tailwind CSS',
   'Chrome extensions & data tooling',
   'Dashboards, roles & permissions',
@@ -28,7 +28,7 @@ export default function Hero() {
         <div className="animate-fade-up inline-flex items-center gap-2 rounded-full border border-zinc-300 bg-white/70 px-4 py-1.5 dark:border-white/15 dark:bg-white/5">
           <span className="animate-pulse-dot h-2 w-2 rounded-full bg-lime-400" />
           <span className="font-mono text-xs text-zinc-600 dark:text-zinc-300">
-            Frontend Engineer · Product Engineering
+            Software Engineer · Product Engineering
           </span>
         </div>
 
@@ -36,7 +36,7 @@ export default function Hero() {
           className="animate-fade-up mt-8 max-w-5xl font-sans text-[2.9rem] leading-[1.02] font-extrabold tracking-tight text-zinc-950 md:text-7xl lg:text-[5.4rem] dark:text-white"
           style={{ animationDelay: '120ms' }}
         >
-          Production frontends for <span className="text-outline">SaaS</span> and{' '}
+          Production software for <span className="text-outline">SaaS</span> and{' '}
           <span className="text-outline">AI</span> products.
         </h1>
 
@@ -44,9 +44,10 @@ export default function Hero() {
           className="animate-fade-up mt-8 max-w-xl font-sans text-lg leading-relaxed text-zinc-600 dark:text-zinc-400"
           style={{ animationDelay: '240ms' }}
         >
-          Muhammad Bilal, frontend engineer building scalable, multi-tenant SaaS
-          systems for founders and product teams. Frontend has moved from classic
-          screens to agentic development: AI in the loop, without losing the craft.
+          Muhammad Bilal, software engineer building scalable, multi-tenant SaaS
+          systems for founders and product teams. Systems thinking and product
+          engineering guide the work: frontend depth, backend range, and AI in
+          the loop, without losing the craft.
         </p>
 
         <div className="animate-fade-up mt-10 flex flex-wrap gap-3" style={{ animationDelay: '360ms' }}>

@@ -26,14 +26,14 @@ const instrumentSerif = Instrument_Serif({
 });
 
 export const metadata = {
-  title: 'Muhammad Bilal - Frontend Engineer',
+  title: 'Muhammad Bilal - Software Engineer',
   description:
-    'Muhammad Bilal, frontend engineer in Lahore, Pakistan. Multi-tenant SaaS frontends in React and Next.js.',
+    'Muhammad Bilal, software engineer in Lahore, Pakistan. Product engineering for multi-tenant SaaS and AI products, from interface to API.',
   metadataBase: new URL('https://muhammad-bilal-engineer.vercel.app'),
   openGraph: {
-    title: 'Muhammad Bilal - Frontend Engineer',
+    title: 'Muhammad Bilal - Software Engineer',
     description:
-      'Muhammad Bilal, frontend engineer in Lahore, Pakistan. Multi-tenant SaaS frontends in React and Next.js.',
+      'Muhammad Bilal, software engineer in Lahore, Pakistan. Product engineering for multi-tenant SaaS and AI products, from interface to API.',
     url: '/',
     siteName: 'Muhammad Bilal',
     images: [
@@ -41,16 +41,16 @@ export const metadata = {
         url: '/og-image.png',
         width: 1200,
         height: 630,
-        alt: 'Muhammad Bilal - Frontend Engineer',
+        alt: 'Muhammad Bilal - Software Engineer',
       },
     ],
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Muhammad Bilal - Frontend Engineer',
+    title: 'Muhammad Bilal - Software Engineer',
     description:
-      'Muhammad Bilal, frontend engineer in Lahore, Pakistan. Multi-tenant SaaS frontends in React and Next.js.',
+      'Muhammad Bilal, software engineer in Lahore, Pakistan. Product engineering for multi-tenant SaaS and AI products, from interface to API.',
     images: ['/og-image.png'],
   },
 };

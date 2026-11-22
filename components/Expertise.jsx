@@ -17,7 +17,7 @@ const cards = [
   {
     n: '03',
     tag: 'INTERFACE LAYER',
-    title: 'Classic and Agentic Frontend development',
+    title: 'Classic and agentic development',
     text: 'Clean components, sane state, accessible interfaces that stay fast. Classic craft where it counts, agentic AI where it helps. Simple screens and loading spinners no longer cut it.',
   },
   {

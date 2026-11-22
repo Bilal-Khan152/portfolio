@@ -64,12 +64,13 @@ export default function About() {
                     : who it helps, what it solves, and what the business actually needs.
                   </p>
                   <p className="text-[15px] leading-relaxed text-zinc-600 dark:text-zinc-400 mt-8">
-                    Frontend engineer based in Lahore, with two years of production experience
-                    in React, Next.js, and Tailwind CSS. Day-to-day work: multi-tenant SaaS
+                    Software engineer based in Lahore, with two years of production experience
+                    in React, Next.js, and Tailwind CSS, and backend work in ASP.NET Core.
+                    Day-to-day work: multi-tenant SaaS
                     dashboards, data-heavy interfaces, and browser extensions. Work starts
                     before implementation: R&amp;D, feature design, flow discussions, and
                     business requirements. Agentic AI tools are part of the process now;
-                    classic frontend alone no longer cuts it.
+                    systems thinking across the whole product, because classic frontend alone no longer cuts it.
                   </p>
                 </div>
               </div>
