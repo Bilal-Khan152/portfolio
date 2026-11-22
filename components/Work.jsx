@@ -142,7 +142,6 @@ const PROJECTS = [
   {
     num: '01',
     tag: 'MULTI-TENANT SAAS',
-    company: 'XEVEN SOLUTIONS',
     title: 'COVIS AI',
     description:
       "An AI-powered platform for client management, tasks, business development, and onboarding. Its Chrome extension scrapes LinkedIn profiles and Upwork jobs and scores each against the user's own profile. Frontend across tenants and user roles.",
@@ -161,7 +160,6 @@ const PROJECTS = [
   {
     num: '02',
     tag: 'HEALTHCARE PLATFORM',
-    company: 'XEVEN SOLUTIONS',
     title: 'Ogow Health',
     description:
       'A national child-immunization platform for Somalia. Hospitals and clinics record newborn vaccinations and dose histories in one place, giving health officials a clear view of coverage across the country.',
@@ -173,7 +171,6 @@ const PROJECTS = [
   {
     num: '03',
     tag: 'PROPERTY MANAGEMENT',
-    company: 'PRIVATE CLIENT',
     title: 'Real Estate',
     description:
       'A private management system for a town owner, tracking plot sales, customer installments, invoices, and plot inventory in one place.',
@@ -185,7 +182,6 @@ const PROJECTS = [
   {
     num: '04',
     tag: 'RESTAURANT POS & ORDERING',
-    company: 'PRIVATE CLIENT',
     title: 'Chilli Boon',
     description:
       'Both sides of a complete POS system for a small restaurant in Nowshera: the admin portal, where staff run orders, kitchen and tables, and the public website, where customers place orders and reach the team directly.',
@@ -194,6 +190,7 @@ const PROJECTS = [
     type: 'product',
     image: { src: '/chilli-boon-admin.jpg', alt: 'Chilli Boon admin portal overview' },
     imageSecondary: { src: '/chilli-boon.jpg', alt: 'Chilli Boon public website homepage' },
+    showFullDescription: true,
   },
 ];
 
@@ -228,11 +225,10 @@ function ProjectCard({ project }) {
       <div className="grid h-full md:grid-cols-2">
         <div className="flex flex-col justify-between p-8 md:p-10">
           <div>
-            <div className="flex items-center justify-between font-mono text-[11px] tracking-widest text-blue-600 dark:text-blue-500">
+            <div className="flex items-center font-mono text-[11px] tracking-widest text-blue-600 dark:text-blue-500">
               <span>
                 {project.num} · {project.tag}
               </span>
-              <span>{project.company}</span>
             </div>
             <h3 className="mt-5 font-sans text-4xl font-extrabold tracking-tight text-zinc-950 md:text-5xl dark:text-white">
               {project.title}

@@ -3,7 +3,7 @@ import Reveal from './Reveal';
 const ITEMS = [
   {
     meta: '12/2025 - PRESENT · XEVEN SOLUTIONS',
-    title: 'Frontend Engineer',
+    title: 'Software Engineer',
     body: 'Product R&D, feature design, and flow discussions, plus development and maintenance of a multi-tenant SaaS frontend used across organizations and roles.',
   },
   {
