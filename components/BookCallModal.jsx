@@ -86,7 +86,7 @@ export default function BookCallModal({ onClose }) {
   const submit = async (e) => {
     e.preventDefault();
     const next = {};
-    if (name.trim().length < 2) next.name = 'Please add your name.';
+    if (name.trim().length < 1) next.name = 'Please add your name.';
     if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim()))
       next.email = 'That email does not look right.';
     if (!phone || !isValidPhoneNumber(phone))
@@ -195,7 +195,7 @@ export default function BookCallModal({ onClose }) {
                   value={name}
                   onChange={(e) => {
                     setName(e.target.value);
-                    if (e.target.value.trim().length >= 2) clearError('name');
+                    if (e.target.value.trim().length >= 1) clearError('name');
                   }}
                   className={`${inputClass} mt-1.5 ${errors.name ? 'border-red-400 dark:border-red-400' : ''}`}
                 />

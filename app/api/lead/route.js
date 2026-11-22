@@ -77,7 +77,7 @@ export async function POST(request) {
   const message = String(body?.message ?? '').trim().slice(0, 1000);
   const digits = phone.replace(/\D/g, '');
 
-  if (name.length < 2 || digits.length < 7 || digits.length > 15) {
+  if (name.length < 1 || digits.length < 7 || digits.length > 15) {
     return Response.json({ ok: false, error: 'invalid' }, { status: 422 });
   }
 
