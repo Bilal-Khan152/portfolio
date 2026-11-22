@@ -52,6 +52,7 @@ const groups = [
     skills: [
       { name: 'Redux Toolkit', slug: 'redux' },
       { name: 'Firebase', slug: 'firebase' },
+      { name: 'ASP.NET Core', slug: 'dotnet' },
     ],
   },
   {
