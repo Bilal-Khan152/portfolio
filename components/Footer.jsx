@@ -4,7 +4,8 @@ import { useState } from 'react';
 import Reveal from './Reveal';
 import ContactForm from './ContactForm';
 import { track } from '../lib/analytics';
-import { ArrowDown, ArrowUpRight, Copy, Check, MessageCircle } from 'lucide-react';
+import { ArrowUpRight, Copy, Check, Eye, MessageCircle } from 'lucide-react';
+import ResumeModal from './ResumeModal';
 
 const EMAIL = 'bilalkhandev66@gmail.com';
 const WHATSAPP = 'https://wa.me/923139594577';
@@ -13,6 +14,7 @@ const LINKEDIN = 'https://www.linkedin.com/in/muhammad-bilal-engineer';
 
 export default function Footer() {
   const [copiedKey, setCopiedKey] = useState(null);
+  const [resumeOpen, setResumeOpen] = useState(false);
 
   const copyText = async (text, key) => {
     try {
@@ -86,15 +88,14 @@ export default function Footer() {
                   {copiedKey === 'email' ? <Check size={16} /> : <Copy size={16} />}
                   {copiedKey === 'email' ? 'Copied' : 'Copy email'}
                 </button>
-                <a
-                  href="/Bilal-Frontend-Engineer.pdf"
-                  download="Bilal-Frontend-Engineer.pdf"
-                  onClick={() => track('resume_downloaded')}
+                <button
+                  type="button"
+                  onClick={() => setResumeOpen(true)}
                   className="inline-flex cursor-pointer items-center gap-2 border border-white/30 text-white font-sans font-bold text-sm px-6 py-3.5 transition-colors hover:border-white/60"
                 >
-                  Download résumé
-                  <ArrowDown size={16} />
-                </a>
+                  View résumé
+                  <Eye size={16} />
+                </button>
               </div>
 
               <div className="mt-12 border-t border-white/10 pt-10">
@@ -106,7 +107,7 @@ export default function Footer() {
 
               <div className="mt-16 pt-6 border-t border-white/10 flex flex-col sm:flex-row justify-between gap-2">
                 <p className="font-mono text-[11px] text-[#6B7280]">
-                  MUHAMMAD BILAL · FRONTEND &amp; PRODUCT ENGINEER
+                  MUHAMMAD BILAL · SOFTWARE &amp; PRODUCT ENGINEER
                 </p>
                 <p className="font-mono text-[11px] text-[#6B7280]">
                   PRODUCT ENGINEERING · REACT · NEXT.JS
@@ -116,6 +117,7 @@ export default function Footer() {
           </div>
         </Reveal>
       </div>
+      {resumeOpen && <ResumeModal onClose={() => setResumeOpen(false)} />}
     </section>
   );
 }
