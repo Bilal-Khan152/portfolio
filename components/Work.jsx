@@ -146,13 +146,7 @@ const PROJECTS = [
     description:
       "An AI-powered platform for client management, tasks, business development, and onboarding. Its Chrome extension scrapes LinkedIn profiles and Upwork jobs and scores each against the user's own profile. Frontend across tenants and user roles.",
     chips: ['Next.js', 'JavaScript', 'Tailwind CSS', 'Shadcn', 'RTK Query', 'Sentry', 'Chrome Extension', 'Web Scraping'],
-    ctas: [
-      { label: 'Visit COVIS AI', href: 'https://covis.ai/' },
-      {
-        label: 'Chrome extension',
-        href: 'https://chromewebstore.google.com/detail/covis-ai/gpfpiggbllfnafhflkipicojfhnnpkdc',
-      },
-    ],
+    ctas: [{ label: 'Visit COVIS AI', href: 'https://covis.ai/' }],
     type: 'product',
     image: { src: '/covis-ai.jpg', alt: 'COVIS AI, from the first outreach to the last sprint' },
     showFullDescription: true,
